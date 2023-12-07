@@ -147,6 +147,9 @@ def get_youtube_id(url):
 def Enderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
+    PostEndrun.okunma_sayisi += 1
+    PostEndrun.save()
+
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
     editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
