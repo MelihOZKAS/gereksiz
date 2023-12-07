@@ -22,7 +22,7 @@ services:
     env_file:
       - Tales/docker.env
     volumes:
-      - static-data-story:/srv/public
+      - static-data-teknoloji:/srv/public
       - .:/srv/app_teknoloji
     expose:
       - 8011
