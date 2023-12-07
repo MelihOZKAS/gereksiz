@@ -54,7 +54,7 @@ class PostKategori(models.Model):
     class Meta:
         verbose_name_plural = "Post Kategori"
     def __str__(self):
-        return self.Title
+        return self.short_title
 
 
 
