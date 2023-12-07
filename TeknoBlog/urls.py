@@ -27,6 +27,7 @@ sitemaps = {
     'BilimHaberleri': bilimhaberleri,
     'OtomobilHaberleri': otomobilhaberleri,
     'OyunHaberleri': oyunhaberleri,
+
 }
 
 urlpatterns = [
