@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - Tales/docker.env
+      - TeknoBlog/docker.env
     volumes:
       - static-data-teknoloji:/srv/public
       - .:/srv/app_teknoloji
