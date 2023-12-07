@@ -9,7 +9,7 @@ services:
     ports:
       - "5444:5432"
     volumes:
-      - "postgresql-data-story:/var/lib/postgresql/data"
+      - "postgresql-data-teknoloji:/var/lib/postgresql/data"
     networks:
       - main_teknoloji
     command: -p 5444
