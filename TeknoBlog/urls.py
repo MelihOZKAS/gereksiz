@@ -31,12 +31,12 @@ sitemaps = {
 }
 
 urlpatterns = [
-                  path("admin/", admin.site.urls),
-                  path("", include("blog.urls")),
-                  path('sitemap.xml', index, {'sitemaps': sitemaps}),
-                  path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps},
-                       name='django.contrib.sitemaps.views.sitemap'),
-                  path("robots.txt/", robots_txt, name="robots"),
+    path("admin/", admin.site.urls),
+    path("", include("blog.urls")),
+    path('sitemap.xml', index, {'sitemaps': sitemaps}),
+    path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path("robots.txt/", robots_txt, name="robots"),
 
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
                                                                                            document_root=settings.MEDIA_ROOT)
