@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
+
+
+
+{% block extra_head %}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.build_absolute_uri }}"
+  },
+  "headline": "{{ icerik.title }}",
+  "description": "{{ icerik.meta_description }}",
+  "datePublished": "{{ icerik.olusturma_tarihi.isoformat }}",
+  "dateModified": "{{ icerik.guncelleme_tarihi.isoformat }}",
+
+  {% if icerik.youtube %}
+  "video": {
+    "@type": "VideoObject",
+    "name": "{{ icerik.title }}", // Video adını buraya ekleyin
+    "description": "{{ icerik.meta_description }}", // Video açıklamasını buraya ekleyin
+    "uploadDate": "{{ icerik.olusturma_tarihi.isoformat }}", // Video yükleme tarihini buraya ekleyin
+    "thumbnailUrl": "{{ thumbnail_url }}", // Video küçük resim URL'sini
+    "embedUrl": "{{ icerik.youtube }}"
+    // Diğer video bilgilerini buraya ekleyin
+  },
+  {% endif %}
+
+  "keywords": "{{ icerik.keywords }}",
+  // Ek özellikler
+  "articleSection": "{{ icerik.Post_Turu.short_title }} Haberleri", // Bölüm veya kategori
+  "isFamilyFriendly": "true", // Aile dostu olup olmadığı
+  "interactionStatistic": { // Etkileşim istatistikleri
+    "@type": "InteractionCounter",
+    "interactionType": { "@type": "http://schema.org/ReadAction" },
+    "userInteractionCount": "{{ icerik.okunma_sayisi }}" // Görüntülenme sayısı
+  }
+}
+</script>
+{% endblock %}
+
+
+
+
+
+
+{% block pageicerik %}
+
+    <section class="single-post-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 post-content" data-aos="fade-up">
+
+                    <!-- ======= Single Post Content ======= -->
+                    <div class="single-post">
+                        <div class="post-meta"><span class="date">{{ icerik.Post_Turu }}</span> <span class="mx-1">&bullet;</span>
+                            <span>{{ icerik.olusturma_tarihi|date:"d F Y" }}</span>
+                        </div>
+                        <h1 class="mb-5">{{ icerik.title }}</h1>
+                        <figure class="my-4">
+                            <img src="{{ icerik.resim.url }}" alt="{{ icerik.title }}"
+                                 class="img-fluid" height="400" width="650"
+                                 style="margin: auto; display: block; border-radius: 20px;">
+                            <!--    <figcaption>Resim Açıklaması Kapalı
+                                </figcaption> -->
+                        </figure>
+                        <p><span
+                                class="firstcharacter">{{ icerik.icerik|safe|slice:"3:4" }}</span> {{ icerik.icerik|safe|slice:"4:" }}
+                        </p>
+                    </div><!-- End Single Post Content -->
+
+
+                </div>
+                {% include 'parcali/sagnavbar.html' %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock pageicerik %}

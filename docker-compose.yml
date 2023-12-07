@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  postgressteknoloji:
+    container_name: postgressteknoloji
+    hostname: postgressteknoloji
+    image: postgres:latest
+    env_file:
+      - TeknoBlog/docker.env
+    ports:
+      - "5444:5432"
+    volumes:
+      - "postgresql-data-story:/var/lib/postgresql/data"
+    networks:
+      - main_teknoloji
+    command: -p 5444
+  app_teknoloji:
+    container_name: app_teknoloji
+    hostname: app_teknoloji
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - Tales/docker.env
+    volumes:
+      - static-data-story:/srv/public
+      - .:/srv/app_teknoloji
+    expose:
+      - 8011
+    depends_on:
+      - postgressteknoloji
+    command: gunicorn TeknoBlog.wsgi:application --bind 0.0.0.0:8011
+    networks:
+      - main_teknoloji
+      - bridge_network
+
+networks:
+  main_teknoloji:
+  bridge_network:
+    name: nginx_network
+    driver: bridge
+
+volumes:
+  postgresql-data-teknoloji:
+  static-data-teknoloji:

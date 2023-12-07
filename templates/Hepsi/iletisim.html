@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
+
+
+
+{% block pageicerik %}
+
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="contact" class="contact mb-5">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h1 class="page-title">{{ h1 }}</h1>
+                </div>
+            </div>
+
+            <div class="row gy-4">
+
+                <div class="col-md-4">
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <h3>Adres</h3>
+                        <address>İnönü Mah. Halkalı cad. No:206 - Küçükçekmece - İSTANBUL</address>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-4">
+                    <div class="info-item info-item-borders">
+                        <i class="bi bi-phone"></i>
+                        <h3>Telefon - Whatsappr</h3>
+                        <p><a href="tel:+08503033935">+0850 303 39 35 </a></p>
+                    </div>
+                </div><!-- End Info Item -->
+
+                <div class="col-md-4">
+                    <div class="info-item">
+                        <i class="bi bi-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:servereymus@gmail.com">servereymus@gmail.com</a></p>
+                    </div>
+                </div><!-- End Info Item -->
+
+            </div>
+
+            <div class="form mt-5">
+                <form action="{% url 'iletisim' %}" method="post" class="php-email-form">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="isim" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Mail Adresi"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title" id="subject" placeholder="Konu" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="icerik" rows="7" placeholder="Mesajınız"
+                                  required></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Mesajınız Kaydedildi En Kısa Sürede Kontrol Edilecektir.</div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Mesajı
+                            Gönder
+                        </button>
+                    </div>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+    </section>
+
+
+{% endblock pageicerik %}

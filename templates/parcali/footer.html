@@ -1,0 +1,87 @@
+{% load static %}
+<footer id="footer" class="footer">
+    <div class="footer-content">
+        <div class="container">
+
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="footer-heading">Yüksek Teknoloji</h3>
+                    <p>Yüksek Teknoloji, teknoloji dünyasının en son gelişmelerini sunan bir platformdur. Bilgiyi basit,
+                        anlaşılır ve profesyonel bir dilde sunmayı hedefliyoruz. Teknolojiye dair her şeyi burada
+                        bulabilirsiniz!</p>
+                    <p><a href="{% url 'hakkimizda' %}" class="footer-link-more">Hakkımızda</a></p>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h3 class="footer-heading">Hakkımızda</h3>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="{% url 'iletisim' %}"><i class="bi bi-chevron-right"></i>İletişim</a></li>
+                        <li><a href="{% url 'hakkimizda' %}"><i class="bi bi-chevron-right"></i>Hakkımızda</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h3 class="footer-heading">Kategori</h3>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="{% url 'teknoloji' %}"><i class="bi bi-chevron-right"></i>Teknoloji</a></li>
+                        <li><a href="{% url 'bilim' %}"><i class="bi bi-chevron-right"></i>Bilim</a></li>
+                        <li><a href="{% url 'otomobil' %}"><i class="bi bi-chevron-right"></i>Otomobil</a></li>
+                        <li><a href="{% url 'oyun' %}"><i class="bi bi-chevron-right"></i>Oyun</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h3 class="footer-heading">Bilgi Bankası</h3>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="{% url 'cerez' %}"><i class="bi bi-chevron-right"></i>Çerez Politikası</a></li>
+                        <li><a href="{% url 'gizlilik-politikasi' %}"><i class="bi bi-chevron-right"></i>Gizlilik Politikası</a></li>
+                        <li><a href="{% url 'kullanim-sartlari' %}"><i class="bi bi-chevron-right"></i>Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+
+                <!--
+                       <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Kategori</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="{% url 'teknoloji' %}"><i class="bi bi-chevron-right"></i>Teknoloji</a></li>
+              <li><a href="{% url 'bilim' %}"><i class="bi bi-chevron-right"></i>Bilim</a></li>
+              <li><a href="{% url 'otomobil' %}"><i class="bi bi-chevron-right"></i>Otomobil</a></li>
+              <li><a href="{% url 'oyun' %}"><i class="bi bi-chevron-right"></i>Oyun</a></li>
+            </ul>
+          </div>
+             -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-legal">
+        <div class="container">
+
+            <div class="row justify-content-between">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <div class="copyright">
+                        © Copyright <strong><span>Melih ÖZKAŞ</span></strong>. All Rights Reserved
+                    </div>
+
+                    <div class="credits">
+                        Designed by <a href="https://www.yuksekteknoloji.com/">Melih ÖZKAŞ</a>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</footer>

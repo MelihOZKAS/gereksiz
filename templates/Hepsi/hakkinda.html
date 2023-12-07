@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
+
+
+
+{% block pageicerik %}
+    <section id="contact" class="contact mb-5">
+        <div class="container" data-aos="fade-up">
+
+            <h1>Yüksek Teknoloji.com Hakkında</h1>
+            <p><strong>Yüksek Teknoloji.com</strong>, teknoloji dünyasındaki en son gelişmeleri, yenilikleri ve bilimsel
+                ilerlemeleri takip etmek için oluşturulmuş bir platformdur. Teknolojiye tutkuyla bağlı bir ekip olarak,
+                okuyucularımıza en güncel ve doğru bilgileri sunmayı hedefliyoruz. İster bilim ve teknoloji haberleri,
+                ister ürün incelemeleri, isterse de teknoloji trendleri olsun, Yüksek Teknoloji.com sizin için en iyi
+                kaynak olmayı hedefliyor.</p>
+            <h2>Vizyonumuz</h2>
+            <p>Teknoloji dünyasındaki hızlı değişim ve gelişmeleri yakından takip ederek, okuyucularımıza en güncel ve
+                doğru bilgileri sunmak. Teknolojiye dair her konuda bilgi sahibi olmanızı sağlamak ve teknoloji
+                dünyasındaki yenilikleri anlamanızı kolaylaştırmak.</p>
+            <h2>Misyonumuz</h2>
+            <p>Yüksek Teknoloji.com, teknoloji dünyasındaki en son gelişmeleri, yenilikleri ve bilimsel ilerlemeleri
+                takip etmek için oluşturulmuş bir platformdur. Teknolojiye tutkuyla bağlı bir ekip olarak,
+                okuyucularımıza en güncel ve doğru bilgileri sunmayı hedefliyoruz. İster bilim ve teknoloji haberleri,
+                ister ürün incelemeleri, isterse de teknoloji trendleri olsun, Yüksek Teknoloji.com sizin için en iyi
+                kaynak olmayı hedefliyor.</p>
+            <h2>Ekibimiz</h2>
+            <p>Ekibimiz, teknolojiye tutkuyla bağlı profesyonellerden oluşmaktadır. Her birimiz, okuyucularımıza en iyi
+                içeriği sunmak için çaba gösteriyoruz. Yüksek Teknoloji.com'a hoş geldiniz!</p>
+            <h2>Topluluğumuz</h2>
+            <p>Yüksek Teknoloji.com, teknoloji meraklılarından oluşan geniş bir topluluğa sahiptir. Topluluğumuz,
+                teknolojiye dair her şeyi tartışmak, öğrenmek ve paylaşmak için bir araya gelir. Topluluğumuza
+                katılarak, teknoloji dünyasındaki en son gelişmeler hakkında bilgi alabilir, deneyimlerinizi
+                paylaşabilir ve diğer teknoloji meraklılarıyla bağlantı kurabilirsiniz.</p>
+            <h2>İletişim</h2>
+            <p>Bize ulaşmak için lütfen iletişim formumuzu kullanın. Sorularınız, önerileriniz veya geri bildirimleriniz
+                için bizimle iletişime geçmekten çekinmeyin. Size yardımcı olmak için buradayız!</p>
+
+        </div>
+    </section>
+
+{% endblock pageicerik %}

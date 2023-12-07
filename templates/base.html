@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}Site Başlığı{% endblock %}</title>
+    <meta name="description" content="{% block description %}Site description{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}Site keywords{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="author" content="{% block yazar %}Melih ÖZKAŞ{% endblock %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/logo/logo.webp' %}">
+
+    <!-- Robots Etiketi -->
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"/>
+    <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
+    <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
+    <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
+    <meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">
+    <meta property="og:url" content="{% block ogurl %}OG url{% endblock %}">
+
+
+    <!-- Twitter Card Etiketleri -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="{% block twaccountsite %}tw accounts{% endblock %}">
+    <meta name="twitter:creator" content="{% block twcreator %}tw creator{% endblock %}">
+    <meta name="twitter:title" content="{% block twtitle %}tw title{% endblock %}">
+    <meta name="twitter:description" content="{% block twdesc %}tw description{% endblock %}">
+    <meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS Files -->
+    <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+    {% block extra_head %}
+    {% endblock extra_head %}
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+{% include 'parcali/header.html' %}
+
+<main id="main">
+
+    {% block pageicerik %}
+
+
+    {% endblock pageicerik %}
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+{% include 'parcali/footer.html' %}
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

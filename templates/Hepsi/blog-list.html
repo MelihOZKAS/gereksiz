@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
+
+
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ Post_Kategorisi.short_title }} Haberleri",
+  "description": "{{ description }}",
+  "keywords": "{{ keywords }}",
+  "url": "{{ request.build_absolute_uri }}",
+  "hasPart": [
+    {% for storyx in TumPost %}
+    {
+      "@type": "BlogPosting",
+      "headline": "{{ storyx.title }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/{{ storyx.slug }}",
+      "datePublished": "{{ storyx.olusturma_tarihi.isoformat }}",
+      "dateModified": "{{ storyx.guncelleme_tarihi.isoformat }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ storyx.yazar }}"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ storyx.resim.url }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Yüksek Teknoloji",
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+{% block pageicerik %}
+
+    <!-- ======= Hero Slider Section ======= -->
+    <section>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-9">
+                    <h1 class="category-title">{{ Post_Kategorisi.Title }}</h1>
+
+                    {% for Post in TumPost %}
+
+                        <div class="d-md-flex post-entry-2 small-img">
+                            <a href="{% url 'post-getir' post_slug=Post.slug %}" class="me-4 thumbnail">
+                                <img src="{{ Post.resim.url }}" loading="lazy" alt="{{ Post.title }}"
+                                     class="img-fluid" style="border-radius: 10px; margin-bottom: 10px;" height="258" width="406">
+                            </a>
+
+                            <div>
+                                <div class="post-meta"><span class="date">{{ Post.Post_Turu.short_title }}</span> <span
+                                        class="mx-1">&bullet;</span>
+                                    <span>{{ Post.olusturma_tarihi|date:"d F Y" }}</span></div>
+                                <h3><a href="{% url 'post-getir' post_slug=Post.slug %}">{{ Post.title }}</a></h3>
+                                <p>{{ Post.icerik|truncatechars:150|safe }}</p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+
+
+
+
+                    <div class="custom-pagination">
+                        {% if TumPost.has_previous %}
+
+                            <a href="?sayfa={{ TumPost.previous_page_number }}">Önceki</a>
+                        {% endif %}
+
+                        {% for i in TumPost.paginator.page_range %}
+                            {% if TumPost.number == i %}
+                                <a href="#" class="active">{{ i }}</a>
+                            {% else %}
+                                <a href="?sayfa={{ i }}">{{ i }}</a>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if TumPost.has_next %}
+                            <a href="?sayfa={{ TumPost.next_page_number }}">Sonraki</a>
+
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <!-- ======= sağ nav bar ======= -->
+                {% include 'parcali/sagnavbar.html' %}
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock pageicerik %}

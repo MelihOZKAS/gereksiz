@@ -1,0 +1,109 @@
+{% load static %}
+<div class="col-md-3">
+    <!-- ======= Sidebar ======= -->
+    <div class="aside-block">
+
+        <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular"
+                        aria-selected="true">Popüler
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-trending-tab" data-bs-toggle="pill" data-bs-target="#pills-trending"
+                        type="button" role="tab" aria-controls="pills-trending" aria-selected="false">Editör
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest"
+                        type="button" role="tab" aria-controls="pills-latest" aria-selected="false">En Son
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+
+            <!-- Popular -->
+            <div class="tab-pane fade show active" id="pills-popular" role="tabpanel"
+                 aria-labelledby="pills-popular-tab">
+
+                {% for x in populer %}
+                    <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date">{{ x.Post_Turu }}</span> <span
+                                class="mx-1">&bullet;</span> <span>{{ x.olusturma_tarihi|date:"d F Y" }}</span>
+                        </div>
+                        <h2 class="mb-2"><a href="{% url 'post-getir' post_slug=x.slug %}">{{ x.title }}</a>
+                        </h2>
+                        <span class="author mb-3 d-block">{{ x.yazar }}</span>
+                    </div>
+                {% endfor %}
+
+
+            </div> <!-- End Popular -->
+
+            <!-- Trending -->
+            <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
+
+                {% for x in editor %}
+                    <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date">{{ x.Post_Turu }}</span> <span
+                                class="mx-1">&bullet;</span>
+                            <span>{{ x.olusturma_tarihi|date:"d F Y" }}</span>
+                        </div>
+                        <h2 class="mb-2"><a
+                                href="{% url 'post-getir' post_slug=x.slug %}">{{ x.title }}</a>
+                        </h2>
+                        <span class="author mb-3 d-block">{{ x.yazar }}</span>
+                    </div>
+                {% endfor %}
+
+
+            </div> <!-- End Trending -->
+
+            <!-- Latest -->
+            <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
+                {% for x in enson %}
+                    <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date">{{ x.Post_Turu }}</span> <span
+                                class="mx-1">&bullet;</span> <span>{{ x.olusturma_tarihi|date:"d F Y" }}</span>
+                        </div>
+                        <h2 class="mb-2"><a href="{% url 'post-getir' post_slug=x.slug %}">{{ x.title }}</a></h2>
+                        <span class="author mb-3 d-block">{{ x.yazar }}</span>
+                    </div>
+                {% endfor %}
+
+
+            </div> <!-- End Latest -->
+
+        </div>
+    </div>
+
+    <div class="aside-block">
+        <h3 class="aside-title">Kategoriler</h3>
+        <ul class="aside-links list-unstyled">
+            <li><a href="{% url 'teknoloji' %}"><i class="bi bi-chevron-right"></i> Teknoloji</a></li>
+            <li><a href="{% url 'bilim' %}"><i class="bi bi-chevron-right"></i> Bilim</a></li>
+            <li><a href="{% url 'otomobil' %}"><i class="bi bi-chevron-right"></i> Otomobil</a></li>
+            <li><a href="{% url 'oyun' %}"><i class="bi bi-chevron-right"></i> Oyun</a></li>
+        </ul>
+    </div><!-- End Categories -->
+
+    <!--
+            <div class="aside-block">
+              <h3 class="aside-title">Etiketler</h3>
+              <ul class="aside-tags list-unstyled">
+                <li><a href="category.html">Business</a></li>
+                <li><a href="category.html">Culture</a></li>
+                <li><a href="category.html">Sport</a></li>
+                <li><a href="category.html">Food</a></li>
+                <li><a href="category.html">Politics</a></li>
+                <li><a href="category.html">Celebrity</a></li>
+                <li><a href="category.html">Startups</a></li>
+                <li><a href="category.html">Travel1</a></li>
+              </ul>
+            </div>
+-->
+    <!-- End Tags -->
+
+</div>

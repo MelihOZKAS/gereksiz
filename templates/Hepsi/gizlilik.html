@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
+
+
+
+{% block pageicerik %}
+    <section id="contact" class="contact mb-5">
+        <div class="container" data-aos="fade-up">
+
+            <h1>Gizlilik Politikası</h1>
+            <br>
+            <h2>Kişisel Bilgilerin Toplanması ve Kullanılması</h2>
+            <br>
+            <p>https://www.yuksekteknoloji.com olarak, ziyaretçilerimizin gizliliğini korumak için çeşitli önlemler
+                alıyoruz. Web sitemizi ziyaret ettiğinizde, IP adresinizi ve hangi sayfaları ziyaret ettiğinizi
+                kaydediyoruz. Bu bilgiler genel istatistiksel amaçlarla ve web sitemizi geliştirmek için kullanılır.</p>
+            <h2>Google AdSense ve Çerezler</h2>
+            <br>
+            <p>Web sitemizde Google AdSense kullanıyoruz. Google AdSense, kullanıcıların ilgi alanlarına göre
+                hedeflenmiş reklamlar sunar. Google AdSense, çerezleri kullanarak kullanıcıların ilgi alanlarını
+                belirler.</p>
+            <p>Google AdSense'in çerezleri nasıl kullandığı hakkında daha fazla bilgi edinmek için <a
+                    href="https://policies.google.com/technologies/ads" style="color: red;">Google Gizlilik
+                Politikası</a>'nı ziyaret
+                edebilirsiniz.</p>
+            <h2>Çerezlerin Kullanımı</h2>
+            <br>
+            <p>Web sitemizde çerezler kullanıyoruz. Çerezler, web tarayıcınız tarafından bilgisayarınıza yerleştirilen
+                küçük dosyalardır. Çerezler, web sitemizin düzgün çalışmasını sağlar ve bize web sitemizi nasıl
+                kullandığınız konusunda bilgi verir.</p>
+            <p>Çerezleri nasıl kontrol edeceğiniz dahil, çerezler hakkında daha fazla bilgi edinmek için <a
+                    href="{% url 'cerez' %}" style="color: red;">Çerez Politikamız</a>'ı ziyaret edebilirsiniz.</p>
+            <h2>Değişiklikler</h2>
+            <br>
+            <p>Bu Gizlilik Politikası'nı zaman zaman güncelleyebiliriz. Değişiklikler yapıldığında bu sayfayı
+                güncelleyeceğiz. Bu Gizlilik Politikası'nın düzenli olarak gözden geçirilmesini öneririz.</p>
+            <h2>İletişim</h2>
+            <br>
+            <p>Çerez Politikamız hakkında herhangi bir sorunuz varsa, lütfen bizimle <a href="{% url 'iletisim' %}"
+                                                                                        style="color: red;">iletişime
+                geçin</a>.</p>
+
+        </div>
+    </section>
+
+{% endblock pageicerik %}

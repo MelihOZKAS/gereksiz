@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block ogtitle %}{{ title }}{% endblock %}
+{% block ogDes %}{{ description }}{% endblock %}
+{% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twaccountsite %}@Melih{% endblock %}
+{% block twcreator %}@Melih{% endblock %}
+{% block twtitle %}{{ title }}{% endblock %}
+{% block twdesc %}{{ description }}{% endblock %}
+
+
+
+{% block pageicerik %}
+    <section id="contact" class="contact mb-5">
+        <div class="container" data-aos="fade-up">
+
+            <h1>Kullanım Şartları</h1>
+            <br>
+            <h2>1. Hizmetlere Hoş Geldiniz</h2>
+            <br>
+            <p>https://www.yuksekteknoloji.com'a hoş geldiniz! Hizmetlerimizi kullanarak, Google AdSense Hizmet
+                Şartlarına, AdSense Program Politikalarına ve Google Marka Yönergelerine uymayı kabul etmiş olursunuz.
+                Lütfen bu Şartları ve AdSense Şartlarını dikkatlice okuyun.</p>
+            <h2>2. Hizmetlere Erişim; AdSense Hesapları</h2>
+            <br>
+            <p>Hizmetlerimizi kullanmanız, bir AdSense Hesabı oluşturmanıza ve hesabınızın tarafımızdan onaylanmasına
+                tabidir. Hizmetlere erişiminizi reddetme veya sınırlama hakkımız saklıdır. Hesabınızı doğrulamak için
+                zaman zaman sizden ek bilgi isteyebiliriz.</p>
+            <h2>3. Hizmetlerimizin Kullanımı</h2>
+            <br>
+            <p>Hizmetlerimizi yalnızca bu Kullanım Şartları ve geçerli tüm yasalar çerçevesinde kullanabilirsiniz.
+                Hizmetlerimizi kötüye kullanmayın.</p>
+            <h2>4. Değişiklikler</h2>
+            <br>
+            <p>Hizmetlerimizi veya Kullanım Şartlarımızı zaman zaman güncelleyebiliriz. Değişiklikler yapıldığında bu
+                sayfayı güncelleyeceğiz. Bu Kullanım Şartlarının düzenli olarak gözden geçirilmesini öneririz.</p>
+            <h2>5. İletişim</h2>
+            <br>
+            <p>Kullanım Şartlarımız hakkında herhangi bir sorunuz varsa, lütfen bizimle <a href="{% url 'iletisim' %}" style="color: red;">iletişime
+                geçin</a>.</p>
+
+        </div>
+    </section>
+
+{% endblock pageicerik %}
