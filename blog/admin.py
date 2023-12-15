@@ -148,6 +148,19 @@ admin.site.register(PostKategori, KategoriAdmin)
 
 
 
+class KontrolAdmin(admin.ModelAdmin):
+    list_display = ("title", "slug", "meta_description", "Post_Turu","Akibeti", "keywords",)
+    search_fields = ("title",)
+    list_filter = ("Akibeti",)
+    list_editable = ("Post_Turu", "Akibeti",)
+
+
+
+admin.site.register(Kontrol, KontrolAdmin)
+
+
+
+
 
 
 class iletisimAdmin(admin.ModelAdmin):
