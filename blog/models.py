@@ -146,23 +146,16 @@ class Kontrol(models.Model):
 
 
 
-
-
-class Tarla(models.Model):
-    Link = models.URLField(blank=True, null=True)
-    short_Name = models.CharField(max_length=255,blank=True, null=True)
-    class Meta:
-        verbose_name_plural = "Tarla"
 class Mahsul(models.Model):
     kontrol = [
         ('Tamamlandi', 'Tamamlandi'),
         ('Beklemede', 'Beklemede'),
     ]
-    Main_Link = models.URLField(blank=True, null=True)
-    Main_Link_Short = models.ForeignKey(Tarla, null=True, on_delete=models.SET_NULL)
-    Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
+    Tarla_Link = models.URLField(blank=True, null=True)
+    Mahsul_Link = models.URLField(blank=True, null=True)
+#    Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
     Aciklama = models.CharField(max_length=255, blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
     class Meta:
-        verbose_name_plural = "Mahsul"
+        verbose_name_plural = "Mahsuller"
