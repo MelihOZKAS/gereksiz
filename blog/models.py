@@ -140,3 +140,6 @@ class Kontrol(models.Model):
         verbose_name_plural = "Kontrol"
     def __str__(self):
         return self.title
+
+    def kelime_sayisi(self):
+        return len(self.icerik.split())
