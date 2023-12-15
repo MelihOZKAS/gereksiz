@@ -159,7 +159,6 @@ class Mahsul(models.Model):
         ('Beklemede', 'Beklemede'),
     ]
     Main_Link = models.URLField(blank=True, null=True)
-    h1 = models.CharField(max_length=255,blank=True, help_text=HELP_TEXTS["h1"], null=True)
     Main_Link_Short = models.ForeignKey(Tarla, null=True, on_delete=models.SET_NULL)
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)

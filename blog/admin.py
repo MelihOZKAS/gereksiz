@@ -159,12 +159,24 @@ class KontrolAdmin(admin.ModelAdmin):
 
     hikayeyi_gor.short_description = 'Post'
 
-
-
 admin.site.register(Kontrol, KontrolAdmin)
 
 
 
+class TarlaAdmin(admin.ModelAdmin):
+    list_display = ("Link", "short_Name",)
+    search_fields = ("Link", "short_Name",)
+    list_filter = ("Link", "short_Name",)
+
+admin.site.register(Tarla, TarlaAdmin)
+
+
+class MahsulAdmin(admin.ModelAdmin):
+    list_display = ("Main_Link_Short", "Post_Turu", "Akibeti", "Aciklama", "olusturma_tarihi", )
+    search_fields = ("Main_Link", "short_Name",)
+    list_filter = ("Akibeti", "Post_Turu", "Main_Link_Short", )
+
+admin.site.register(Mahsul, MahsulAdmin)
 
 
 
