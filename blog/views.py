@@ -4,8 +4,23 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.text import slugify
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET
+from django.views import View
 
 
+
+
+
+
+def create_unique_title_slug(title):
+    slug = slugify(title)
+    unique_slug = slug
+    unique_title = title
+    num = 1
+    while Kontrol.objects.filter(slug=unique_slug).exists() or Kontrol.objects.filter(title=unique_title).exists():
+        unique_slug = '{}-{}'.format(slug, num)
+        unique_title = '{} {}'.format(title, num)
+        num += 1
+    return unique_title, unique_slug
 def home(request):
     title = "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri"
     description = "En son teknoloji haberlerini, ürün incelemelerini, teknoloji trendlerini ve daha fazlasını sunar. Teknoloji dünyasındaki en son gelişmeleri kaçırmayın yuksektekloji.com"
@@ -279,3 +294,40 @@ Sitemap: https://www.yuksekteknoloji.com/sitemap.xml
 """
 
 
+class StoryPreviewView(View):
+    def get(self, request, *args, **kwargs):
+        story = Kontrol.objects.get(slug=kwargs['slug'])
+
+        # Veritabanından bilgileri çek
+        title = story.title
+        h1 = story.h1
+        keywords = story.keywords
+        description = story.description
+
+        # İçeriği oluştur
+        content = f"Title: {title}\n\nH1: {h1}\n\nKeywords: {', '.join(keywords)}\n\nDescription: {description}\n\n{story.icerik}"
+
+        return HttpResponse(content)
+
+
+@csrf_exempt
+def post_add(request):
+    if request.method == 'POST':
+        # Gelen POST isteğindeki değerleri alın
+        title = request.POST.get('title')
+        h1 = request.POST.get('h1')
+        Post_Turu = request.POST.get('Post_Turu')
+        icerik = request.POST.get('icerik')
+        meta_description = request.POST.get('meta_description')
+        key = request.POST.get('keywords')
+        Kaynak_Linki = request.POST.get('Kaynak_Linki')
+
+        Post_Turu_Gelen = PostKategori.objects.get(short_title=Post_Turu)
+
+        title, slug = create_unique_title_slug(title)
+        siir_masal = Kontrol(title=title,  slug=slug, h1=h1, Post_Turu=Post_Turu_Gelen, icerik=icerik,keywords=key , meta_description=meta_description, Akibeti="Hazirla", Kaynak_Linki=Kaynak_Linki)
+        siir_masal.save()
+        if siir_masal.id is None:
+            return HttpResponse("Post kaydedilemedi.")
+        else:
+            return HttpResponse("Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
