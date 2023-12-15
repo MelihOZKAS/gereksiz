@@ -143,3 +143,27 @@ class Kontrol(models.Model):
 
     def kelime_sayisi(self):
         return len(self.icerik.split())
+
+
+
+
+
+class Tarla(models.Model):
+    Link = models.URLField(blank=True, null=True)
+    short_Name = models.CharField(max_length=255,blank=True, null=True)
+    class Meta:
+        verbose_name_plural = "Tarla"
+class Mahsul(models.Model):
+    kontrol = [
+        ('Tamamlandi', 'Tamamlandi'),
+        ('Beklemede', 'Beklemede'),
+    ]
+    Main_Link = models.URLField(blank=True, null=True)
+    h1 = models.CharField(max_length=255,blank=True, help_text=HELP_TEXTS["h1"], null=True)
+    Main_Link_Short = models.ForeignKey(Tarla, null=True, on_delete=models.SET_NULL)
+    Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
+    Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
+    Aciklama = models.CharField(max_length=255, blank=True, null=True)
+    olusturma_tarihi = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name_plural = "Mahsul"
