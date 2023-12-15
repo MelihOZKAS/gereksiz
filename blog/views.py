@@ -302,7 +302,7 @@ class StoryPreviewView(View):
         title = story.title
         h1 = story.h1
         keywords = story.keywords
-        description = story.description
+        description = story.meta_description
 
         # İçeriği oluştur
         content = f"Title: {title}\n\nH1: {h1}\n\nKeywords: {', '.join(keywords)}\n\nDescription: {description}\n\n{story.icerik}"
