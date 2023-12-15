@@ -305,7 +305,7 @@ class StoryPreviewView(View):
         description = story.meta_description
 
         # İçeriği oluştur
-        content = f"Title: {title}\n\nH1: {h1}\n\nKeywords: {keywords}\n\nDescription: {description}\n\n{story.icerik}"
+        content = f"Title: {title}\n\n <br> H1: {h1}\n\n <br> Keywords: {keywords}\n\n <br> Description: {description}\n\n <br> {story.icerik}"
 
         return HttpResponse(content)
 
