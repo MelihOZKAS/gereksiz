@@ -349,3 +349,15 @@ def mahsulyakala(request):
     else:
         return JsonResponse({"method": request.method, "headers": dict(request.headers)})
 
+
+@csrf_exempt
+def mahsulcek(request):
+    if request.method == 'POST':
+        tarla_link = request.POST.get('Tarla_Link')
+        mahsul_list = Mahsul.objects.filter(Tarla_Link=tarla_link).order_by('-olusturma_tarihi')[:50]
+        mahsul_links = "|".join([mahsul.Mahsul_Link for mahsul in mahsul_list])
+        return HttpResponse(mahsul_links)
+    else:
+        return HttpResponse("Geçersiz istek", status=400)
+
+
