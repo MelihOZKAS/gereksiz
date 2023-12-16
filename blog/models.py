@@ -125,6 +125,7 @@ class Kontrol(models.Model):
         ('Beklemede', 'Beklemede'),
         ('Tamamlandi', 'Tamamlandi'),
         ('Hazirla', 'Hazirla'),
+        ('Yolda', 'Yolda'),
     ]
 
     title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])

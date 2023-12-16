@@ -376,3 +376,19 @@ def mahsulcek(request):
             return HttpResponse("Mahsul bulunamadı", status=404)
     else:
         return HttpResponse("Geçersiz istek", status=400)
+
+
+
+@csrf_exempt
+def ilerizekacek(request):
+    if request.method == 'POST':
+        mahsul_cek = Kontrol.objects.filter(Akibeti="Hazirla").order_by('olusturma_tarihi').first()
+        if mahsul_cek is not None:
+            mahsul_cek.Akibeti = "Yolda"
+            mahsul_cek.save()
+            Sonucu = f"{mahsul_cek.pk}|{mahsul_cek.title}|{mahsul_cek.h1}|{mahsul_cek.Post_Turu}|{mahsul_cek.meta_description}|{mahsul_cek.keywords}|{mahsul_cek.icerik}"
+            return HttpResponse(Sonucu)
+        else:
+            return HttpResponse("Mahsul bulunamadı", status=404)
+    else:
+        return HttpResponse("Geçersiz istek", status=400)
