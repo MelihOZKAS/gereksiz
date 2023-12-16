@@ -351,7 +351,7 @@ def mahsulyakala(request):
 
 
 @csrf_exempt
-def mahsulcek(request):
+def mahsullistesicek(request):
     if request.method == 'POST':
         tarla_link = request.POST.get('Tarla_Link')
         mahsul_list = Mahsul.objects.filter(Tarla_Link=tarla_link).order_by('-olusturma_tarihi')[:50]
@@ -361,3 +361,18 @@ def mahsulcek(request):
         return HttpResponse("Geçersiz istek", status=400)
 
 
+
+
+@csrf_exempt
+def mahsulcek(request):
+    if request.method == 'POST':
+        tarla_link = request.POST.get('Tarla_Link')
+        mahsul_cek = Mahsul.objects.filter(Tarla_Link=tarla_link, Akibeti="Beklemede").order_by('olusturma_tarihi').first()
+        if mahsul_cek is not None:
+            mahsul_cek.Akibeti = "Tamamlandi"
+            mahsul_cek.save()
+            return HttpResponse(mahsul_cek.Mahsul_Link)
+        else:
+            return HttpResponse("Mahsul bulunamadı", status=404)
+    else:
+        return HttpResponse("Geçersiz istek", status=400)
