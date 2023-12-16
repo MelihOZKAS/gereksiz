@@ -340,7 +340,7 @@ def mahsulyakala(request):
         for item in data:
             Main_Link = item.get('Main_Link')
             Post_Link = item.get('Post_Link')
-            mahsulkayit = Kontrol(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
+            mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
             mahsulkayit.save()
         return JsonResponse({"message": "Başarılı"})
     else:
