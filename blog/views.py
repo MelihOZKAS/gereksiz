@@ -333,23 +333,25 @@ def post_add(request):
         else:
             return HttpResponse("Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
 
-
+@csrf_exempt
 def real_post_add(request):
     if request.method == 'POST':
         # Gelen POST isteğindeki değerleri alın
-        title = request.POST.get('title')
+        title = request.POST.get('titleFake')
+        hiddenTitle = request.POST.get('hiddenTitle')
         h1 = request.POST.get('h1')
+        hiddenH1 = request.POST.get('hiddenH1')
         Post_Turu = request.POST.get('Post_Turu')
         icerik = request.POST.get('icerik')
         meta_description = request.POST.get('meta_description')
-        key = request.POST.get('keywords')
+        hiddenKeys = request.POST.get('hiddenKeys')
         Kaynak_Linki = request.POST.get('Kaynak_Linki')
         info = request.POST.get('info')
 
         Post_Turu_Gelen = PostKategori.objects.get(short_title=Post_Turu)
 
         title, slug = create_unique_title_slug(title)
-        siir_masal = Kontrol(title=title,  slug=slug, h1=h1, Post_Turu=Post_Turu_Gelen, icerik=icerik,keywords=key , meta_description=meta_description, Akibeti="Beklemede", Kaynak_Linki=Kaynak_Linki)
+        siir_masal = Post(title=title, hiddenTitle=hiddenTitle,  slug=slug, h1=h1, hiddenH1=hiddenH1, Post_Turu=Post_Turu_Gelen, icerik=icerik, info=info, hiddenKeys=hiddenKeys, meta_description=meta_description, Akibeti="Beklemede", Kaynak_Linki=Kaynak_Linki)
         siir_masal.save()
         if siir_masal.id is None:
             return HttpResponse("Post kaydedilemedi.")
