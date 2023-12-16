@@ -336,12 +336,15 @@ def post_add(request):
 @csrf_exempt
 def mahsulyakala(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        for item in data:
-            Main_Link = item.get('Main_Link')
-            Post_Link = item.get('Post_Link')
-            mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
-            mahsulkayit.save()
-        return JsonResponse({"message": "Başarılı"})
+        try:
+            data = json.loads(request.body)
+            for item in data:
+                Main_Link = item.get('Main_Link')
+                Post_Link = item.get('Post_Link')
+                mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
+                mahsulkayit.save()
+            return JsonResponse({"message": "Başarılı"})
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
     else:
         return JsonResponse({"error": "Geçersiz istek"}, status=400)
