@@ -166,7 +166,8 @@ admin.site.register(Kontrol, KontrolAdmin)
 class MahsulAdmin(admin.ModelAdmin):
     list_display = ("Tarla_Link", "Mahsul_Link", "Akibeti", "Aciklama", "olusturma_tarihi", )
     search_fields = ("Tarla_Link",)
-    list_filter = ("Akibeti", )
+    list_editable = ("Akibeti",)
+    list_filter = ("Akibeti", "Tarla_Link", )
 
 admin.site.register(Mahsul, MahsulAdmin)
 

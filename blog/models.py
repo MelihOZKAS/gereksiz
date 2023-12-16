@@ -122,6 +122,7 @@ class iletisimmodel(models.Model):
 class Kontrol(models.Model):
     kontrol = [
         ('Salla', 'Salla'),
+        ('Beklemede', 'Beklemede'),
         ('Tamamlandi', 'Tamamlandi'),
         ('Hazirla', 'Hazirla'),
     ]

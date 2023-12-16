@@ -326,7 +326,7 @@ def post_add(request):
         Post_Turu_Gelen = PostKategori.objects.get(short_title=Post_Turu)
 
         title, slug = create_unique_title_slug(title)
-        siir_masal = Kontrol(title=title,  slug=slug, h1=h1, Post_Turu=Post_Turu_Gelen, icerik=icerik,keywords=key , meta_description=meta_description, Akibeti="Hazirla", Kaynak_Linki=Kaynak_Linki)
+        siir_masal = Kontrol(title=title,  slug=slug, h1=h1, Post_Turu=Post_Turu_Gelen, icerik=icerik,keywords=key , meta_description=meta_description, Akibeti="Beklemede", Kaynak_Linki=Kaynak_Linki)
         siir_masal.save()
         if siir_masal.id is None:
             return HttpResponse("Post kaydedilemedi.")
