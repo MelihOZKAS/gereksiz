@@ -77,6 +77,8 @@ class Post(models.Model):
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     yazar = models.CharField(max_length=255, choices=YAZARLAR, null=True,blank=True)
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
+    ozet = models.TextField(blank=True, null=True)
+    info = models.TextField(blank=True, null=True)
     #resim = models.ImageField(upload_to='kapak_resimleri/',null=True,blank=True)
     resim = models.ImageField(upload_to=kapak_resmi_upload_to,
                                     storage=ImageSettingStorage(),
