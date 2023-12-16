@@ -356,7 +356,7 @@ def real_post_add(request):
         if siir_masal.id is None:
             return HttpResponse("Post kaydedilemedi.")
         else:
-            return HttpResponse("Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
+            return HttpResponse("Şükürler Olsun Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
 
 
 
