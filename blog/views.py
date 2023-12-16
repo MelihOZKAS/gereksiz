@@ -347,5 +347,5 @@ def mahsulyakala(request):
         else:
             return JsonResponse({"error": "Geçersiz Content-Type başlığı"}, status=400)
     else:
-        return JsonResponse({"error": "Geçersiz istek"}, status=400)
+        return JsonResponse({"error": "Geçersiz istek1"}, status=400)
 
