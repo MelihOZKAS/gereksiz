@@ -337,7 +337,7 @@ def post_add(request):
 def real_post_add(request):
     if request.method == 'POST':
         # Gelen POST isteğindeki değerleri alın
-        title = request.POST.get('titleFake')
+        title = request.POST.get('title')
         hiddenTitle = request.POST.get('hiddenTitle')
         h1 = request.POST.get('h1')
         hiddenH1 = request.POST.get('hiddenH1')
