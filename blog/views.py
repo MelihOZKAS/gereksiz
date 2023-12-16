@@ -336,7 +336,7 @@ def post_add(request):
 @csrf_exempt
 def mahsulyakala(request):
     if request.method == 'POST':
-        try:
+        if request.headers.get('Content-Type') == 'application/json':
             data = json.loads(request.body)
             for item in data:
                 Main_Link = item.get('Main_Link')
@@ -344,7 +344,8 @@ def mahsulyakala(request):
                 mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
                 mahsulkayit.save()
             return JsonResponse({"message": "Başarılı"})
-        except Exception as e:
-            return JsonResponse({"error": str(e)}, status=400)
+        else:
+            return JsonResponse({"error": "Geçersiz Content-Type başlığı"}, status=400)
     else:
         return JsonResponse({"error": "Geçersiz istek"}, status=400)
+
