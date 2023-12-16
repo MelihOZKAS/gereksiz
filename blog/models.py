@@ -153,7 +153,6 @@ class Mahsul(models.Model):
     ]
     Tarla_Link = models.URLField(blank=True, null=True)
     Mahsul_Link = models.URLField(blank=True, null=True)
-#    Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
     Aciklama = models.CharField(max_length=255, blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)

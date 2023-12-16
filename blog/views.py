@@ -5,7 +5,8 @@ from django.utils.text import slugify
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_GET
 from django.views import View
-
+from django.http import JsonResponse
+import json
 
 
 
@@ -331,3 +332,16 @@ def post_add(request):
             return HttpResponse("Post kaydedilemedi.")
         else:
             return HttpResponse("Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
+
+@csrf_exempt
+def mahsulyakala(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        for item in data:
+            Main_Link = item.get('Main_Link')
+            Post_Link = item.get('Post_Link')
+            mahsulkayit = Kontrol(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
+            mahsulkayit.save()
+        return JsonResponse({"message": "Başarılı"})
+    else:
+        return JsonResponse({"error": "Geçersiz istek"}, status=400)

@@ -16,6 +16,7 @@ urlpatterns = [
     path("kullanim-sartlari/", views.kullanim, name="kullanim-sartlari"),
     path('story-preview/<slug:slug>/', views.StoryPreviewView.as_view(), name='story_preview'),
     path("add-post/", views.post_add),
+    path("mahsul-yakala/", views.mahsulyakala),
 
 
 
