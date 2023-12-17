@@ -30,6 +30,11 @@ sitemaps = {
 
 }
 
+def handler404(request, *args, **argv):
+    response = render(request, '404.html')
+    response.status_code = 404
+    return response
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("blog.urls")),
