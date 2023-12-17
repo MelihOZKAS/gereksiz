@@ -355,7 +355,7 @@ def real_post_add(request):
         siir_masal = Post(title=title, hiddenTitle=hiddenTitle,  slug=slug, h1=h1, hiddenH1=hiddenH1, Post_Turu=Post_Turu_Gelen, icerik=icerik, info=info, hiddenKeys=hiddenKeys, meta_description=meta_description, Akibeti="Beklemede", Kaynak_Linki=Kaynak_Linki)
         siir_masal.save()
 
-        Kontrol.objects.filter(pk=GelenID).update(Akibeti="Tamamlandi")
+        Kontrol.objects.filter(id=GelenID).update(Akibeti="Tamamlandi")
 
         if siir_masal.id is None:
             return HttpResponse("Post kaydedilemedi.")
