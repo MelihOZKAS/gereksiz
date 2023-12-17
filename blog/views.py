@@ -417,7 +417,7 @@ def ilerizekacek(request):
         if mahsul_cek is not None:
             mahsul_cek.Akibeti = "Yolda"
             mahsul_cek.save()
-            Sonucu = f"{mahsul_cek.pk}|{mahsul_cek.title}|{mahsul_cek.h1}|{mahsul_cek.Post_Turu}|{mahsul_cek.meta_description}|{mahsul_cek.keywords}|{mahsul_cek.icerik}|{mahsul_cek.Kaynak_Linki}"
+            Sonucu = f"{mahsul_cek.pk}|={mahsul_cek.title}|={mahsul_cek.h1}|={mahsul_cek.Post_Turu}|={mahsul_cek.meta_description}|={mahsul_cek.keywords}|={mahsul_cek.icerik}|={mahsul_cek.Kaynak_Linki}"
             return HttpResponse(Sonucu)
         else:
             return HttpResponse("Mahsul bulunamadı", status=404)
