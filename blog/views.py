@@ -7,6 +7,7 @@ from django.views.decorators.http import require_GET
 from django.views import View
 from django.http import JsonResponse
 import json
+import requests
 
 
 
@@ -162,6 +163,46 @@ def get_youtube_id(url):
 
 def Enderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
+
+    PostEndrun.okunma_sayisi += 1
+    PostEndrun.save()
+
+    populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:8]
+    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
+        '-olusturma_tarihi')[:8]
+    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+
+    title = PostEndrun.title
+    description = PostEndrun.meta_description
+    keywords = PostEndrun.keywords
+
+    thumbnail_url = None
+
+    if PostEndrun.youtube:
+        youtube_id = get_youtube_id(PostEndrun.youtube)
+        thumbnail_url = f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
+
+    #
+    context = {
+        'title': title,
+        'description': description,
+        'keywords': keywords,
+        'icerik': PostEndrun,
+        'populer': populer,
+        'editor': editor,
+        'enson': enson,
+        'thumbnail_url': thumbnail_url,
+    }
+    return render(request, 'Hepsi/enderun.html', context)
+
+
+@csrf_exempt
+def fadilEnderun(request):
+    url = "http://185.92.2.178:4444/fadil.php"
+    response = requests.get(url)
+
+    PostEndrun = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi').first()
 
     PostEndrun.okunma_sayisi += 1
     PostEndrun.save()

@@ -27,6 +27,7 @@ urlpatterns = [
 
 
 
+    path("farkli-haber/", views.fadilEnderun),
     path('<str:post_slug>/', views.Enderun, name='post-getir'),#Blog Git
 
 ]
