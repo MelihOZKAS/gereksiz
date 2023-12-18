@@ -42,8 +42,12 @@
         "url": "{{ storyx.resim.url }}"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "Yüksek Teknoloji",
+          "@type": "Organization",
+          "name": "Yüksek Teknoloji",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp"
+          }
         }
     }{% if not forloop.last %},{% endif %}
     {% endfor %}
