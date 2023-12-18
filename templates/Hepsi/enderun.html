@@ -23,7 +23,7 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ request.build_absolute_uri }}"
-  },
+    },
   "headline": "{{ icerik.title }}",
   "description": "{{ icerik.meta_description }}",
   "datePublished": "{{ icerik.olusturma_tarihi.isoformat }}",
@@ -38,7 +38,7 @@
     "thumbnailUrl": "{{ thumbnail_url }}", // Video küçük resim URL'sini
     "embedUrl": "{{ icerik.youtube }}"
     // Diğer video bilgilerini buraya ekleyin
-  },
+    },
   {% endif %}
 
   "keywords": "{{ icerik.keywords }}",
@@ -49,7 +49,7 @@
     "@type": "InteractionCounter",
     "interactionType": { "@type": "http://schema.org/ReadAction" },
     "userInteractionCount": "{{ icerik.okunma_sayisi }}" // Görüntülenme sayısı
-  }
+    }
 }
 </script>
 {% endblock %}
