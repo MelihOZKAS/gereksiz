@@ -79,6 +79,18 @@
                             <!--    <figcaption>Resim Açıklaması Kapalı
                                 </figcaption> -->
                         </figure>
+
+                        {% if icerik.youtube %}
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                <iframe style="position: absolute; top:0; left: 0; width: 100%; height: 100%;"
+                                        src="{{ icerik.youtube }}"
+                                        title="{{ icerik.title }}"
+                                        frameborder="0"
+                                        allowfullscreen></iframe>
+                            </div>
+                        {% endif %}
+
+
                         <p><span
                                 class="firstcharacter">{{ icerik.icerik|safe|slice:"3:4" }}</span> {{ icerik.icerik|safe|slice:"4:" }}
                         </p>
