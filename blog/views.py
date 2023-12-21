@@ -477,6 +477,8 @@ def karepostcek(request):
         mahsul_cek = Post.objects.filter(SosyalKare="Hazirla").order_by('olusturma_tarihi').first()
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
+            mahsul_cek.SosyalKare = "Tamamlandi"
+            mahsul_cek.save()
             title = strip_tags(mahsul_cek.title)
             icerik = unescape(strip_tags(mahsul_cek.icerik))
             Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
