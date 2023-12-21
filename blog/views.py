@@ -465,3 +465,16 @@ def ilerizekacek(request):
             return HttpResponse("Mahsul bulunamadı", status=404)
     else:
         return HttpResponse("Geçersiz istek", status=400)
+
+
+@csrf_exempt
+def kucukpostcek(request):
+    if request.method == 'POST':
+        mahsul_cek = Post.objects.filter(SosyalKare="Hazirla").first()
+        if mahsul_cek is not None:
+            Sonucu = f"{mahsul_cek.pk}|={mahsul_cek.title}|={mahsul_cek.icerik}|={mahsul_cek.resim}"
+            return HttpResponse(Sonucu)
+        else:
+            return HttpResponse("Oluşturulacak Kare içerik bulunamadı", status=404)
+    else:
+        return HttpResponse("Geçersiz istek", status=400)
