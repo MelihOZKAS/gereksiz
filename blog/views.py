@@ -9,6 +9,8 @@ from django.http import JsonResponse
 import json
 import requests
 from django.utils.html import strip_tags
+from html import unescape
+
 
 
 
@@ -476,8 +478,8 @@ def karepostcek(request):
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
             title = strip_tags(mahsul_cek.title)
-            icerik = strip_tags(mahsul_cek.icerik)
-            Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
+            icerik = unescape(strip_tags(mahsul_cek.icerik))
+            Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim.url}"
             return HttpResponse(Sonucu)
         else:
             return HttpResponse("Oluşturulacak Kare içerik bulunamadı", status=404)
