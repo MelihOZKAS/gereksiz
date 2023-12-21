@@ -474,7 +474,7 @@ def ilerizekacek(request):
 @csrf_exempt
 def karepostcek(request):
     if request.method == 'POST':
-        mahsul_cek = Post.objects.filter(SosyalKare="Hazirla").first()
+        mahsul_cek = Post.objects.filter(SosyalKare="Hazirla").order_by('olusturma_tarihi').first()
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
             title = strip_tags(mahsul_cek.title)
