@@ -459,7 +459,7 @@ def mahsulcek(request):
 @csrf_exempt
 def ilerizekacek(request):
     if request.method == 'POST':
-        mahsul_cek = Kontrol.objects.filter(Akibeti="Hazirla").order_by('olusturma_tarihi').first()
+        mahsul_cek = Kontrol.objects.filter(Akibeti="Hazirla").order_by('-olusturma_tarihi').first()
         if mahsul_cek is not None:
             mahsul_cek.Akibeti = "Yolda"
             mahsul_cek.save()
