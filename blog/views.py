@@ -8,6 +8,8 @@ from django.views import View
 from django.http import JsonResponse
 import json
 import requests
+from django.utils.html import strip_tags
+
 
 
 
@@ -472,7 +474,10 @@ def karepostcek(request):
     if request.method == 'POST':
         mahsul_cek = Post.objects.filter(SosyalKare="Hazirla").first()
         if mahsul_cek is not None:
-            Sonucu = f"{mahsul_cek.pk}|={mahsul_cek.title}|={mahsul_cek.icerik}|={mahsul_cek.resim}"
+            # HTML etiketlerini kaldır
+            title = strip_tags(mahsul_cek.title)
+            icerik = strip_tags(mahsul_cek.icerik)
+            Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
             return HttpResponse(Sonucu)
         else:
             return HttpResponse("Oluşturulacak Kare içerik bulunamadı", status=404)
