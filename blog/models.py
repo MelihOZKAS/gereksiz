@@ -71,6 +71,14 @@ class Post(models.Model):
     ]
 
 
+    Sosyal = [
+        ('Bilgi Bekleniyor', 'Bilgi Bekleniyor'),
+        ('Yapma', 'Yapma'),
+        ('Hazirla', 'Hazirla'),
+        ('Tamamlandi', 'Tamamlandi'),
+    ]
+
+
     title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])
     hiddenTitle = models.TextField(blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True,help_text=HELP_TEXTS["slug"])
@@ -90,6 +98,8 @@ class Post(models.Model):
     hiddenKeys = models.TextField(blank=True, null=True)
     yayin_tarihi = models.DateTimeField(null=True, blank=True, help_text="Postanın yayınlanacağı tarih ve saat")
     status = models.CharField(max_length=10, choices=status_cho, default="Taslak", help_text=HELP_TEXTS["status"])
+    SosyalDik = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
+    SosyalKare = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
     aktif = models.BooleanField(default=False, help_text=HELP_TEXTS["aktif"])
     banner = models.BooleanField(default=False, help_text=HELP_TEXTS["banner"])
     editor = models.BooleanField(default=False,help_text=HELP_TEXTS["small_banner"])
