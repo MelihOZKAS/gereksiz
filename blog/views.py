@@ -479,7 +479,7 @@ def karepostcek(request):
             # HTML etiketlerini kaldır
             title = strip_tags(mahsul_cek.title)
             icerik = unescape(strip_tags(mahsul_cek.icerik))
-            Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim.url}"
+            Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
             return HttpResponse(Sonucu)
         else:
             return HttpResponse("Oluşturulacak Kare içerik bulunamadı", status=404)
