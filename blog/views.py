@@ -468,7 +468,7 @@ def ilerizekacek(request):
 
 
 @csrf_exempt
-def kucukpostcek(request):
+def karepostcek(request):
     if request.method == 'POST':
         mahsul_cek = Post.objects.filter(SosyalKare="Hazirla").first()
         if mahsul_cek is not None:
