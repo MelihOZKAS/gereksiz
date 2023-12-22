@@ -62,3 +62,19 @@ class oyunhaberleri(Sitemap):
 
     def location(self, obj):
         return reverse('post-getir', args=[obj.slug])
+
+
+class telefonaberleri(Sitemap):
+    changefreq = "daily"
+    priority = 1.0
+    protocol = 'https'
+
+    def items(self):
+        PostKategorisi = PostKategori.objects.get(short_title="Telefon")
+        return Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=PostKategorisi)
+
+    def lastmod(self, obj):
+        return obj.guncelleme_tarihi
+
+    def location(self, obj):
+        return reverse('post-getir', args=[obj.slug])
