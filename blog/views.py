@@ -45,6 +45,19 @@ def home(request):
     HomeTeknolojiSag = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TeknolojiKategori).order_by(
         '-olusturma_tarihi')[3:6]
 
+
+    TelefonKategori = get_object_or_404(PostKategori, short_title="Telefon")
+    TrendTelefon8 = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TelefonKategori, editor=True).order_by(
+        '-olusturma_tarihi')[:8]
+    HomeTelefonSol = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TelefonKategori).order_by(
+        '-olusturma_tarihi')[:3]
+    HomeTelefonSag = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TelefonKategori).order_by(
+        '-olusturma_tarihi')[3:6]
+
+
+
+
+
     BilimKategori = get_object_or_404(PostKategori, short_title="Bilim")
     TrendBilim8 = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=BilimKategori, editor=True).order_by(
         '-olusturma_tarihi')[:8]
@@ -80,6 +93,10 @@ def home(request):
         'TrendTeknoji8': TrendTeknoji8,
         'HomeTeknolojiSol': HomeTeknolojiSol,
         'HomeTeknolojiSag': HomeTeknolojiSag,
+
+        'TrendTelefon8': TrendTelefon8,
+        'HomeTelefonSol': HomeTelefonSol,
+        'HomeTelefonSag': HomeTelefonSag,
 
         'TrendBilim8': TrendBilim8,
         'HomeBilimSol': HomeBilimSol,
@@ -119,6 +136,11 @@ def KategoriHome(request):
     elif request.resolver_match.url_name == 'oyun':
         # Oyun haberleri için kod
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Oyun")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')
+    elif request.resolver_match.url_name == 'telefon':
+        # Oyun haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Telefon")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')
 

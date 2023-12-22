@@ -6,6 +6,7 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("teknoloji-haberleri/", views.KategoriHome, name="teknoloji"),
     path("bilim-haberleri/", views.KategoriHome, name="bilim"),
+    path("cep-telefonu-haberleri/", views.KategoriHome, name="telefon"),
     path("otomobil-haberleri/", views.KategoriHome, name="otomobil"),
     path("oyun-haberleri/", views.KategoriHome, name="oyun"),
     #path("random/", views.create_random_post, name="random"),
