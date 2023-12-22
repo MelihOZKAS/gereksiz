@@ -480,7 +480,7 @@ def karepostcek(request):
             mahsul_cek.SosyalKare = "Tamamlandi"
             mahsul_cek.save()
             title = strip_tags(mahsul_cek.title)
-            icerik = unescape(strip_tags(mahsul_cek.icerik))
+            icerik = unescape(strip_tags(mahsul_cek.ozet))
             Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
             return HttpResponse(Sonucu)
         else:
