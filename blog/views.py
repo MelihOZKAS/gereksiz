@@ -518,6 +518,8 @@ def karepostcek(request):
 
 def send_Telegrampost(request):
     GelenPost = Post.objects.filter(aktif=True, status="Yayinda",gonder=True).order_by('-olusturma_tarihi').first()
+    GelenPost.gonder=False
+    GelenPost.save()
     if GelenPost:
         title = GelenPost.title  # Postun başlığını al
         slug = GelenPost.slug  # Postun slug'ını al
