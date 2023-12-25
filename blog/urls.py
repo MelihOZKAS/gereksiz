@@ -25,6 +25,7 @@ urlpatterns = [
     path("mahsul-cek/", views.mahsulcek),
     path("ilerizeka-cek/", views.ilerizekacek),
     path("karepost-cek/", views.karepostcek),
+    path("gonder-wp-tg/", views.send_Telegrampost),
 
 
 

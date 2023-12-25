@@ -10,7 +10,10 @@ import json
 import requests
 from django.utils.html import strip_tags
 from html import unescape
-
+import random
+import environ
+env = environ.Env(DEBUG=(bool,False))
+environ.Env.read_env()
 
 
 
@@ -509,3 +512,20 @@ def karepostcek(request):
             return HttpResponse("Oluşturulacak Kare içerik bulunamadı", status=404)
     else:
         return HttpResponse("Geçersiz istek", status=400)
+
+
+
+
+def send_Telegrampost(request):
+    GelenPost = Post.objects.filter(aktif=True, status="Yayinda",gonder=True).order_by('-olusturma_tarihi').first()
+    if GelenPost:
+        title = GelenPost.title  # Postun başlığını al
+        slug = GelenPost.slug  # Postun slug'ını al
+        # İlgi çekici bir mesaj oluştur
+        message = f"🔥 Yeni bir konu: {title}! 🔥\n\n🔗 İncelemek için tıklayın: https://yuksekteknoloji.com/{slug}"
+        # Telegram API'sini kullanarak mesajı gönder
+        telegram_url = f"https://api.telegram.org/bot{env('Telegram_Token')}/sendMessage?chat_id={env('tlg_chat_id')}&text={message}"
+        r = requests.get(telegram_url)
+        return HttpResponse(message)
+    else:
+        return HttpResponse("Post yok")

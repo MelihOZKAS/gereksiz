@@ -30,6 +30,7 @@ HELP_TEXTS = {
     "hakkinda": "Şiir hakkında anlatılmak istenen.",
     "Acikalama": "Kullanıcının işlem durumunu gösterir.",
     "Story Catagory": "Hikayenin kategorisi",
+    "Wp-TG": "Whatsapp ve Telegramda paylaş",
 }
 def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
@@ -98,6 +99,7 @@ class Post(models.Model):
     hiddenKeys = models.TextField(blank=True, null=True)
     yayin_tarihi = models.DateTimeField(null=True, blank=True, help_text="Postanın yayınlanacağı tarih ve saat")
     status = models.CharField(max_length=10, choices=status_cho, default="Taslak", help_text=HELP_TEXTS["status"])
+    gonder = models.BooleanField(default=False, help_text=HELP_TEXTS["Wp-TG"])
     SosyalDik = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
     SosyalKare = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
     aktif = models.BooleanField(default=False, help_text=HELP_TEXTS["aktif"])
