@@ -517,7 +517,7 @@ def karepostcek(request):
 
 
 def send_Telegrampost(request):
-    GelenPost = Post.objects.filter(aktif=True, status="Yayinda",gonder=True).order_by('-olusturma_tarihi').first()
+    GelenPost = Post.objects.filter(aktif=True, status="Yayinda",gonder=True).order_by('olusturma_tarihi').first()
 
     if GelenPost:
         GelenPost.gonder = False
@@ -525,7 +525,7 @@ def send_Telegrampost(request):
         title = GelenPost.title  # Postun başlığını al
         slug = GelenPost.slug  # Postun slug'ını al
         # İlgi çekici bir mesaj oluştur
-        message = f"🔥 Yeni bir konu: {title}! 🔥\n\n🔗 İncelemek için tıklayın: https://yuksekteknoloji.com/{slug}"
+        message = f"🎉 Yeni bir teknoloji haberi geldi: {title}! 🎉\n\n🔗 Detayları görmek için: https://yuksekteknoloji.com/{slug}\n\n🚀 YuksekTeknoloji.com - Teknoloji dünyasının kalbi burada atıyor! 🚀"
         # Telegram API'sini kullanarak mesajı gönder
         telegram_url = f"https://api.telegram.org/bot{env('Telegram_Token')}/sendMessage?chat_id={env('tlg_chat_id')}&text={message}"
         r = requests.get(telegram_url)
