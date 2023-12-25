@@ -526,6 +526,6 @@ def send_Telegrampost(request):
         # Telegram API'sini kullanarak mesajı gönder
         telegram_url = f"https://api.telegram.org/bot{env('Telegram_Token')}/sendMessage?chat_id={env('tlg_chat_id')}&text={message}"
         r = requests.get(telegram_url)
-        return HttpResponse(message)
+        return HttpResponse(r.text)
     else:
         return HttpResponse("Post yok")
