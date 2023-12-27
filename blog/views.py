@@ -456,7 +456,7 @@ def mahsulyakala(request):
 def mahsullistesicek(request):
     if request.method == 'POST':
         tarla_link = request.POST.get('Tarla_Link')
-        mahsul_list = Mahsul.objects.filter(Tarla_Link=tarla_link).order_by('-olusturma_tarihi')[:50]
+        mahsul_list = Mahsul.objects.filter(Tarla_Link=tarla_link).order_by('-olusturma_tarihi')[:150]
         mahsul_links = "|".join([mahsul.Mahsul_Link for mahsul in mahsul_list])
         return HttpResponse(mahsul_links)
     else:
