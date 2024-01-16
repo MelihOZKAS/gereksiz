@@ -11,6 +11,8 @@ import requests
 from django.utils.html import strip_tags
 from html import unescape
 import random
+from django.utils import timezone
+from django.db.models import Q
 import environ
 env = environ.Env(DEBUG=(bool,False))
 environ.Env.read_env()
@@ -532,3 +534,17 @@ def send_Telegrampost(request):
         return HttpResponse(r.text)
     else:
         return HttpResponse("Post yok")
+
+
+
+def Oto_Paylas(request):
+    post = Post.objects.filter(Q(status="oto") & (Q(yayin_tarihi__lte=timezone.now()) | Q(yayin_tarihi=None))).first()
+
+    if post is not None:
+        post.status = "Yayinda"
+        post.aktif = True
+        post.olusturma_tarihi = timezone.now()  # eklenme tarihini güncelle
+        post.save()
+        return HttpResponse(f'Şükürler Olsun "{post.title}" Paylaşıldı.')
+    else:
+        return HttpResponse('Paylaşılacak Post Bulunamadı.')
