@@ -156,6 +156,7 @@ def KategoriHome(request):
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
 
     title = Post_Kategorisi.Title
+    H1 = Post_Kategorisi.H1
     description = Post_Kategorisi.description
     keywords = Post_Kategorisi.keywords
 
@@ -172,6 +173,7 @@ def KategoriHome(request):
 
     context = {
         'title': title,
+        'H1': H1,
         'description': description,
         'keywords': keywords,
         'Post_Kategorisi': Post_Kategorisi,
