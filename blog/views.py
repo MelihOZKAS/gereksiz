@@ -205,6 +205,7 @@ def Enderun(request, post_slug):
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
 
     title = PostEndrun.title
+    H1 = PostEndrun.h1
     description = PostEndrun.meta_description
     keywords = PostEndrun.keywords
 
@@ -217,6 +218,7 @@ def Enderun(request, post_slug):
     #
     context = {
         'title': title,
+        'H1': H1,
         'description': description,
         'keywords': keywords,
         'icerik': PostEndrun,
