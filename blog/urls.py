@@ -27,6 +27,8 @@ urlpatterns = [
     path("karepost-cek/", views.karepostcek),
     path("gonder-wp-tg/", views.send_Telegrampost),
     path("oto-paylas/", views.Oto_Paylas),
+    path("Ads.txt/", views.ads, name="ads"),
+    path("ads.txt/", views.ads, name="ads"),
 
 
 
