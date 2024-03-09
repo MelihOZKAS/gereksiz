@@ -552,3 +552,13 @@ def Oto_Paylas(request):
         return HttpResponse(f'Şükürler Olsun "{post.title}" Paylaşıldı.')
     else:
         return HttpResponse('Paylaşılacak Post Bulunamadı.')
+
+
+
+
+
+@require_GET
+def ads(request):
+    return HttpResponse(ads_content, content_type="text/plain")
+
+ads_content = """google.com, pub-7065951693101615, DIRECT, f08c47fec0942fa0"""
