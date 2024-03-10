@@ -33,23 +33,23 @@
   {% if icerik.youtube %}
   "video": {
     "@type": "VideoObject",
-    "name": "{{ icerik.title }}", // Video adını buraya ekleyin
-    "description": "{{ icerik.meta_description }}", // Video açıklamasını buraya ekleyin
-    "uploadDate": "{{ icerik.olusturma_tarihi.isoformat }}", // Video yükleme tarihini buraya ekleyin
-    "thumbnailUrl": "{{ thumbnail_url }}", // Video küçük resim URL'sini
+    "name": "{{ icerik.title }}",
+    "description": "{{ icerik.meta_description }}",
+    "uploadDate": "{{ icerik.olusturma_tarihi.isoformat }}"
+    "thumbnailUrl": "{{ thumbnail_url }}"
     "embedUrl": "{{ icerik.youtube }}"
-    // Diğer video bilgilerini buraya ekleyin
+
     },
   {% endif %}
 
   "keywords": "{{ icerik.keywords }}",
-  // Ek özellikler
-  "articleSection": "{{ icerik.Post_Turu.short_title }} Haberleri", // Bölüm veya kategori
-  "isFamilyFriendly": "true", // Aile dostu olup olmadığı
-  "interactionStatistic": { // Etkileşim istatistikleri
+
+  "articleSection": "{{ icerik.Post_Turu.short_title }} Haberleri",
+  "isFamilyFriendly": "true",
+  "interactionStatistic": {
     "@type": "InteractionCounter",
     "interactionType": { "@type": "http://schema.org/ReadAction" },
-    "userInteractionCount": "{{ icerik.okunma_sayisi }}" // Görüntülenme sayısı
+    "userInteractionCount": "{{ icerik.okunma_sayisi }}"
     }
 }
 </script>
