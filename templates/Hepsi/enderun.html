@@ -44,6 +44,23 @@
 
   "keywords": "{{ icerik.keywords }}",
 
+  "author": {
+  "@type": "Person",
+  "name": "{{ icerik.yazar }}"
+      },
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ icerik.resim.url }}"
+  },
+  "publisher": {
+      "@type": "Organization",
+      "name": "Yüksek Teknoloji",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp"
+      }
+    }
+
   "articleSection": "{{ icerik.Post_Turu.short_title }} Haberleri",
   "isFamilyFriendly": "true",
   "interactionStatistic": {
