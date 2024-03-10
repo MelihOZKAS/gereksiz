@@ -103,6 +103,7 @@ class Post(models.Model):
     SosyalDik = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
     SosyalKare = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
     aktif = models.BooleanField(default=False, help_text=HELP_TEXTS["aktif"])
+    indexing = models.BooleanField(default=False, help_text="Indexlensin mi?")
     banner = models.BooleanField(default=False, help_text=HELP_TEXTS["banner"])
     editor = models.BooleanField(default=False,help_text=HELP_TEXTS["small_banner"])
     okunma_sayisi = models.PositiveBigIntegerField(default=0)

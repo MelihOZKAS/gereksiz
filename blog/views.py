@@ -549,13 +549,23 @@ def Oto_Paylas(request):
     if post is not None:
         post.status = "Yayinda"
         post.aktif = True
+        post.indexing = True  # indekslendi olarak işaretle
         post.olusturma_tarihi = timezone.now()  # eklenme tarihini güncelle
         post.save()
         return HttpResponse(f'Şükürler Olsun "{post.title}" Paylaşıldı.')
     else:
         return HttpResponse('Paylaşılacak Post Bulunamadı.')
 
-
+@csrf_exempt
+def indexing_var_mi(request):
+    post = Post.objects.filter(indexing=True, aktif=True, status="Yayinda").first()
+    if post is not None:
+        # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
+        post.indexing = False
+        post.save()
+        return HttpResponse(f"https://www.cocukmasallarioku.com/{'masal-oku' if post.Model == 'Masal' else 'hikaye-oku'}/{post.slug}/")
+    else:
+        return HttpResponse("post bulunamadı.")
 
 
 
