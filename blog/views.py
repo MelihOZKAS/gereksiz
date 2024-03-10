@@ -34,7 +34,7 @@ def create_unique_title_slug(title):
     return unique_title, unique_slug
 def home(request):
     title = "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri"
-    description = "En son teknoloji haberlerini, ürün incelemelerini, teknoloji trendlerini ve daha fazlasını sunar. Teknoloji dünyasındaki en son gelişmeleri kaçırmayın yuksektekloji.com"
+    description = "En son teknoloji haberlerini, ürün incelemelerini, teknoloji trendlerini ve daha fazlasını sunar. Teknoloji dünyasındaki en son gelişmeleri kaçırmayın"
     keywords = "teknoloji, haberler, incelemeler, gadgetlar, bilim, inovasyon, AI, VR, AR, mobil teknoloji, bilgisayarlar, yazılım, donanım, otomobil, oyuni bilim"
     yazar = "Yüksek Teknoloji"
 
