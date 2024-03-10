@@ -210,6 +210,7 @@ def Enderun(request, post_slug):
     H1 = PostEndrun.h1
     description = PostEndrun.meta_description
     keywords = PostEndrun.keywords
+    yazar = PostEndrun.yazar
 
     thumbnail_url = None
 
@@ -223,6 +224,7 @@ def Enderun(request, post_slug):
         'H1': H1,
         'description': description,
         'keywords': keywords,
+        'yazar': yazar,
         'icerik': PostEndrun,
         'populer': populer,
         'editor': editor,
