@@ -563,7 +563,8 @@ def indexing_var_mi(request):
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.indexing = False
         post.save()
-        return HttpResponse(f"https://www.cocukmasallarioku.com/{'masal-oku' if post.Model == 'Masal' else 'hikaye-oku'}/{post.slug}/")
+        return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/")
+        #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
         return HttpResponse("post bulunamadı.")
 
