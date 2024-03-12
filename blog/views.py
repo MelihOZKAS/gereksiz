@@ -346,7 +346,6 @@ def gizlilik(request):
     }
     return render(request, 'Hepsi/gizlilik.html', context)
 
-
 def kullanim(request):
     title = "Kullanım Koşulları YüksekTeknoloji.com | Kullanım Şartları"
     description = "Kullanım koşulları. Sitemizi kullanırken şartlara uymanız gerektiğini öğrenin. Kullanıcılarımızın güvenliği ve memnuniyeti bizim için önemlidir. Teknoloji"
