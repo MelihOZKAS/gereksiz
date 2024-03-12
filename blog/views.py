@@ -307,7 +307,7 @@ def iletisim(request):
 
 def hakkinda(request):
     title = "Hakkımızda YüksekTeknoloji.com | Türkiye’nin Öncü Teknoloji Platformu"
-    description = "YüksekTeknoloji.com, Türkiye’nin en güncel teknoloji haberlerini, incelemelerini ve analizlerini sunan öncü bir platformdur. Teknoloji haberlerinin yeni adresi"
+    description = "YüksekTeknoloji.com, Türkiyenin güncel teknoloji haberlerini incelemelerini ve analizlerini sunan öncü bir platformdur. Teknoloji haberlerinin yeni adresi"
     keywords = "Teknoloji haberleri, araba haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com Hakkında: Türkiye’nin Öncü Teknoloji Haberleri Platformu"
     context = {
@@ -335,7 +335,7 @@ def cerez(request):
 
 def gizlilik(request):
     title = "Gizlilik YüksekTeknoloji.com | Bilgilerinizin Korunması"
-    description = "YüksekTeknoloji.com gizlilik politikası Kişisel bilgilerinizin nasıl korunduğunu ve kullanıldığını öğrenin. Kullanıcılarımızın gizliliği bizim için en önemlidir"
+    description = "YüksekTeknoloji.com gizlilik politikası Kişisel bilgilerinizin nasıl korunduğunu ve kullanıldığını öğrenin. Gizliliğiniz bizim için en önemlidir."
     keywords = "Gizlilik Politikası, YüksekTeknoloji.com, Kişisel Bilgiler, Veri Koruma, Kullanıcı Gizliliği"
     h1 = "YüksekTeknoloji.com Gizlilik Politikası: Kişisel Bilgileriniz Güvende"
     context = {
