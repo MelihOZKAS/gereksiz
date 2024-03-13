@@ -40,6 +40,25 @@
 {% endblock extra_head %}
 
 
+{% block extra_Two_head %}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri",
+      "item": "https://www.yuksekteknoloji.com/"
+    }
+  ]
+
+}
+</script>
+{% endblock %}
+
+
 {% block pageicerik %}
     <!-- ======= Hero Slider Section ======= -->
     <h1 style="display: none;">Yüksek Teknoloji | Bilgisayar, Telefon, Oyun ve Otomobil Haberleri</h1>

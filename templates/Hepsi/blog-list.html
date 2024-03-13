@@ -57,7 +57,29 @@
 {% endblock %}
 
 
+{% block extra_Two_head %}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri",
+      "item": "https://www.yuksekteknoloji.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ Post_Kategorisi.H1 }}",
+      "item": "https://www.yuksekteknoloji.com/{{ Post_Kategorisi.slug }}/"
+    }
+  ]
 
+}
+</script>
+{% endblock %}
 
 
 
