@@ -10,6 +10,7 @@ status_cho = (
     ("oto", "oto"),
     ("manuel", "manuel"),
 )
+
 HELP_TEXTS = {
     "title": "Masal Hiyenin başlığını girin.",
     "h1": "İçeriğin H1 Seo uyumlu girilmesi Lazım.",
@@ -32,6 +33,7 @@ HELP_TEXTS = {
     "Story Catagory": "Hikayenin kategorisi",
     "Wp-TG": "Whatsapp ve Telegramda paylaş",
 }
+
 def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
     yeni_ad = f"{instance.slug}"
