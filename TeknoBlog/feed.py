@@ -9,7 +9,7 @@ class TeknolojiHaberleriFeed(Feed):
 
     def items(self):
         PostKategorisi = PostKategori.objects.get(short_title="Teknoloji")
-        return Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=PostKategorisi).order_by('-guncelleme_tarihi')[:5]
+        return Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=PostKategorisi).order_by('-olusturma_tarihi')[:5]
 
     def item_title(self, item):
         return item.title
