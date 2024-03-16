@@ -7,7 +7,7 @@ from blog.models import Post, PostKategori
 
 class MainHaberleriFeed(Feed):
     title = "En son teknoloji Haberleri"
-    link = "/feeds/"
+    link = "/feeds/soneklenen/"
     description = "Dünyadan anlık teknoloji, bilim, oyun ve otomobil haberleri"
 
     def items(self):
