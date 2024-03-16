@@ -26,7 +26,7 @@ urlpatterns = [
     path('sitemap-<section>.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", robots_txt, name="robots"),
-    path('feeds/soneklenen/', MainHaberleriFeed(), name='feeds_main'),
+    path('feeds', MainHaberleriFeed(), name='feeds_main'),
     path('feeds/teknoloji/', TeknolojiHaberleriFeed(), name='teknoloji_feed'),
     path('feeds/bilim/', BilimHaberleriFeed(), name='bilim_feed'),
     path('feeds/otomobil/', OtomobilHaberleriFeed(), name='otomobil_feed'),
