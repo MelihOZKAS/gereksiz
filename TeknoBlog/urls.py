@@ -28,6 +28,10 @@ urlpatterns = [
     path("robots.txt", robots_txt, name="robots"),
     path('feeds/teknoloji/', TeknolojiHaberleriFeed(), name='teknoloji_feed'),
     path('feeds/bilim/', BilimHaberleriFeed(), name='bilim_feed'),
+    path('feeds/otomobil/', OtomobilHaberleriFeed(), name='otomobil_feed'),
+    path('feeds/oyun/', OyunHaberleriFeed(), name='oyun_feed'),
+    path('feeds/telefon/', TelefonHaberleriFeed(), name='telefon_feed'),
+    path('feeds/', MainHaberleriFeed(), name='feeds'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
                                                                                            document_root=settings.MEDIA_ROOT)
