@@ -2,6 +2,26 @@ from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from blog.models import Post, PostKategori
 
+
+
+
+class MainHaberleriFeed(Feed):
+    title = "En son teknoloji Haberleri"
+    link = "/feeds/"
+    description = "Dünyadan anlık teknoloji, bilim, oyun ve otomobil haberleri"
+
+    def items(self):
+        return Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:50]
+    def item_title(self, item):
+        return item.title
+    def item_description(self, item):
+        return item.meta_description
+    def item_link(self, item):
+        return reverse('post-getir', args=[item.slug])
+    def item_pubdate(self, item):
+        return item.olusturma_tarihi
+    def item_author_name(self, item):
+        return item.yazar
 class TeknolojiHaberleriFeed(Feed):
     title = "Teknoloji Haberleri"
     link = "/feeds/teknoloji/"
@@ -99,21 +119,3 @@ class TelefonHaberleriFeed(Feed):
     def item_author_name(self, item):
         return item.yazar
 
-
-class MainHaberleriFeed(Feed):
-    title = "En son teknoloji Haberleri"
-    link = "/feeds/"
-    description = "Dünyadan anlık teknoloji, bilim, oyun ve otomobil haberleri"
-
-    def items(self):
-        return Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:50]
-    def item_title(self, item):
-        return item.title
-    def item_description(self, item):
-        return item.meta_description
-    def item_link(self, item):
-        return reverse('post-getir', args=[item.slug])
-    def item_pubdate(self, item):
-        return item.olusturma_tarihi
-    def item_author_name(self, item):
-        return item.yazar
