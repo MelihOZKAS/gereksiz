@@ -15,7 +15,7 @@ class TeknolojiHaberleriFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return item.description
+        return item.meta_description
 
     def item_link(self, item):
         return reverse('post-getir', args=[item.slug])
