@@ -241,7 +241,7 @@ def fadilEnderun(request):
     PostEndrun = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi').first()
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save()
+    PostEndrun.save(update_fields=['okunma_sayisi'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
