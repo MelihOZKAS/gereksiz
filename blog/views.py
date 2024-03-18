@@ -198,7 +198,7 @@ def Enderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save()
+    PostEndrun.save(update_fields=['okunma_sayisi'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
