@@ -74,7 +74,7 @@
                                 <div class="swiper-slide">
                                     <a href="{% url 'post-getir' post_slug=carusel.slug %}"
                                        class="img-bg d-flex align-items-end"
-                                       style="background-image: url('{{ carusel.resim.url }}');">
+                                       style="border-radius: 10px; margin-bottom: 10px; background-image: url('{{ carusel.resim.url }}');">
                                         <div class="img-bg-inner">
                                             <h2>{{ carusel.title }}</h2>
                                             <p>{{ carusel.icerik|truncatechars:120|safe }}.</p>
