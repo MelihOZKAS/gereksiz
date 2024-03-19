@@ -113,7 +113,7 @@
                     <div class="row g-5">
                         <div class="col-lg-4 border-start custom-border">
                             {% for solX in HomeTeknolojiSol %}
-                                <div class="post-entry-1">
+                                <div class="post-entry-1" style="border-radius: 10px; margin-bottom: 10px;">
                                     <a href="{% url 'post-getir' post_slug=solX.slug %}"><img src="{{ solX.resim.url }}"
                                                                                               alt="{{ solX.title }}"
                                                                                               class="img-fluid"></a>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="col-lg-4 border-start custom-border">
                             {% for sagX in HomeTeknolojiSag %}
-                                <div class="post-entry-1">
+                                <div class="post-entry-1" style="border-radius: 10px; margin-bottom: 10px;">
                                     <a href="{% url 'post-getir' post_slug=sagX.slug %}"><img src="{{ sagX.resim.url }}"
                                                                                               alt="{{ sagX.title }}"
                                                                                               class="img-fluid"></a>
