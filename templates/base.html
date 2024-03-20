@@ -14,16 +14,14 @@
     <!-- Robots Etiketi -->
     <meta name="robots" content="index, follow">
 
-    {% set url = request.build_absolute_uri %}
-    {% set canonical_url = url[:url.find('?')] %}
-
-    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path }}"/>
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
     <meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">
     <meta property="og:url" content="{% block ogurl %}OG url{% endblock %}">
     <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
+
 
 
     <!-- Twitter Card Etiketleri -->
@@ -55,7 +53,7 @@
     <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
     <!-- Yandex Code -->
-    <meta name="yandex-verification" content="5d51627656f22f62"/>
+    <meta name="yandex-verification" content="5d51627656f22f62" />
     <meta name="google-adsense-account" content="ca-pub-7065951693101615">
 
 
