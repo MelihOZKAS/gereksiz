@@ -14,7 +14,7 @@
     <!-- Robots Etiketi -->
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path }}"/>
+    {% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}"/>{% endblock %}
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
@@ -55,6 +55,15 @@
     <!-- Yandex Code -->
     <meta name="yandex-verification" content="5d51627656f22f62" />
     <meta name="google-adsense-account" content="ca-pub-7065951693101615">
+
+
+    <link rel="alternate" type="application/rss+xml" title="Teknoloji Haberleri" href="{% url 'teknoloji_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Bilim Haberleri" href="{% url 'bilim_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Otomobil Haberleri" href="{% url 'otomobil_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Oyun Haberleri" href="{% url 'oyun_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Telefon Haberleri" href="{% url 'telefon_feed' %}" />
+
+
 
 
     {% block extra_head %}
