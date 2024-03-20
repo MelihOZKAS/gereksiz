@@ -30,6 +30,7 @@ urlpatterns = [
     path("index-ver/", views.indexing_var_mi, name="indexver"),
     path("Ads.txt/", views.ads, name="ads"),
     path("ads.txt/", views.ads, name="ads"),
+    path("sill.txt/", views.delete_duplicates),
 
 
 

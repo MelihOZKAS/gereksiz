@@ -573,3 +573,21 @@ def ads(request):
     return HttpResponse(ads_content, content_type="text/plain")
 
 ads_content = """google.com, pub-7065951693101615, DIRECT, f08c47fec0942fa0"""
+
+
+
+def delete_duplicates(request):
+    # Mahsul_Link alanına göre grupla ve birden fazla olanları al
+    duplicate_rows = Mahsul.objects.values('Mahsul_Link').annotate(link_count=Count('Mahsul_Link')).filter(link_count__gt=1)
+
+    deleted_links = []  # Silinen linkleri saklamak için bir liste oluştur
+
+    for row in duplicate_rows:
+        # Her grup için, ilk örneği hariç tüm örnekleri sil
+        duplicates = Mahsul.objects.filter(Mahsul_Link=row['Mahsul_Link']).exclude(id=Mahsul.objects.filter(Mahsul_Link=row['Mahsul_Link']).first().id)
+        deleted_links.extend([obj.Mahsul_Link for obj in duplicates])  # Silinen linkleri listeye ekle
+        duplicates.delete()
+
+    # Silinen linkleri HttpResponse ile döndür
+    response = "\n".join(deleted_links)
+    return HttpResponse(response, content_type='text/plain')
