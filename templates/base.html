@@ -14,8 +14,7 @@
     <!-- Robots Etiketi -->
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="{{ request.META['HTTP_HOST'] }}{{ request.path }}">
-
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path }}"/>
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
