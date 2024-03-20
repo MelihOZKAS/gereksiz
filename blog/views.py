@@ -12,7 +12,7 @@ from django.utils.html import strip_tags
 from html import unescape
 import random
 from django.utils import timezone
-from django.db.models import Q
+from django.db.models import Q, Count
 import environ
 env = environ.Env(DEBUG=(bool,False))
 environ.Env.read_env()
