@@ -14,7 +14,9 @@
     <!-- Robots Etiketi -->
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://{{ request.get_host }}{{ request.path }}"/>
+    {% with request.build_absolute_uri as full_url %}
+    <link rel="canonical" href="{{ full_url|split:'?sayfa'|first }}">
+    {% endwith %}
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
