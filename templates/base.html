@@ -57,11 +57,11 @@
     <meta name="google-adsense-account" content="ca-pub-7065951693101615">
 
 
-    <link rel="alternate" type="application/rss+xml" title="Teknoloji Haberleri" href="{% url 'teknoloji_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Bilim Haberleri" href="{% url 'bilim_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Otomobil Haberleri" href="{% url 'otomobil_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Oyun Haberleri" href="{% url 'oyun_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Telefon Haberleri" href="{% url 'telefon_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Teknoloji Haberleri" href="https://{{ request.get_host }}{% url 'teknoloji_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Bilim Haberleri" href="https://{{ request.get_host }}{% url 'bilim_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Otomobil Haberleri" href="https://{{ request.get_host }}{% url 'otomobil_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Oyun Haberleri" href="https://{{ request.get_host }}{% url 'oyun_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Telefon Haberleri" href="https://{{ request.get_host }}{% url 'telefon_feed' %}" />
 
 
 
