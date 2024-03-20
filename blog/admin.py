@@ -43,7 +43,7 @@ def create_unique_title_slug(title):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "slug", "okunma_sayisi", "seo_check", "status", "olusturma_tarihi", "guncelleme_tarihi", "editor","banner","aktif",)#"get_hikayeKategorisi", "get_masalKategorisi",
+    list_display = ("title", "slug", "yazar", "okunma_sayisi", "seo_check", "status", "olusturma_tarihi", "guncelleme_tarihi", "editor","banner","aktif",)#"get_hikayeKategorisi", "get_masalKategorisi",
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ("title",)
     list_filter = ("status","aktif","banner","editor",)
