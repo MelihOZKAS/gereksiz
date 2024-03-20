@@ -173,7 +173,7 @@ class Mahsul(models.Model):
         ('Beklemede', 'Beklemede'),
     ]
     Tarla_Link = models.URLField(blank=True, null=True)
-    Mahsul_Link = models.URLField(blank=True, null=True)
+    Mahsul_Link = models.URLField(blank=True, null=True, unique=True)
     Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
     Aciklama = models.CharField(max_length=255, blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)

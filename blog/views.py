@@ -14,6 +14,7 @@ import random
 from django.utils import timezone
 from django.db.models import Q, Count
 import environ
+from django.db import IntegrityError
 env = environ.Env(DEBUG=(bool,False))
 environ.Env.read_env()
 
@@ -441,6 +442,8 @@ def real_post_add(request):
 
 
 
+
+
 @csrf_exempt
 def mahsulyakala(request):
     if request.method == 'POST':
@@ -449,13 +452,17 @@ def mahsulyakala(request):
             for item in data:
                 Main_Link = item.get('Main_Link')
                 Post_Link = item.get('Post_Link')
-                mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
-                mahsulkayit.save()
+                try:
+                    mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
+                    mahsulkayit.save()
+                except IntegrityError:
+                    return JsonResponse({"error": f"{Post_Link} zaten var."}, status=400)
             return JsonResponse({"message": "Başarılı"})
         else:
             return JsonResponse({"error": "Geçersiz Content-Type başlığı"}, status=400)
     else:
         return JsonResponse({"method": request.method, "headers": dict(request.headers)})
+
 
 
 @csrf_exempt
