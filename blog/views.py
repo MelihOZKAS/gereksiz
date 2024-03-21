@@ -456,12 +456,13 @@ def mahsulyakala(request):
                     mahsulkayit = Mahsul(Tarla_Link=Main_Link, Mahsul_Link=Post_Link, Akibeti='Beklemede')
                     mahsulkayit.save()
                 except IntegrityError:
-                    return JsonResponse({"error": f"{Post_Link} zaten var."}, status=400)
+                    continue  # Bu satırı ekledim.
             return JsonResponse({"message": "Başarılı"})
         else:
             return JsonResponse({"error": "Geçersiz Content-Type başlığı"}, status=400)
     else:
         return JsonResponse({"method": request.method, "headers": dict(request.headers)})
+
 
 
 
