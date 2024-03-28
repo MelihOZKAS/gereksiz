@@ -430,8 +430,7 @@ def real_post_add(request):
 
         Post_Turu_Gelen = PostKategori.objects.get(short_title=Post_Turu)
 
-        NewSlug = f"haberleri"
-        slug = create_unique_title_slug(NewSlug)
+        title, slug = create_unique_title_slug(title)
         siir_masal = Post(ozet=ZekaOzet, title=title, hiddenTitle=hiddenTitle,  slug=slug, h1=h1, hiddenH1=hiddenH1, Post_Turu=Post_Turu_Gelen, icerik=icerik, info=info, hiddenKeys=hiddenKeys, meta_description=meta_description, Kaynak_Linki=Kaynak_Linki)
         siir_masal.save()
 
