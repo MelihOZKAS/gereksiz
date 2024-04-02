@@ -583,7 +583,7 @@ def facebook_var_mi(request):
         post.facebook = False
         icerik = unescape(strip_tags(post.ozet))
         if not icerik:
-            icerik = "Haberin devamı için tıklayın"
+            icerik = "Haberin devamı için tıklayın!"
         post.save()
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
         #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
