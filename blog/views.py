@@ -581,7 +581,7 @@ def facebook_var_mi(request):
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.facebook = False
-        icerik = unescape(strip_tags(post.ozet))
+        icerik = unescape(strip_tags(post.Ozet))
         post.save()
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
         #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
