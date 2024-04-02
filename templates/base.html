@@ -18,7 +18,9 @@
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
-    <meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">
+
+    {% block sosyal_post_image %}<meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">{% endblock %}
+    <!--<meta property="og:image" content="{% static 'assets/logo/logo.webp' %}"> -->
     <meta property="og:url" content="{% block ogurl %}OG url{% endblock %}">
     <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
 
@@ -30,7 +32,8 @@
     <meta name="twitter:creator" content="{% block twcreator %}tw creator{% endblock %}">
     <meta name="twitter:title" content="{% block twtitle %}tw title{% endblock %}">
     <meta name="twitter:description" content="{% block twdesc %}tw description{% endblock %}">
-    <meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}">
+    {% block tt_post_image %}<meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}">{% endblock %}
+    <!-- <meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}"> -->
 
     <!-- Favicons -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
