@@ -108,6 +108,8 @@ class Post(models.Model):
     indexing = models.BooleanField(default=False, help_text="Indexlensin mi?")
     banner = models.BooleanField(default=False, help_text=HELP_TEXTS["banner"])
     editor = models.BooleanField(default=False,help_text=HELP_TEXTS["small_banner"])
+    facebook = models.BooleanField(default=True, help_text="Facebook da Paylaşılsın mı ?")
+    twitter = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
     Kaynak_Linki = models.URLField(blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
