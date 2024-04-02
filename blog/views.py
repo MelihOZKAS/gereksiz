@@ -575,7 +575,18 @@ def indexing_var_mi(request):
     else:
         return HttpResponse("post bulunamadı.")
 
-
+@csrf_exempt
+def facebook_var_mi(request):
+    post = Post.objects.filter(facebook=True, aktif=True, status="Yayinda").first()
+    if post is not None:
+        # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
+        post.facebook = False
+        icerik = unescape(strip_tags(post.ozet))
+        post.save()
+        return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
+        #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
+    else:
+        return HttpResponse("post bulunamadı.")
 
 @require_GET
 def ads(request):
