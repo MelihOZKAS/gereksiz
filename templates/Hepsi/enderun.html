@@ -153,6 +153,9 @@
                         <p><span
                                 class="firstcharacter">{{ icerik.icerik|safe|slice:"3:4" }}</span> {{ icerik.icerik|safe|slice:"4:" }}
                         </p>
+                    {% if twitterwidget %}
+                        {{ twitterwidget|safe }}
+                    {% endif %}
                     </div><!-- End Single Post Content -->
 
 
