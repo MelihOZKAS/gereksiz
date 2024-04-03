@@ -212,6 +212,7 @@ def Enderun(request, post_slug):
     description = PostEndrun.meta_description
     keywords = PostEndrun.keywords
     yazar = PostEndrun.yazar
+    twitterwidget = PostEndrun.twitterwidget
 
     thumbnail_url = None
 
@@ -225,6 +226,7 @@ def Enderun(request, post_slug):
         'description': description,
         'keywords': keywords,
         'yazar': yazar,
+        'twitterwidget': twitterwidget,
         'icerik': PostEndrun,
         'populer': populer,
         'editor': editor,
