@@ -29,6 +29,7 @@ urlpatterns = [
     path("oto-paylas/", views.Oto_Paylas),
     path("index-ver/", views.indexing_var_mi, name="indexver"),
     path("facebook-cek/", views.facebook_var_mi, name="facebookcek"),
+    path("twitter-cek/", views.twitter_var_mi, name="twittercek"),
     path("Ads.txt/", views.ads, name="ads"),
     path("ads.txt/", views.ads, name="ads"),
     path("sill.txt/", views.delete_duplicates),
