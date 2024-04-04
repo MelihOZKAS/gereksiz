@@ -182,7 +182,8 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full',
+        'toolbar': None,
+        'allowedContent': True,
         'height': 400,
         'width': 900,
     },
