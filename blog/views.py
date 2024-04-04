@@ -586,7 +586,7 @@ def facebook_var_mi(request):
         icerik = unescape(strip_tags(post.ozet))
         if not icerik:
             icerik = "Haberin devamı için tıklayın!"
-        post.save()
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
         #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
@@ -604,7 +604,7 @@ def twitter_var_mi(request):
         hashtag = "#" + kategorisi.short_title if kategorisi.short_title else ""
         if not icerik:
             icerik = "Haberin devamı için tıklayın!"
-        post.save()
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik} {hashtag} Haberin devamı için lütfen tıklayın!")
     else:
         return HttpResponse("post bulunamadı.")
