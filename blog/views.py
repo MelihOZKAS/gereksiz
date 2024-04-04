@@ -592,6 +592,23 @@ def facebook_var_mi(request):
     else:
         return HttpResponse("post bulunamadı.")
 
+
+@csrf_exempt
+def twitter_var_mi(request):
+    post = Post.objects.filter(twitter=True, aktif=True, status="Yayinda").first()
+    if post is not None:
+        # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
+        post.twitter = False
+        icerik = post.h1
+        kategorisi = post.Post_Turu
+        hashtag = "#" + kategorisi.short_title if kategorisi.short_title else ""
+        if not icerik:
+            icerik = "Haberin devamı için tıklayın!"
+        post.save()
+        return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik} {hashtag} Haberin devamı için lütfen tıklayın!")
+    else:
+        return HttpResponse("post bulunamadı.")
+
 @require_GET
 def ads(request):
     return HttpResponse(ads_content, content_type="text/plain")
