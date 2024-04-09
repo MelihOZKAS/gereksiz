@@ -172,10 +172,10 @@
                                 <img src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
                                      class="img-fluid" height="400" width="650"
                                      style="margin: auto; display: block; border-radius: 20px;">
-                              <!--  <figcaption>{{ icerik.title }} </figcaption> -->
+                                <!--  <figcaption>{{ icerik.title }} </figcaption> -->
                             </figure>
                         {% endif %}
-<!-- başlar -->
+
 
                         {% if icerik.youtube2 %}
                             <br>
@@ -196,13 +196,20 @@
                             </div>
                             <br>
                         {% endif %}
+                        <!-- başlar -->
+
+                        {% if icerik.icerik2 %}
+
+                            <br>
+                            <div> {{ icerik.icerik2|safe }} </d>
+                            <br>
+                        {% endif %}
 
 
 
 
 
-
-<!-- Bitiş -->
+                        <!-- Bitiş -->
 
 
 
@@ -210,10 +217,10 @@
                         </div> <!-- End Single Post Content -->
 
 
-                        </div>
-                        {% include 'parcali/sagnavbar.html' %}
                     </div>
+                    {% include 'parcali/sagnavbar.html' %}
                 </div>
+            </div>
     </section>
 
 
