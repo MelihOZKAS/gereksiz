@@ -148,7 +148,6 @@
                             </div>
                             <br>
                             <br>
-                            <br>
                         {% endif %}
 
 
@@ -157,16 +156,17 @@
                                     class="firstcharacter">{{ icerik.icerik|safe|slice:"3:4" }}</span> {{ icerik.icerik|safe|slice:"4:" }}
                         </div>
 
-                        <br>
+
 
                         {% if twitterwidget %}
                             <div style="display: flex; justify-content: center;">
                                 {{ twitterwidget|safe }}
                             </div>
                         {% endif %}
-                        <br>
+
 
                         {% if icerik.resim2 %}
+                            <br>
                             <figure class="my-4">
                                 <img src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
                                      class="img-fluid" height="400" width="650"
