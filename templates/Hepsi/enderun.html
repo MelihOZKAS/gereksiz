@@ -148,6 +148,7 @@
                             </div>
                             <br>
                             <br>
+
                         {% endif %}
 
 
@@ -165,6 +166,15 @@
                         {% endif %}
 
 
+                        {% if icerik.resim2 %}
+                            <br>
+                            <figure class="my-4">
+                                <img src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
+                                     class="img-fluid" height="400" width="650"
+                                     style="margin: auto; display: block; border-radius: 20px;">
+                              <!--  <figcaption>{{ icerik.title }} </figcaption> -->
+                            </figure>
+                        {% endif %}
 
 
                         {% if icerik.youtube2 %}
@@ -196,6 +206,14 @@
                         {% endif %}
 
 
+                        {% if icerik.resim3 %}
+                            <figure class="my-4">
+                                <img src="{{ icerik.resim3.url }}" alt="{{ icerik.title }} - 3"
+                                     class="img-fluid" height="400" width="650"
+                                     style="margin: auto; display: block; border-radius: 20px;">
+                                <!--  <figcaption>{{ icerik.title }} </figcaption> -->
+                            </figure>
+                        {% endif %}
 
 
                         {% if icerik.youtube3 %}
@@ -235,7 +253,7 @@
 
 
 
-                        </div><!-- End Single Post Content -->
+                        </div> <!-- End Single Post Content -->
 
 
                         </div>
