@@ -157,7 +157,30 @@
                                     class="firstcharacter">{{ icerik.icerik|safe|slice:"3:4" }}</span> {{ icerik.icerik|safe|slice:"4:" }}
                         </div>
 
+<!-- başlar -->
 
+                        {% if twitterwidget %}
+                            <div style="display: flex; justify-content: center;">
+                                {{ twitterwidget|safe }}
+                            </div>
+                        {% endif %}
+
+
+                        {% if icerik.resim2 %}
+                            <br>
+                            <figure class="my-4">
+                                <img src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
+                                     class="img-fluid" height="400" width="650"
+                                     style="margin: auto; display: block; border-radius: 20px;">
+                              <!--  <figcaption>{{ icerik.title }} </figcaption> -->
+                            </figure>
+                        {% endif %}
+
+
+
+
+
+<!-- Bitiş -->
 
 
 
