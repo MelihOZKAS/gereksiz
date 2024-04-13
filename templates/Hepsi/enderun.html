@@ -279,19 +279,30 @@
                                 animation-delay: calc(.2s * var(--i));
                             }
 
-@keyframes renkDegisimi {
-    0% { border-color: #000; }   /* Siyah */
-    33% { border-color: #f00; }  /* Kırmızı */
-    66% { border-color: #008000; }  /* Yeşil */
-    100% { border-color: #000; } /* Siyah */
-}
+                            @keyframes renkDegisimi {
+                                0% {
+                                    border-color: #000;
+                                }
+                                /* Siyah */
+                                33% {
+                                    border-color: #f00;
+                                }
+                                /* Kırmızı */
+                                66% {
+                                    border-color: #008000;
+                                }
+                                /* Yeşil */
+                                100% {
+                                    border-color: #000;
+                                }
+                                /* Siyah */
+                            }
 
-.social-icons {
-    border-top: 3px solid #000;
-    border-bottom: 3px solid #000;
-    animation: renkDegisimi 2s infinite;
-}
-
+                            .social-icons {
+                                border-top: 3px solid #000;
+                                border-bottom: 3px solid #000;
+                                animation: renkDegisimi 2s infinite;
+                            }
 
 
                         </style>
@@ -315,12 +326,12 @@
                                                        aria-label="Haberi Whatsapp'da Paylaş"
                                                        title="Haberi Whatsapp'da Paylaş"
                                                        role="button" style="--i: 2;"></i></a></li>
-                    <!--        <li class="list-inline-item"><a href="https://www.instagram.com/"
-                                                            target="_blank"><i class="bi bi-instagram"
-                                                                               aria-label="Hikaye ve Masalı instagram'da Paylaş"
-                                                                               title="Hikaye ve Masalı instagram'da Paylaş"
-                                                                               role="button"
-                                                                               style="--i: 3;"></i></a></li> -->
+                            <!--        <li class="list-inline-item"><a href="https://www.instagram.com/"
+                                                                    target="_blank"><i class="bi bi-instagram"
+                                                                                       aria-label="Hikaye ve Masalı instagram'da Paylaş"
+                                                                                       title="Hikaye ve Masalı instagram'da Paylaş"
+                                                                                       role="button"
+                                                                                       style="--i: 3;"></i></a></li> -->
                             <li class="list-inline-item"><a
                                     href="https://telegram.me/share/url?url={{ request.build_absolute_uri }}"
                                     target="_blank"><i class="bi bi-telegram"
@@ -329,20 +340,30 @@
                                                        role="button" style="--i: 4;"></i></a></li>
 
                             <!-- Pinterest için -->
-<li class="list-inline-item">
-    <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}" target="_blank">
-        <i class="bi bi-pinterest" aria-label="Haberi Pinterest'te Paylaş" title="Haberi Pinterest'te Paylaş" role="button" style="--i: 1;"></i>
-    </a>
-</li>
+                            <li class="list-inline-item">
+                                <a href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}"
+                                   target="_blank">
+                                    <i class="bi bi-pinterest" aria-label="Haberi Pinterest'te Paylaş"
+                                       title="Haberi Pinterest'te Paylaş" role="button" style="--i: 1;"></i>
+                                </a>
+                            </li>
 
-<!-- LinkedIn için -->
-<li class="list-inline-item">
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}" target="_blank">
-        <i class="bi bi-linkedin" aria-label="Haberi LinkedIn'de Paylaş" title="Haberi LinkedIn'de Paylaş" role="button" style="--i: 2;"></i>
-    </a>
-</li>
+                            <!-- LinkedIn için -->
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}"
+                                   target="_blank">
+                                    <i class="bi bi-linkedin" aria-label="Haberi LinkedIn'de Paylaş"
+                                       title="Haberi LinkedIn'de Paylaş" role="button" style="--i: 2;"></i>
+                                </a>
+                            </li>
 
-
+                            <li class="list-inline-item">
+                                <a href="https://news.google.com/publications/CAAqBwgKMODRqAww1q_tAg?ceid=TR:tr&oc=3"
+                                   target="_blank" class="thb-google-news">
+                                    <span class="sub-image"></span>
+                                    <span class="sub-text">Abone Ol</span>
+                                </a>
+                            </li>
 
 
                             <li class="list-inline-item"><a href="#"
