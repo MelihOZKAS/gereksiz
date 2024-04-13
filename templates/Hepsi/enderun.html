@@ -279,10 +279,18 @@
                                 animation-delay: calc(.2s * var(--i));
                             }
 
-                            .social-icons {
-                                border-top: 1px solid #000; /* Üst çizgi */
-                                border-bottom: 1px solid #000; /* Alt çizgi */
-                            }
+@keyframes renkDegisimi {
+    0% { border-color: #000; }
+    50% { border-color: #f00; }
+    100% { border-color: #000; }
+}
+
+.social-icons {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    animation: renkDegisimi 2s infinite;
+}
+
 
                         </style>
 
