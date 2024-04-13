@@ -226,7 +226,6 @@ def Enderun(request, post_slug):
         'description': description,
         'keywords': keywords,
         'yazar': yazar,
-        'twitterwidget': twitterwidget,
         'icerik': PostEndrun,
         'populer': populer,
         'editor': editor,
