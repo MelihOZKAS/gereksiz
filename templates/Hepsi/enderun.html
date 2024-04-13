@@ -172,7 +172,7 @@
                                 <img src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
                                      class="img-fluid" height="400" width="650"
                                      style="margin: auto; display: block; border-radius: 20px;">
-                              <!--  <figcaption>{{ icerik.title }} </figcaption> -->
+                                <!--  <figcaption>{{ icerik.title }} </figcaption> -->
                             </figure>
                         {% endif %}
 
@@ -190,18 +190,22 @@
                         {% endif %}
 
 
-                        {% if icerik.twitterwidget2 %}
-                            <div style="display: flex; justify-content: center;">
-                                {{ icerik.twitterwidget2|safe }}
-                            </div>
-                            <br>
-                        {% endif %}
+
 
 
                         {% if icerik.icerik2 %}
 
                             <br>
                             <div> {{ icerik.icerik2|safe }} </div>
+                            <br>
+                        {% endif %}
+
+
+
+                        {% if icerik.twitterwidget2 %}
+                            <div style="display: flex; justify-content: center;">
+                                {{ icerik.twitterwidget2|safe }}
+                            </div>
                             <br>
                         {% endif %}
 
@@ -247,17 +251,13 @@
                         {% endif %}
 
 
+                    </div> <!-- End Single Post Content -->
 
 
-
-
-                        </div> <!-- End Single Post Content -->
-
-
-                        </div>
-                        {% include 'parcali/sagnavbar.html' %}
-                    </div>
                 </div>
+                {% include 'parcali/sagnavbar.html' %}
+            </div>
+        </div>
     </section>
 
 
