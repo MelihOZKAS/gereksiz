@@ -606,7 +606,7 @@ def twitter_var_mi(request):
         post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik} {hashtag} Haberin devamı için lütfen tıklayın!")
     else:
-        return HttpResponse("post bulunamadı.")
+        return HttpResponse("Paylaşılacak Twitter içerik bulunamadı")
 
 @require_GET
 def ads(request):
