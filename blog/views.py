@@ -519,7 +519,7 @@ def karepostcek(request):
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
             mahsul_cek.SosyalKare = "Tamamlandi"
-            mahsul_cek.save()
+            mahsul_cek.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
             title = strip_tags(mahsul_cek.title)
             icerik = unescape(strip_tags(mahsul_cek.ozet))
             Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
@@ -537,7 +537,7 @@ def send_Telegrampost(request):
 
     if GelenPost:
         GelenPost.gonder = False
-        GelenPost.save()
+        GelenPost.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
         title = GelenPost.title  # Postun başlığını al
         slug = GelenPost.slug  # Postun slug'ını al
         # İlgi çekici bir mesaj oluştur
@@ -570,7 +570,7 @@ def indexing_var_mi(request):
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.indexing = False
-        post.save()
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/")
         #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
