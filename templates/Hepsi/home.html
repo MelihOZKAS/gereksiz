@@ -62,10 +62,11 @@
 {% block pageicerik %}
     <!-- ======= Hero Slider Section ======= -->
     <h1 style="display: none;">Yüksek Teknoloji | Bilgisayar, Telefon, Oyun ve Otomobil Haberleri</h1>
-
+    {% if not request.user_agent.is_mobile %}
     <section id="hero-slider" class="hero-slider">
         <div class="container-md" data-aos="fade-in">
             <div class="row justify-content-center">
+
                 <div class="col-8">
 
                     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -83,7 +84,7 @@
                                      style="text-align: center;">
                                     <img src="{{ carousel.resim.url }}" class="d-block w-100" height="400"
                                          width="800" alt="{{ carousel.title }}"
-                                         style="margin: auto; border-radius: 10px; {% if request.user_agent.is_mobile %}width: 800px; height: 200px;{% endif %}">
+                                         style="margin: auto; border-radius: 10px;">
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5>{{ carousel.title }}</h5>
                                         <p>{{ carousel.icerik|truncatechars:120|safe }}</p>
@@ -109,6 +110,7 @@
             </div>
         </div>
     </section><!-- End Hero Slider Section -->
+    {% endif %}
 
     <!-- ======= Post Grid Section ======= -->
     <section id="posts" class="posts">
