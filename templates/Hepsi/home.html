@@ -58,12 +58,18 @@
 </script>
 {% endblock %}
 
+<script type="text/javascript">
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        // Kullanıcı bir mobil cihazda, carousel'i gizle
+        document.getElementById('myCarousel').style.display = 'none';
+    }
+</script>
 
 {% block pageicerik %}
     <!-- ======= Hero Slider Section ======= -->
     <h1 style="display: none;">Yüksek Teknoloji | Bilgisayar, Telefon, Oyun ve Otomobil Haberleri</h1>
 
-    <section id="hero-slider" class="hero-slider">
+    <section  class="hero-slider" id="myCarousel">
         <div class="container-md" data-aos="fade-in">
             <div class="row justify-content-center">
 
