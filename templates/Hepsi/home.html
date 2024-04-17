@@ -67,6 +67,7 @@
         <div class="container-md" data-aos="fade-in">
             <div class="row">
                 <div class="col-12">
+
                     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             {% for carousel in Banner %}
@@ -76,18 +77,19 @@
                                         aria-label="Slide {{ forloop.counter }}"></button>
                             {% endfor %}
                         </div>
-                        <div class="carousel-inner">
-                            {% for carousel in Banner %}
-                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                    <img src="{{ carousel.resim.url }}" class="d-block w-75" height="400"
-                                         width="800" alt="{{ carousel.title }}">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>{{ carousel.title }}</h5>
-                                        <p>{{ carousel.icerik|truncatechars:120|safe }}</p>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
+<div class="carousel-inner">
+    {% for carousel in Banner %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}" style="text-align: center;">
+            <img src="{{ carousel.resim.url }}" class="d-block w-75" height="400"
+                 width="800" alt="{{ carousel.title }}" style="margin: auto; border-radius: 10px;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>{{ carousel.title }}</h5>
+                <p>{{ carousel.icerik|truncatechars:120|safe }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
                         <button class="carousel-control-prev" type="button"
                                 data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
