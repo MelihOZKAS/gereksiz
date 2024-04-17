@@ -62,7 +62,7 @@
 {% block pageicerik %}
     <!-- ======= Hero Slider Section ======= -->
     <h1 style="display: none;">Yüksek Teknoloji | Bilgisayar, Telefon, Oyun ve Otomobil Haberleri</h1>
-    {% if not request.user_agent.is_mobile %}
+
     <section id="hero-slider" class="hero-slider">
         <div class="container-md" data-aos="fade-in">
             <div class="row justify-content-center">
@@ -78,7 +78,7 @@
                                         aria-label="Slide {{ forloop.counter }}"></button>
                             {% endfor %}
                         </div>
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" style="@media (max-width: 768px) { display: none; }">>
                             {% for carousel in Banner %}
                                 <div class="carousel-item {% if forloop.first %}active{% endif %}"
                                      style="text-align: center;">
@@ -110,7 +110,6 @@
             </div>
         </div>
     </section><!-- End Hero Slider Section -->
-    {% endif %}
 
     <!-- ======= Post Grid Section ======= -->
     <section id="posts" class="posts">
