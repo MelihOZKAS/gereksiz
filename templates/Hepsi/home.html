@@ -71,19 +71,27 @@
                         <div class="swiper-wrapper">
 
 
-                            {% for carusel in Banner %}
-                                <div class="swiper-slide">
-                                    <a href="{% url 'post-getir' post_slug=carusel.slug %}"
-                                       class="img-bg d-flex align-items-end"
-                                       style="border-radius: 10px; margin-bottom: 10px; background-image: url('{{ carusel.resim.url }}');">
-                                        <div class="img-bg-inner">
-                                            <h2>{{ carusel.title }}</h2>
-                                            <p>{{ carusel.icerik|truncatechars:120|safe }}.</p>
-                                        </div>
-                                    </a>
-                                </div>
+{% load static %}
 
-                            {% endfor %}
+{% for carousel in Banner %}
+    <div class="swiper-slide">
+        <a href="{% url 'post-getir' post_slug=carousel.slug %}"
+           class="img-bg d-flex align-items-end"
+           style="border-radius: 10px; margin-bottom: 10px;">
+            <div style="background-image: url('{{ carousel.resim.url }}');">
+                <img src="{{ carousel.resim.url }}"
+                     alt="{{ carousel.title }}"
+                     loading="lazy"
+                     style="opacity: 0;">
+            </div>
+            <div class="img-bg-inner">
+                <h2>{{ carousel.title }}</h2>
+                <p>{{ carousel.icerik|truncatechars:120|safe }}.</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
 
 
                         </div>
