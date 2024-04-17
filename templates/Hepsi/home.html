@@ -80,7 +80,7 @@
 <div class="carousel-inner">
     {% for carousel in Banner %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}" style="text-align: center;">
-            <img src="{{ carousel.resim.url }}" class="d-block w-75" height="400"
+            <img src="{{ carousel.resim.url }}" class="d-block w-100" height="400"
                  width="800" alt="{{ carousel.title }}" style="margin: auto; border-radius: 10px;">
             <div class="carousel-caption d-none d-md-block">
                 <h5>{{ carousel.title }}</h5>
