@@ -71,26 +71,32 @@
                         <div class="swiper-wrapper">
 
 
-{% load static %}
-
-{% for carousel in Banner %}
-    <div class="swiper-slide">
-        <a href="{% url 'post-getir' post_slug=carousel.slug %}"
-           class="img-bg d-flex align-items-end"
-           style="border-radius: 10px; margin-bottom: 10px;">
-            <div style="background-image: url('{{ carousel.resim.url }}');">
-                <img src="{{ carousel.resim.url }}"
-                     alt="{{ carousel.title }}"
-                     loading="lazy"
-                     style="opacity: 0;">
-            </div>
-            <div class="img-bg-inner">
-                <h2>{{ carousel.title }}</h2>
-                <p>{{ carousel.icerik|truncatechars:120|safe }}.</p>
-            </div>
-        </a>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {% for carousel in Banner %}
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+    {% endfor %}
+  </div>
+  <div class="carousel-inner">
+    {% for carousel in Banner %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{{ carousel.resim.url }}" class="d-block w-100" alt="{{ carousel.title }}">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ carousel.title }}</h5>
+        <p>{{ carousel.icerik|truncatechars:120|safe }}</p>
+      </div>
     </div>
-{% endfor %}
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Önceki</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Sonraki</span>
+  </button>
+</div>
 
 
 
