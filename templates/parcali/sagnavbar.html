@@ -30,7 +30,7 @@
 
                 {% for x in populer %}
                     <div class="post-entry-1 border-bottom">
-                        <div class="post-meta"><span class="date">{{ x.Post_Turu }}</span> <span
+                        <div class="post-meta" style="color: #8C0D0D;"><span class="date">{{ x.Post_Turu }}</span> <span
                                 class="mx-1">&bullet;</span> <span>{{ x.olusturma_tarihi|date:"d F Y" }}</span>
                         </div>
                         <h2 class="mb-2"><a href="{% url 'post-getir' post_slug=x.slug %}">{{ x.title }}</a>
@@ -47,7 +47,7 @@
 
                 {% for x in editor %}
                     <div class="post-entry-1 border-bottom">
-                        <div class="post-meta"><span class="date">{{ x.Post_Turu }}</span> <span
+                        <div class="post-meta" style="color: #8C0D0D;"><span class="date">{{ x.Post_Turu }}</span> <span
                                 class="mx-1">&bullet;</span>
                             <span>{{ x.olusturma_tarihi|date:"d F Y" }}</span>
                         </div>
@@ -65,7 +65,7 @@
             <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
                 {% for x in enson %}
                     <div class="post-entry-1 border-bottom">
-                        <div class="post-meta"><span class="date">{{ x.Post_Turu }}</span> <span
+                        <div class="post-meta" style="color: #8C0D0D;"><span class="date">{{ x.Post_Turu }}</span> <span
                                 class="mx-1">&bullet;</span> <span>{{ x.olusturma_tarihi|date:"d F Y" }}</span>
                         </div>
                         <h2 class="mb-2"><a href="{% url 'post-getir' post_slug=x.slug %}">{{ x.title }}</a></h2>

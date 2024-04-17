@@ -124,17 +124,11 @@
 
                     <!-- ======= Single Post Content ======= -->
                     <div class="single-post">
-                        <div class="post-meta"><span class="date">{{ icerik.Post_Turu }}</span> <span class="mx-1">&bullet;</span>
+                        <div class="post-meta" style="color: #8C0D0D;"><span class="date">{{ icerik.Post_Turu }}</span> <span class="mx-1">&bullet;</span>
                             <span>{{ icerik.olusturma_tarihi|date:"d F Y" }}</span>
                         </div>
                         <h1 class="mb-5">{{ H1 }}</h1>
-                        <figure class="my-4">
-                            <img src="{{ icerik.resim.url }}" alt="{{ icerik.title }}"
-                                 class="img-fluid" height="400" width="650"
-                                 style="margin: auto; display: block; border-radius: 20px;">
-                            <!--    <figcaption>Resim Açıklaması Kapalı
-                                </figcaption> -->
-                        </figure>
+
 
                         {% if icerik.youtube %}
                             <br>
