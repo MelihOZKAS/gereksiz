@@ -70,19 +70,29 @@
                     <div class="swiper sliderFeaturedPosts">
                         <div class="swiper-wrapper">
 
-                            {% for carusel in Banner %}
-                                <div class="swiper-slide">
-                                    <a href="{% url 'post-getir' post_slug=carusel.slug %}"
-                                       class="img-bg d-flex align-items-end"
-                                       style="border-radius: 10px; margin-bottom: 10px; background-image: url('{{ carusel.resim.url }}');">
-                                        <div class="img-bg-inner">
-                                            <h2>{{ carusel.title }}</h2>
-                                            <p>{{ carusel.icerik|truncatechars:120|safe }}.</p>
-                                        </div>
-                                    </a>
-                                </div>
 
-                            {% endfor %}
+
+{% for carousel in Banner %}
+    <div class="swiper-slide">
+        <a href="{% url 'post-getir' post_slug=carousel.slug %}"
+           class="img-bg d-flex align-items-end"
+           style="border-radius: 10px; margin-bottom: 10px;">
+            <img src="{{ carousel.resim.url }}"
+                 srcset="{{ carousel.resim.url|thumbnail_url:'large' }} 1024w,
+                         {{ carousel.resim.url|thumbnail_url:'medium' }} 640w,
+                         {{ carousel.resim.url|thumbnail_url:'small' }} 320w"
+                 sizes="(min-width: 36em) 33.3vw, 100vw"
+                 alt="{{ carousel.title }}"
+                 loading="lazy"
+                 style="width: 100%; height: auto;">
+            <div class="img-bg-inner">
+                <h2>{{ carousel.title }}</h2>
+                <p>{{ carousel.icerik|truncatechars:120|safe }}.</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
 
 
                         </div>
@@ -116,8 +126,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=solX.slug %}"><img src="{{ solX.resim.url }}"
                                                                                               alt="{{ solX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ solX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ solX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ solX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -131,8 +141,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=sagX.slug %}"><img src="{{ sagX.resim.url }}"
                                                                                               alt="{{ sagX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ sagX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -189,8 +199,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=solX.slug %}"><img src="{{ solX.resim.url }}"
                                                                                               alt="{{ solX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ solX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ solX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ solX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -204,8 +214,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=sagX.slug %}"><img src="{{ sagX.resim.url }}"
                                                                                               alt="{{ sagX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ sagX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -263,8 +273,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=solX.slug %}"><img src="{{ solX.resim.url }}"
                                                                                               alt="{{ solX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ solX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ solX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ solX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -278,8 +288,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=sagX.slug %}"><img src="{{ sagX.resim.url }}"
                                                                                               alt="{{ sagX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ sagX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -336,8 +346,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=solX.slug %}"><img src="{{ solX.resim.url }}"
                                                                                               alt="{{ solX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ solX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ solX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ solX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -351,8 +361,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=sagX.slug %}"><img src="{{ sagX.resim.url }}"
                                                                                               alt="{{ sagX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ sagX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -410,8 +420,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=solX.slug %}"><img src="{{ solX.resim.url }}"
                                                                                               alt="{{ solX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ solX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ solX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ solX.olusturma_tarihi|date:"d F Y" }}</span></div>
@@ -425,8 +435,8 @@
                                 <div class="post-entry-1">
                                     <a href="{% url 'post-getir' post_slug=sagX.slug %}"><img src="{{ sagX.resim.url }}"
                                                                                               alt="{{ sagX.title }}"
-                                                                                              class="img-fluid" height="200" width="400" style="border-radius: 10px; margin-bottom: 10px;"></a>
-                                    <div class="post-meta"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
+                                                                                              class="img-fluid" height="200" width="400" loading="lazy" style="border-radius: 10px; margin-bottom: 10px;"></a>
+                                    <div class=class="post-meta" style="color: #8C0D0D;"><span class="date">{{ sagX.Post_Turu.short_title }}</span>
                                         <span
                                                 class="mx-1">&bullet;</span>
                                         <span>{{ sagX.olusturma_tarihi|date:"d F Y" }}</span></div>
