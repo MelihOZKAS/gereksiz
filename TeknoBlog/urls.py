@@ -12,6 +12,7 @@ sitemaps = {
     'OtomobilHaberleri': otomobilhaberleri,
     'OyunHaberleri': oyunhaberleri,
     'TelefonHaberleri': telefonaberleri,
+    'DiziFilm': dizifilm,
 }
 
 def handler404(request, *args, **argv):
