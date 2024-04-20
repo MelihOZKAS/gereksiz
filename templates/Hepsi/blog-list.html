@@ -29,7 +29,7 @@
   "hasPart": [
     {% for storyx in TumPost %}
     {
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "{{ storyx.title }}",
       "url": "{{ request.scheme }}://{{ request.get_host }}/{{ storyx.slug }}/",
       "datePublished": "{{ storyx.olusturma_tarihi.isoformat }}",
