@@ -124,7 +124,8 @@
 
                     <!-- ======= Single Post Content ======= -->
                     <div class="single-post">
-                        <div class="post-meta" style="color: #8C0D0D;"><span class="date">{{ icerik.Post_Turu }}</span> <span class="mx-1">&bullet;</span>
+                        <div class="post-meta" style="color: #8C0D0D;"><span class="date">{{ icerik.Post_Turu }}</span>
+                            <span class="mx-1">&bullet;</span>
                             <span>{{ icerik.olusturma_tarihi|date:"d F Y" }}</span>
                         </div>
                         <h1 class="mb-5">{{ H1 }}</h1>
@@ -250,6 +251,24 @@
                             </figure>
                         {% endif %}
 
+                        {% if icerik.Kaynak_NoFollow %}
+                            {% for noFollow in noFollows %}
+                                <p>
+                                    <strong>Kaynak:</strong> <cite><a href="{{ noFollow }}"
+                                                                      rel="noopener noreferrer">{{ noFollow }}</a></cite>
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if icerik.Kaynak_Follow %}
+                            {% for Follow in Follows %}
+                                <p>
+                                    <strong>Kaynak:</strong> <cite><a href="{{ Follow }}"
+                                                                      rel="noopener noreferrer">{{ Follow }}</a></cite>
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+
 
                     </div> <!-- End Single Post Content -->
                     <div>
@@ -357,14 +376,14 @@
                                 </a>
                             </li>
 
-<!-- Google News için -->
-<li class="list-inline-item">
-    <a href="https://news.google.com/publications/CAAqBwgKMODRqAww1q_tAg?ceid=TR:tr&oc=3" target="_blank">
-        <i class="bi bi-google" aria-label="Haberi Google News'de Paylaş" title="Haberi Google News'de Paylaş" role="button" style="--i: 3;"></i>
-    </a>
-</li>
-
-
+                            <!-- Google News için -->
+                            <li class="list-inline-item">
+                                <a href="https://news.google.com/publications/CAAqBwgKMODRqAww1q_tAg?ceid=TR:tr&oc=3"
+                                   target="_blank">
+                                    <i class="bi bi-google" aria-label="Haberi Google News'de Paylaş"
+                                       title="Haberi Google News'de Paylaş" role="button" style="--i: 3;"></i>
+                                </a>
+                            </li>
 
 
                             <li class="list-inline-item"><a href="#"
