@@ -9,6 +9,7 @@ urlpatterns = [
     path("cep-telefonu-haberleri/", views.KategoriHome, name="telefon"),
     path("otomobil-haberleri/", views.KategoriHome, name="otomobil"),
     path("oyun-haberleri/", views.KategoriHome, name="oyun"),
+    path("en-iyi-diziler-ve-filmler/", views.KategoriHome, name="dizi"),
     #path("random/", views.create_random_post, name="random"),
     path("iletisim/", views.iletisim, name="iletisim"),
     path("hakkimizda/", views.hakkinda, name="hakkimizda"),

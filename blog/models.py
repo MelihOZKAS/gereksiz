@@ -127,6 +127,8 @@ class Post(models.Model):
     twitter = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
     Kaynak_Linki = models.URLField(blank=True, null=True)
+    Kaynak_Follow = models.TextField(blank=True, null=True)
+    Kaynak_NoFollo = models.TextField(blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
     guncelleme_tarihi = models.DateTimeField(auto_now=True)
     class Meta:

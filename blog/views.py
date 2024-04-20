@@ -125,30 +125,35 @@ def KategoriHome(request):
         # Teknoloji haberleri için kod
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Teknoloji")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
-            '-olusturma_tarihi')
+            '-olusturma_tarihi')[:80]
 
     elif request.resolver_match.url_name == 'bilim':
         # Bilim haberleri için kod
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Bilim")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
-            '-olusturma_tarihi')
+            '-olusturma_tarihi')[:80]
 
     elif request.resolver_match.url_name == 'otomobil':
         # Otomobil haberleri için kod
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Otomobil")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
-            '-olusturma_tarihi')
+            '-olusturma_tarihi')[:80]
 
     elif request.resolver_match.url_name == 'oyun':
         # Oyun haberleri için kod
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Oyun")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
-            '-olusturma_tarihi')
+            '-olusturma_tarihi')[:80]
     elif request.resolver_match.url_name == 'telefon':
         # Oyun haberleri için kod
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Telefon")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
-            '-olusturma_tarihi')
+            '-olusturma_tarihi')[:80]
+    elif request.resolver_match.url_name == 'dizi':
+        # Oyun haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Dizi")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
 
 
 
