@@ -256,7 +256,7 @@
                             {% for noFollow in noFollows %}
                                 <p>
                                     <strong>Kaynak:</strong> <cite><a href="{{ noFollow }}"
-                                                                      rel="noopener noreferrer">{{ noFollow }}</a></cite>
+                                                                      target="_blank" rel="noopener noreferrer">{{ noFollow }}</a></cite>
                                 </p>
                             {% endfor %}
                         {% endif %}
@@ -266,7 +266,7 @@
                             {% for Follow in Follows %}
                                 <p>
                                     <strong>Kaynak:</strong> <cite><a href="{{ Follow }}"
-                                                                      rel="noopener noreferrer">{{ Follow }}</a></cite>
+                                                                     target="_blank" rel="noopener noreferrer">{{ Follow }}</a></cite>
                                 </p>
                             {% endfor %}
                         {% endif %}
