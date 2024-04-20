@@ -252,6 +252,7 @@
                         {% endif %}
 
                         {% if icerik.Kaynak_NoFollow %}
+                            <br>
                             {% for noFollow in noFollows %}
                                 <p>
                                     <strong>Kaynak:</strong> <cite><a href="{{ noFollow }}"
@@ -261,6 +262,7 @@
                         {% endif %}
 
                         {% if icerik.Kaynak_Follow %}
+                            <br>
                             {% for Follow in Follows %}
                                 <p>
                                     <strong>Kaynak:</strong> <cite><a href="{{ Follow }}"

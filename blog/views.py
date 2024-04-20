@@ -217,7 +217,9 @@ def Enderun(request, post_slug):
     description = PostEndrun.meta_description
     keywords = PostEndrun.keywords
     yazar = PostEndrun.yazar
-    twitterwidget = PostEndrun.twitterwidget
+    noFollows = PostEndrun.Kaynak_NoFollow.split("|")
+    Follows = PostEndrun.Kaynak_Follow.split("|")
+    #twitterwidget = PostEndrun.twitterwidget
 
     thumbnail_url = None
 
@@ -235,6 +237,8 @@ def Enderun(request, post_slug):
         'populer': populer,
         'editor': editor,
         'enson': enson,
+        'noFollows': noFollows,
+        'Follows': Follows,
         'thumbnail_url': thumbnail_url,
     }
     return render(request, 'Hepsi/enderun.html', context)
