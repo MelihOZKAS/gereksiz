@@ -100,6 +100,29 @@ class OyunHaberleriFeed(Feed):
     def item_author_name(self, item):
         return item.yazar
 
+
+class DiziFilmFeed(Feed):
+    title = "Dizi Film Önerileri"
+    link = "/feeds/dizi-film/"
+    description = "En son çıkan dizi film ve önerileri"
+
+    def items(self):
+        PostKategorisi = PostKategori.objects.get(short_title="Dizi")
+        return Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=PostKategorisi).order_by('-olusturma_tarihi')[:20]
+    def item_title(self, item):
+        return item.title
+    def item_description(self, item):
+        return item.meta_description
+    def item_link(self, item):
+        return reverse('post-getir', args=[item.slug])
+    def item_pubdate(self, item):
+        return item.olusturma_tarihi
+    def item_author_name(self, item):
+        return item.yazar
+
+
+
+
 class TelefonHaberleriFeed(Feed):
     title = "Telefon Haberleri"
     link = "/feeds/telefon/"
