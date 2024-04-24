@@ -14,16 +14,17 @@
     <!-- Robots Etiketi -->
     <meta name="robots" content="index, follow">
 
-    {% block canonical_url %}<link rel="canonical" href="{{ request.build_absolute_uri }}"/>{% endblock %}
+    {% block canonical_url %}
+        <link rel="canonical" href="{{ request.build_absolute_uri }}"/>{% endblock %}
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
 
-    {% block sosyal_post_image %}<meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">{% endblock %}
+    {% block sosyal_post_image %}
+        <meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">{% endblock %}
     <!--<meta property="og:image" content="{% static 'assets/logo/logo.webp' %}"> -->
     <meta property="og:url" content="{% block ogurl %}OG url{% endblock %}">
     <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
-
 
 
     <!-- Twitter Card Etiketleri -->
@@ -32,7 +33,8 @@
     <meta name="twitter:creator" content="{% block twcreator %}@yuksekteknloji{% endblock %}">
     <meta name="twitter:title" content="{% block twtitle %}tw title{% endblock %}">
     <meta name="twitter:description" content="{% block twdesc %}tw description{% endblock %}">
-    {% block tt_post_image %}<meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}">{% endblock %}
+    {% block tt_post_image %}
+        <meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}">{% endblock %}
     <!-- <meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}"> -->
 
     <!-- Favicons -->
@@ -56,16 +58,24 @@
     <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
     <!-- Yandex Code -->
-    <meta name="yandex-verification" content="5d51627656f22f62" />
+    <meta name="yandex-verification" content="5d51627656f22f62"/>
     <meta name="google-adsense-account" content="ca-pub-7065951693101615">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7065951693101615"
+            crossorigin="anonymous"></script>
 
 
-    <link rel="alternate" type="application/rss+xml" title="Teknoloji Haberleri" href="https://{{ request.get_host }}{% url 'teknoloji_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Bilim Haberleri" href="https://{{ request.get_host }}{% url 'bilim_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Otomobil Haberleri" href="https://{{ request.get_host }}{% url 'otomobil_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Oyun Haberleri" href="https://{{ request.get_host }}{% url 'oyun_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Telefon Haberleri" href="https://{{ request.get_host }}{% url 'telefon_feed' %}" />
-    <link rel="alternate" type="application/rss+xml" title="Diziler ve Filmler" href="https://{{ request.get_host }}{% url 'dizi_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="Teknoloji Haberleri"
+          href="https://{{ request.get_host }}{% url 'teknoloji_feed' %}"/>
+    <link rel="alternate" type="application/rss+xml" title="Bilim Haberleri"
+          href="https://{{ request.get_host }}{% url 'bilim_feed' %}"/>
+    <link rel="alternate" type="application/rss+xml" title="Otomobil Haberleri"
+          href="https://{{ request.get_host }}{% url 'otomobil_feed' %}"/>
+    <link rel="alternate" type="application/rss+xml" title="Oyun Haberleri"
+          href="https://{{ request.get_host }}{% url 'oyun_feed' %}"/>
+    <link rel="alternate" type="application/rss+xml" title="Telefon Haberleri"
+          href="https://{{ request.get_host }}{% url 'telefon_feed' %}"/>
+    <link rel="alternate" type="application/rss+xml" title="Diziler ve Filmler"
+          href="https://{{ request.get_host }}{% url 'dizi_feed' %}"/>
 
 
 
@@ -79,11 +89,15 @@
     <!-- Google tag (gtag.js) and analatics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8WCZB50MSD"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-8WCZB50MSD');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-8WCZB50MSD');
     </script>
 
 </head>
