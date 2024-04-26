@@ -4178,16 +4178,23 @@
            "classes": "xs-small sm-hide h6 bold"
          }
        }]
+{% static 'assets/logo/home-kucuk.png' %}
      }
      -->
-    <div class="ampstart-headerbar-fixed center m0 p0 flex justify-center nowrap absolute top-0 right-0 pt2 pr3">
+    <div
+            class="ampstart-headerbar-fixed center m0 p0 flex justify-center nowrap absolute top-0 right-0 pt2 pr3"
+    >
         <div class="mr2"></div>
-        <a href="{% url 'home' %}" class="text-decoration-none mr2 ampstart-headerbar-fixed-link">
-            <div class="ampstart-headerbar-icon-wrapper relative">
-                <amp-img src="{% static 'assets/logo/home-kucuk.png' %}" width="50" height="50" alt="Home"></amp-img>
-            </div>
-        </a>
+        <amp-img
+                src="{% static 'assets/logo/home-kucuk.png' %}"
+                width="37"
+                height="35"
+                layout="fixed"
+                alt="Ana Sayfa"
+        >
+        </amp-img>
     </div>
+
 </header>
 
 <!-- Start Sidebar -->
