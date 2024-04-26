@@ -20,6 +20,10 @@
 {% block tt_post_image %}
     <meta name="twitter:image" content="{{ icerik.resim.url }}">{% endblock %}
 
+{% block amp %}
+    <link rel="amphtml" href="https://www.yuksekteknoloji.com/amp/{{ icerik.slug }}/">{% endblock %}
+
+
 
 {% block extra_head %}
     <script type="application/ld+json">
