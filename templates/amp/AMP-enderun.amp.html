@@ -4165,36 +4165,21 @@
                 alt="text Logo"
         ></amp-img>
     </a>
-    <!--
-      TODO: currently "fixeditems" is an array, therefore it's not possible to
-      add additional classes to it. An alternative solution would be to make it
-      an oject, with a "classes" and "items" sub-properties:
-     "fixeditems": {
-       "classes": "col-3",
-       "items": [{
-         "link": {
-           "url": "mailto:contact@lune.com",
-           "text": "—contact@lune.com",
-           "classes": "xs-small sm-hide h6 bold"
-         }
-       }]
-{% static 'assets/logo/home-kucuk.png' %}
-     }
-     -->
+
     <div
             class="ampstart-headerbar-fixed center m0 p0 flex justify-center nowrap absolute top-0 right-0 pt2 pr3"
     >
         <div class="mr2"></div>
+        <a href="{% url 'home' %}">
         <amp-img
                 src="{% static 'assets/logo/home-kucuk.png' %}"
                 width="45"
                 height="45"
                 layout="fixed"
                 alt="Ana Sayfa"
-                on="tap:home_link.navigate"
         >
         </amp-img>
-        <a id="home_link" href="{% url 'home' %}"></a>
+        </a>
     </div>
 
 </header>
