@@ -25,6 +25,8 @@
     <meta property="og:description" content="{{ description }}">
     <meta property="og:image" content="{{ icerik.resim.url }}">
     <meta property="og:url" content="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
+    <meta name="original-source" content="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
+
     <meta property="og:type" content="article">
 
 
@@ -39,7 +41,6 @@
 
     <link rel="canonical"
           href="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
-
 
 
     <meta name="amp-google-client-id-api" content="googleanalytics"/>
@@ -120,7 +121,6 @@
     <script async="" src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-social-share"
             src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-
 
 
 </head>
@@ -362,7 +362,6 @@
 
 
 
-
         {% if icerik.resim2 %}
             <amp-img
                     src="{{ icerik.resim2.url }}"
@@ -370,7 +369,7 @@
                     width="800"
                     height="400"
                     layout="responsive"
-                    alt="{{ icerik.title }} - 2"
+                    alt="{{ icerik.title }} - 3"
                     style="border-radius: 20px;">
                 >
             </amp-img>
@@ -378,7 +377,8 @@
 
 
         {% if icerik.youtube2 %}
-            <amp-youtube width="480" height="270" style="margin-top: 15px;" layout="responsive" data-videoid="{{ youtubeid2 }}">
+            <amp-youtube width="480" height="270" style="margin-top: 15px;" layout="responsive"
+                         data-videoid="{{ youtubeid2 }}">
             </amp-youtube>
         {% endif %}
 
@@ -407,7 +407,8 @@
 
 
         {% if icerik.youtube3 %}
-            <amp-youtube width="480" height="270" style="margin-top: 15px;" layout="responsive" data-videoid="{{ youtubeid3 }}">
+            <amp-youtube width="480" height="270" style="margin-top: 15px;" layout="responsive"
+                         data-videoid="{{ youtubeid3 }}">
             </amp-youtube>
         {% endif %}
         {% if icerik.icerik3 %}
