@@ -246,6 +246,14 @@ def Enderun(request, post_slug):
 
 
 
+
+
+
+def extract_youtube_id(url):
+    if url:
+        return url.split('/')[-1].split('?')[0]
+    return None
+
 def EnderunAMP(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
@@ -265,6 +273,10 @@ def EnderunAMP(request, post_slug):
     yazar = PostEndrun.yazar
     noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
     Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
+
+    youtubeid1 = extract_youtube_id(PostEndrun.youtube)
+    youtubeid2 = extract_youtube_id(PostEndrun.youtube2)
+    youtubeid3 = extract_youtube_id(PostEndrun.youtube3)
 
 
     thumbnail_url = None
@@ -286,6 +298,9 @@ def EnderunAMP(request, post_slug):
         'noFollows': noFollows,
         'Follows': Follows,
         'thumbnail_url': thumbnail_url,
+        'youtubeid1': youtubeid1,
+        'youtubeid2': youtubeid2,
+        'youtubeid3': youtubeid3,
     }
     return render(request, 'amp/AMP-enderun.amp.html', context)
 

@@ -323,8 +323,12 @@
             </p>
         </div>
 
-        <amp-youtube width="480" height="270" layout="responsive" data-videoid="STZiMs82CG8">
-        </amp-youtube>
+
+        {% if icerik.youtube %}
+            <amp-youtube width="480" height="270" layout="responsive" data-videoid="{{ youtubeid1 }}">
+            </amp-youtube>
+        {% endif %}
+
 
 
         <div class="mt3 mb3 px2">
@@ -344,6 +348,12 @@
                     style="border-radius: 20px;">
                 >
             </amp-img>
+        {% endif %}
+
+
+        {% if icerik2.youtube %}
+            <amp-youtube width="480" height="270" layout="responsive" data-videoid="{{ youtubeid2 }}">
+            </amp-youtube>
         {% endif %}
 
         {% if icerik.icerik2 %}
@@ -366,6 +376,13 @@
             </amp-img>
         {% endif %}
 
+
+
+
+        {% if icerik3.youtube %}
+            <amp-youtube width="480" height="270" layout="responsive" data-videoid="{{ youtubeid3 }}">
+            </amp-youtube>
+        {% endif %}
         {% if icerik.icerik3 %}
             <div class="mt3 mb3 px2">
                 {{ icerik.icerik3|safe }}
