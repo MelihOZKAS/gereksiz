@@ -88,7 +88,11 @@
             src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
             async=""
     ></script>
-    <link rel="stylesheet" href="{% static 'assets/amp/page.css' %}" type="text/css">
+
+    <style amp-custom>
+        {% include "assets/amp/page.css" %}
+    </style>
+
 
     <link
             href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700"
@@ -143,13 +147,13 @@
     >
         <div class="mr2"></div>
         <a href="{% url 'home' %}">
-        <amp-img
-                src="{% static 'assets/logo/home2.png' %}"
-                width="35"
-                height="35"
-                layout="fixed"
-                alt="Ana Sayfa">
-        </amp-img>
+            <amp-img
+                    src="{% static 'assets/logo/home2.png' %}"
+                    width="35"
+                    height="35"
+                    layout="fixed"
+                    alt="Ana Sayfa">
+            </amp-img>
         </a>
     </div>
 
