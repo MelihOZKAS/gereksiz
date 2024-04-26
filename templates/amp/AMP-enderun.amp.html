@@ -1,7 +1,5 @@
 {% load static %}
 <!DOCTYPE html>
-
-
 <html ⚡="" lang="tr">
 <head>
     <meta charset="utf-8"/>
@@ -14,6 +12,40 @@
     {% if icerik.youtube or icerik.youtube2 or icerik.youtube3 %}
         <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     {% endif %}
+
+
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="author" content="{{ yazar }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/logo/logo.webp' %}">
+
+    <!-- Robots Etiketi -->
+    <meta name="robots" content="index, follow">
+
+
+<!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ icerik.resim.url }}">
+    <meta property="og:url" content="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
+    <meta property="og:type" content="article">
+
+
+    <!-- Twitter Card Etiketleri -->
+    <meta name="twitter:site" content="@yuksekteknloji">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@yuksekteknloji">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ icerik.resim.url }}">
+
+
+
+
+
+
+
 
 
 
