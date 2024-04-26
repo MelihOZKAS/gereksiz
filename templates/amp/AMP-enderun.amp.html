@@ -4153,16 +4153,16 @@
         </svg>
     </div>
     <a
-            href="landing.amp.html"
+            href="{% url 'home' %}"
             class="text-decoration-none inline-block mx-auto ampstart-headerbar-home-link mb1 md-mb0"
     >
         <amp-img
-                src="../img/e-commerce/logo.png"
+                src="{% static 'assets/logo/text-logo.png' %}"
                 width="96"
                 height="27"
                 layout="fixed"
                 class="my0 mx-auto"
-                alt=""
+                alt="text Logo"
         ></amp-img>
     </a>
     <!--
@@ -4434,7 +4434,7 @@
         <div class="commerce-pullquote-author">- Name of quoter</div>
         -->
 
-        <div style="margin-top: 10px;">
+        <div style="margin-top: 15px;">
             <amp-social-share class="rounded"
                               type="telegram"
                               width="48"
