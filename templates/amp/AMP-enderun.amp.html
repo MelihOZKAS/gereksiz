@@ -4434,73 +4434,72 @@
         <div class="commerce-pullquote-author">- Name of quoter</div>
         -->
 
+        <div class="mt3 mb3 px3">
+            <amp-social-share class="rounded"
+                              type="telegram"
+                              width="48"
+                              height="48"
+                              data-share-endpoint="https://telegram.me/share/url"
+                              data-param-url="https://www.yuksekteknoloji.com/tiktok-lite-ve-avrupa-regulasyonlara-uyum-zor-mu-teknoloji/"
+                              data-param-text="{{ title }}"
+                              aria-label="Share on Telegram">
+                <amp-img src="{% static 'ampResim/telegram.png' %}" width="48" height="48"
+                         layout="responsive"></amp-img>
+            </amp-social-share>
 
-        <amp-social-share class="rounded"
-                          type="telegram"
-                          width="48"
-                          height="48"
-                          data-share-endpoint="https://telegram.me/share/url"
-                          data-param-url="https://www.yuksekteknoloji.com/tiktok-lite-ve-avrupa-regulasyonlara-uyum-zor-mu-teknoloji/"
-                          data-param-text="{{ title }}"
-                          aria-label="Share on Telegram">
-            <amp-img src="{% static 'ampResim/telegram.png' %}" width="48" height="48" layout="responsive"></amp-img>
-        </amp-social-share>
 
-
-        <amp-social-share class="rounded" aria-label="Share on Twitter" type="twitter" width="48"
-                          height="48"></amp-social-share>
-        <amp-social-share class="rounded" aria-label="Share on WhatsApp" type="whatsapp" width="48"
-                          height="48"></amp-social-share>
-        <amp-social-share class="rounded" aria-label="Share on Facebook" type="facebook"
-                          data-param-app_id="254325784911610" width="48" height="48"></amp-social-share>
-        <amp-social-share class="rounded" aria-label="Share on LinkedIn" type="linkedin" width="48"
-                          height="48"></amp-social-share>
-        <amp-social-share class="rounded" aria-label="Share on Pinterest" type="pinterest" width="48"
-                          height="48"></amp-social-share>
-        <amp-social-share class="rounded" aria-label="Share by email " type="email" width="48"
-                          height="48"></amp-social-share>
+            <amp-social-share class="rounded" aria-label="Share on Twitter" type="twitter" width="48"
+                              height="48"></amp-social-share>
+            <amp-social-share class="rounded" aria-label="Share on WhatsApp" type="whatsapp" width="48"
+                              height="48"></amp-social-share>
+            <amp-social-share class="rounded" aria-label="Share on Facebook" type="facebook"
+                              data-param-app_id="254325784911610" width="48" height="48"></amp-social-share>
+            <amp-social-share class="rounded" aria-label="Share on LinkedIn" type="linkedin" width="48"
+                              height="48"></amp-social-share>
+            <amp-social-share class="rounded" aria-label="Share on Pinterest" type="pinterest" width="48"
+                              height="48"></amp-social-share>
+            <amp-social-share class="rounded" aria-label="Share by email " type="email" width="48"
+                              height="48"></amp-social-share>
+        </div>
 
         <!-- burası kategoriler -->
 
 
-        <div class="mt3 mb3 px3">
+        <a
+                href="{% url 'teknoloji' %}"
+                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+        >Teknoloji Haberleri</a
+        >
 
 
-            <a
-                    href="{% url 'teknoloji' %}"
-                    class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
-            >Teknoloji Haberleri</a
-            >
+        <a
+                href="{% url 'bilim' %}"
+                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+        >Bilim Haberleri</a>
+
+        <a
+                href="{% url 'otomobil' %}"
+                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+        >Otomobil Haberleri</a
+        >
+        <a
+                href="{% url 'oyun' %}"
+                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+        >Oyun Haberleri</a>
 
 
-            <a
-                    href="{% url 'bilim' %}"
-                    class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
-            >Bilim Haberleri</a>
+        <a
+                href="{% url 'telefon' %}"
+                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+        >Mobil Haberleri</a
+        >
 
-            <a
-                    href="{% url 'otomobil' %}"
-                    class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
-            >Otomobil Haberleri</a
-            >
-            <a
-                    href="{% url 'oyun' %}"
-                    class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
-            >Oyun Haberleri</a>
+        <a
+                href="{% url 'dizi' %}"
+                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+        >Dizi / Film Haberleri</a
+        >
 
-
-            <a
-                    href="{% url 'telefon' %}"
-                    class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
-            >Mobil Haberleri</a
-            >
-
-            <a
-                    href="{% url 'dizi' %}"
-                    class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
-            >Dizi / Film Haberleri</a
-            >
-        </div>
 
     </article>
 
