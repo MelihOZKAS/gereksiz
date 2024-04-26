@@ -4343,7 +4343,7 @@
         <div class="mt3">
             <h1 class="h3">{{ H1 }}</h1>
             <p class="block mb2">
-                {{ icerik.yazar }} -
+                Yazar {{ icerik.yazar }} - Tarih
                 <time datetime="{{ icerik.olusturma_tarihi|date:'d F Y' }}">{{ icerik.olusturma_tarihi|date:'d F Y' }}</time>
             </p>
         </div>
@@ -4421,7 +4421,7 @@
                               width="48"
                               height="48"
                               data-share-endpoint="https://telegram.me/share/url"
-                              data-param-url="https://www.yuksekteknoloji.com/{{ icerik.slug }}"
+                              data-param-url="https://www.yuksekteknoloji.com/{{ icerik.slug }}/"
                               data-param-text="{{ title }}"
                               aria-label="Share on Telegram">
                 <amp-img src="{% static 'assets/logo/telegram.png' %}" width="48" height="48"
