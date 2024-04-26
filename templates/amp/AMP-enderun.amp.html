@@ -4,11 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>{{ title }}</title>
-    <script async="" src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-social-share"
-            src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-    <amp-custom-element amp-youtube src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
-                        namespace="amp"></amp-custom-element>
+
     {% if icerik.youtube or icerik.youtube2 or icerik.youtube3 %}
         <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     {% endif %}
@@ -24,7 +20,7 @@
     <meta name="robots" content="index, follow">
 
 
-<!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
+    <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:image" content="{{ icerik.resim.url }}">
@@ -39,14 +35,6 @@
     <meta name="twitter:title" content="{{ title }}">
     <meta name="twitter:description" content="{{ description }}">
     <meta name="twitter:image" content="{{ icerik.resim.url }}">
-
-
-
-
-
-
-
-
 
 
     <link rel="canonical"
@@ -129,6 +117,11 @@
             async=""
     ></script>
     {% include "amp/cssdevami.html" %}
+    <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-social-share"
+            src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <amp-custom-element amp-youtube src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
+                        namespace="amp"></amp-custom-element>
 
 
 </head>
