@@ -244,6 +244,51 @@ def Enderun(request, post_slug):
     return render(request, 'Hepsi/enderun.html', context)
 
 
+
+def EnderunAMP(request, post_slug):
+    PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
+
+    PostEndrun.okunma_sayisi += 1
+    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+
+    populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:8]
+    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
+        '-olusturma_tarihi')[:8]
+    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+
+    title = PostEndrun.title
+    H1 = PostEndrun.h1
+    description = PostEndrun.meta_description
+    keywords = PostEndrun.keywords
+    yazar = PostEndrun.yazar
+    noFollows = PostEndrun.Kaynak_NoFollow.split("|")
+    Follows = PostEndrun.Kaynak_Follow.split("|")
+
+
+    thumbnail_url = None
+
+    if PostEndrun.youtube:
+        youtube_id = get_youtube_id(PostEndrun.youtube)
+        thumbnail_url = f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
+
+    context = {
+        'title': title,
+        'H1': H1,
+        'description': description,
+        'keywords': keywords,
+        'yazar': yazar,
+        'icerik': PostEndrun,
+        'populer': populer,
+        'editor': editor,
+        'enson': enson,
+        'noFollows': noFollows,
+        'Follows': Follows,
+        'thumbnail_url': thumbnail_url,
+    }
+    return render(request, 'amp/AMP-enderun.amp.html', context)
+
+
 @csrf_exempt
 def fadilEnderun(request):
     url = "http://185.92.2.178:4444/fadil.php"
