@@ -42,6 +42,88 @@
     <link rel="canonical"
           href="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.yuksekteknoloji.com/{{ icerik.slug }}/"
+        },
+      "headline": "{{ icerik.title }}",
+      "description": "{{ icerik.meta_description }}",
+      "datePublished": "{{ icerik.olusturma_tarihi.isoformat }}",
+      "dateModified": "{{ icerik.guncelleme_tarihi.isoformat }}",
+
+      {% if icerik.youtube %}
+      "video": {
+        "@type": "VideoObject",
+        "name": "{{ icerik.title }}",
+        "description": "{{ icerik.meta_description }}",
+        "uploadDate": "{{ icerik.olusturma_tarihi.isoformat }}",
+        "thumbnailUrl": "{{ thumbnail_url }}",
+        "embedUrl": "{{ icerik.youtube }}"
+
+        },
+      {% endif %}
+
+      "keywords": "{{ icerik.keywords }}",
+
+      "author": {
+      "@type": "Person",
+      "name": "{{ icerik.yazar }}"
+          },
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ icerik.resim.url }}"
+      },
+      "publisher": {
+          "@type": "Organization",
+          "name": "Yüksek Teknoloji",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp"
+          }
+        },
+
+      "articleSection": "{{ icerik.Post_Turu.short_title }} Haberleri",
+      "isFamilyFriendly": "true",
+      "interactionStatistic": {
+        "@type": "InteractionCounter",
+        "interactionType": { "@type": "https://schema.org/ReadAction" },
+        "userInteractionCount": "{{ icerik.okunma_sayisi }}"
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri",
+          "item": "https://www.yuksekteknoloji.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ icerik.Post_Turu.H1 }}",
+          "item": "https://www.yuksekteknoloji.com/{{ icerik.Post_Turu.slug }}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ icerik.title }}",
+          "item": "https://www.yuksekteknoloji.com/{{ icerik.slug }}/"
+        }
+      ]
+
+    }
+    </script>
 
     <meta name="amp-google-client-id-api" content="googleanalytics"/>
 
@@ -328,8 +410,8 @@
 
 <main id="content" role="main" class="main flex flex-wrap items-start">
     <article
-            class="commerce-blog-wrapper col-12 md-col-8 px2 pt2 pb3 md-px4 md-pt6 md-pb7"
-    >
+            class="commerce-blog-wrapper col-12 md-col-8 px2 pt2 pb3 md-px4 md-pt6 md-pb7">
+
         <amp-img
                 src="{{ icerik.resim.url }}"
                 width="800"
@@ -371,7 +453,6 @@
                     layout="responsive"
                     alt="{{ icerik.title }} - 2"
                     style="border-radius: 20px;">
-
             </amp-img>
         {% endif %}
 
