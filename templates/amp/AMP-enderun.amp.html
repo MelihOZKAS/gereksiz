@@ -9,6 +9,14 @@
     <script async="" src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-social-share"
             src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <amp-custom-element amp-youtube src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
+                        namespace="amp"></amp-custom-element>
+    {% if icerik.youtube or icerik.youtube2 or icerik.youtube3 %}
+        <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    {% endif %}
+
+
+
     <link rel="canonical"
           href="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
 
