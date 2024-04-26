@@ -91,8 +91,6 @@
     {% include "amp/cssdevami.html" %}
 
 
-
-
 </head>
 
 <body>
@@ -317,7 +315,7 @@
             </p>
         </div>
 
-        <div class="mt3 mb3 px3">
+        <div class="mt3 mb3 px2">
             {{ icerik.icerik|safe }}
         </div>
 
@@ -337,7 +335,7 @@
         {% endif %}
 
         {% if icerik.icerik2 %}
-            <div class="mt3 mb3 px3">
+            <div class="mt3 mb3 px2">
                 {{ icerik.icerik2|safe }}
             </div>
         {% endif %}
@@ -357,7 +355,7 @@
         {% endif %}
 
         {% if icerik.icerik3 %}
-            <div class="mt3 mb3 px3">
+            <div class="mt3 mb3 px2">
                 {{ icerik.icerik3|safe }}
             </div>
         {% endif %}
@@ -389,26 +387,27 @@
                               type="telegram"
                               width="48"
                               height="48"
+                              alt="Telegramda Paylaş"
                               data-share-endpoint="https://telegram.me/share/url"
                               data-param-url="https://www.yuksekteknoloji.com/{{ icerik.slug }}/"
                               data-param-text="{{ title }}"
-                              aria-label="Share on Telegram">
+                              aria-label="Paylaş Telegram">
                 <amp-img src="{% static 'assets/logo/telegram.png' %}" width="48" height="48"
                          layout="responsive"></amp-img>
             </amp-social-share>
 
 
-            <amp-social-share class="rounded" aria-label="Share on Twitter" type="twitter" width="48"
+            <amp-social-share class="rounded" aria-label="Paylaş Twitter" type="twitter" width="48"
                               height="48"></amp-social-share>
-            <amp-social-share class="rounded" aria-label="Share on WhatsApp" type="whatsapp" width="48"
+            <amp-social-share class="rounded" aria-label="Paylaş WhatsApp" type="whatsapp" width="48"
                               height="48"></amp-social-share>
-            <amp-social-share class="rounded" aria-label="Share on Facebook" type="facebook"
+            <amp-social-share class="rounded" aria-label="Paylaş Facebook" type="facebook"
                               data-param-app_id="254325784911610" width="48" height="48"></amp-social-share>
-            <amp-social-share class="rounded" aria-label="Share on LinkedIn" type="linkedin" width="48"
+            <amp-social-share class="rounded" aria-label="Paylaş LinkedIn" type="linkedin" width="48"
                               height="48"></amp-social-share>
-            <amp-social-share class="rounded" aria-label="Share on Pinterest" type="pinterest" width="48"
+            <amp-social-share class="rounded" aria-label="Paylaş Pinterest" type="pinterest" width="48"
                               height="48"></amp-social-share>
-            <amp-social-share class="rounded" aria-label="Share by email " type="email" width="48"
+            <amp-social-share class="rounded" aria-label="Paylaşemail " type="email" width="48"
                               height="48"></amp-social-share>
         </div>
 
@@ -458,7 +457,7 @@
 <footer class="commerce-footer center">
     <nav class="mx-auto md-mb0 md-pt5 md-pb5">
         <ul class="list-reset flex flex-wrap my0 md-pl4 md-pr4 md-mxn4">
-            <li class="pt3 md-pt0 md-px4 col-12 md-col-3 lg-col-2">
+            <li class="pt3 md-pt0 md-px4 col-12 md-col-3 lg-col-2" style="margin-bottom: 10px;">
                 <h2 class="commerce-footer-header h7 pb2">Bilgi Bankası</h2>
                 <ul class="list-reset pb3 md-mx0">
                     <li>
