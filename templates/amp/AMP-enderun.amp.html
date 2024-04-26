@@ -41,7 +41,7 @@
           href="https://www.yuksekteknoloji.com/{{ icerik.slug }}/">
 
 
-    <meta name="viewport" content="width=device-width"/>
+
     <meta name="amp-google-client-id-api" content="googleanalytics"/>
 
 
@@ -120,8 +120,7 @@
     <script async="" src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-social-share"
             src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-    <amp-custom-element amp-youtube src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
-                        namespace="amp"></amp-custom-element>
+
 
 
 </head>
@@ -342,7 +341,7 @@
         </amp-img>
         <div class="mt3">
             <h1 class="h3">{{ H1 }}</h1>
-            <p class="block mb2">
+            <p class="block mb2" style="margin-top: 10px;">
                 <span style="font-weight: bold;">Yazar:</span> {{ icerik.yazar }} - <span style="font-weight: bold;">Tarih:</span>
 
                 <time datetime="{{ icerik.olusturma_tarihi|date:'d F Y' }}">{{ icerik.olusturma_tarihi|date:'d F Y' }}</time>
