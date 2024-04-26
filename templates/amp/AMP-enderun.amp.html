@@ -343,7 +343,8 @@
         <div class="mt3">
             <h1 class="h3">{{ H1 }}</h1>
             <p class="block mb2">
-                Yazar {{ icerik.yazar }} - Tarih
+                <span style="font-weight: bold;">Yazar {{ icerik.yazar }}</span> - <span style="font-weight: bold;">Tarih</span>
+
                 <time datetime="{{ icerik.olusturma_tarihi|date:'d F Y' }}">{{ icerik.olusturma_tarihi|date:'d F Y' }}</time>
             </p>
         </div>
@@ -366,6 +367,7 @@
         {% if icerik.resim2 %}
             <amp-img
                     src="{{ icerik.resim2.url }}"
+                    style="margin-top: 15px;"
                     width="800"
                     height="400"
                     layout="responsive"
@@ -392,6 +394,7 @@
         {% if icerik.resim3 %}
             <amp-img
                     src="{{ icerik.resim3.url }}"
+                    style="margin-top: 15px;"
                     width="800"
                     height="400"
                     layout="responsive"
@@ -405,7 +408,7 @@
 
 
         {% if icerik.youtube3 %}
-            <amp-youtube width="480" height="270" layout="responsive" data-videoid="{{ youtubeid3 }}">
+            <amp-youtube width="480" height="270" style="margin-top: 15px;" layout="responsive" data-videoid="{{ youtubeid3 }}">
             </amp-youtube>
         {% endif %}
         {% if icerik.icerik3 %}
@@ -418,6 +421,7 @@
         {% if icerik.resim4 %}
             <amp-img
                     src="{{ icerik.resim4.url }}"
+                    style="margin-top: 15px;"
                     width="800"
                     height="400"
                     layout="responsive"
