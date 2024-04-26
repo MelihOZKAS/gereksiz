@@ -263,8 +263,8 @@ def EnderunAMP(request, post_slug):
     description = PostEndrun.meta_description
     keywords = PostEndrun.keywords
     yazar = PostEndrun.yazar
-    noFollows = PostEndrun.Kaynak_NoFollow.split("|")
-    Follows = PostEndrun.Kaynak_Follow.split("|")
+    noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
+    Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
 
 
     thumbnail_url = None
