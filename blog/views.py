@@ -14,6 +14,7 @@ import random
 from django.utils import timezone
 from django.db.models import Q, Count
 import environ
+import re
 from django.db import IntegrityError
 env = environ.Env(DEBUG=(bool,False))
 environ.Env.read_env()
@@ -200,6 +201,8 @@ def get_youtube_id(url):
     youtube_id = link.split("?")
     return youtube_id[0] if youtube_id else None
 
+
+
 def Enderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
@@ -248,6 +251,18 @@ def Enderun(request, post_slug):
 
 
 
+def get_tweet_id(html_content):
+    # Twitter linkini bul
+    match = re.search(r'https://twitter.com/brewsterkoopa/status/(\d+)\?ref_src', html_content)
+
+    # Eşleşme varsa, tweet ID'sini çek
+    if match:
+        tweet_id = match.group(1)
+        return tweet_id
+
+    return None
+
+
 
 def extract_youtube_id(url):
     if url:
@@ -277,6 +292,8 @@ def EnderunAMP(request, post_slug):
     youtubeid1 = extract_youtube_id(PostEndrun.youtube)
     youtubeid2 = extract_youtube_id(PostEndrun.youtube2)
     youtubeid3 = extract_youtube_id(PostEndrun.youtube3)
+    tweet_id1 = get_tweet_id(PostEndrun.twitterwidget)
+    tweet_id2 = get_tweet_id(PostEndrun.twitterwidget2)
 
 
     thumbnail_url = None
@@ -301,6 +318,8 @@ def EnderunAMP(request, post_slug):
         'youtubeid1': youtubeid1,
         'youtubeid2': youtubeid2,
         'youtubeid3': youtubeid3,
+        'tweet_id1': tweet_id1,
+        'tweet_id2': tweet_id2,
     }
     return render(request, 'amp/AMP-enderun.amp.html', context)
 
