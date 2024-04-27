@@ -570,11 +570,12 @@
 
                 {% for sonhaber in enson %}
                     <li class="col-12 sm-col-4 md-col-4 lg-col-4 pr2 py2">
-                        <!-- Start Image with Caption -->
 
-
-                                {{ sonhaber.title }}
-
+                        <a
+                                href="{% url 'post-getir' post_slug=sonhaber.slug %}"
+                                class="ampstart-btn ampstart-btn-secondary inline-block h7 pt3 mt4 md-mb4 mr3"
+                        >{{ sonhaber.title }}</a
+                        >
 
                     </li>
 
