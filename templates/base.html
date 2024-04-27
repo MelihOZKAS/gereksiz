@@ -19,6 +19,7 @@
     {% block canonical_url %}
         <link rel="canonical" href="{{ request.build_absolute_uri }}"/>{% endblock %}
     <!-- Open Graph Etiketleri (Facebook, LinkedIn) -->
+    <meta property="og:locale" content="tr_TR">
     <meta property="og:title" content="{% block ogtitle %}OG TITLE{% endblock %}">
     <meta property="og:description" content="{% block ogDes %}OG DES{% endblock %}">
 
