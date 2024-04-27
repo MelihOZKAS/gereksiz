@@ -253,11 +253,11 @@ def Enderun(request, post_slug):
 
 def get_tweet_id(html_content):
     # Twitter linkini bul
-    match = re.search(r'https://twitter.com/brewsterkoopa/status/(\d+)\?ref_src', html_content)
+    match = re.search(r'https://twitter.com/(\w+)/status/(\d+)\?ref_src', html_content)
 
     # Eşleşme varsa, tweet ID'sini çek
     if match:
-        tweet_id = match.group(1)
+        tweet_id = match.group(2)
         return tweet_id
 
     return None
