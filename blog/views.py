@@ -275,11 +275,8 @@ def EnderunAMP(request, post_slug):
     PostEndrun.okunma_sayisi += 1
     PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
 
-    populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
-        '-olusturma_tarihi')[:8]
-    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
-        '-olusturma_tarihi')[:8]
-    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+
+    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:10]
 
     title = PostEndrun.title
     H1 = PostEndrun.h1
@@ -309,8 +306,6 @@ def EnderunAMP(request, post_slug):
         'keywords': keywords,
         'yazar': yazar,
         'icerik': PostEndrun,
-        'populer': populer,
-        'editor': editor,
         'enson': enson,
         'noFollows': noFollows,
         'Follows': Follows,
