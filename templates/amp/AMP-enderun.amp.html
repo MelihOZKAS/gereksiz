@@ -564,24 +564,18 @@
 
 
         <!-- Start Related Section -->
-        <section class="ampstart-related-section mb4 px3" style="margin-top: 15px;">
-            <h2 class="h3 mb1">Diğer Öneriler</h2>
+        <section class="ampstart-related-section mb4 px3" style="margin-top: 20px;">
+            <h2 class="h5 mb1">Son Eklenen Haberler</h2>
             <ul class="ampstart-related-section-items list-reset flex flex-wrap m0">
-
                 {% for sonhaber in enson %}
                     <li class="col-12 sm-col-4 md-col-4 lg-col-4 pr2 py2">
-
                         <a
                                 href="{% url 'teknoloji' %}"
                                 class="ampstart-image-with-caption m0 relative mb4"
                         >{{ sonhaber.title }}</a
                         >
-
                     </li>
-
                 {% endfor %}
-
-
             </ul>
         </section>
         <!-- End Related Section -->
