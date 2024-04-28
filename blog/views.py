@@ -289,8 +289,8 @@ def EnderunAMP(request, post_slug):
     youtubeid1 = extract_youtube_id(PostEndrun.youtube)
     youtubeid2 = extract_youtube_id(PostEndrun.youtube2)
     youtubeid3 = extract_youtube_id(PostEndrun.youtube3)
-    tweet_id1 = get_tweet_id(PostEndrun.twitterwidget)
-    tweet_id2 = get_tweet_id(PostEndrun.twitterwidget2)
+    tweet_id1 = get_tweet_id(str(PostEndrun.twitterwidget))
+    tweet_id2 = get_tweet_id(str(PostEndrun.twitterwidget2))
 
 
     thumbnail_url = None
