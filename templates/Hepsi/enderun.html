@@ -61,6 +61,7 @@
   "@type": "Person",
   "name": "{{ icerik.yazar }}"
       },
+"image": [
   {% for resim_url in resimler %}
     {
       "@type": "ImageObject",
@@ -95,7 +96,7 @@
 
 
 {% block extra_Two_head %}
-<script type="application/ld+json">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -269,7 +270,8 @@
                             {% for noFollow in noFollows %}
                                 <p>
                                     <strong>Kaynak:</strong> <cite><a href="{{ noFollow }}"
-                                                                      target="_blank" rel="noopener noreferrer">{{ noFollow }}</a></cite>
+                                                                      target="_blank"
+                                                                      rel="noopener noreferrer">{{ noFollow }}</a></cite>
                                 </p>
                             {% endfor %}
                         {% endif %}
@@ -279,7 +281,8 @@
                             {% for Follow in Follows %}
                                 <p>
                                     <strong>Kaynak:</strong> <cite><a href="{{ Follow }}"
-                                                                     target="_blank" rel="noopener noreferrer">{{ Follow }}</a></cite>
+                                                                      target="_blank"
+                                                                      rel="noopener noreferrer">{{ Follow }}</a></cite>
                                 </p>
                             {% endfor %}
                         {% endif %}
