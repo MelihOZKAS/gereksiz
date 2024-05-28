@@ -231,6 +231,9 @@ def Enderun(request, post_slug):
         youtube_id = get_youtube_id(PostEndrun.youtube)
         thumbnail_url = f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
 
+    contents = [PostEndrun.icerik, PostEndrun.icerik2, PostEndrun.icerik3]
+    articleBody = ' '.join(filter(None, contents))
+
 
     resimler = []
     if PostEndrun.resim:
@@ -259,6 +262,7 @@ def Enderun(request, post_slug):
         'Follows': Follows,
         'thumbnail_url': thumbnail_url,
         'resimler': resimler,
+        'articleBody': articleBody,
     }
     return render(request, 'Hepsi/enderun.html', context)
 
