@@ -231,6 +231,20 @@ def Enderun(request, post_slug):
         youtube_id = get_youtube_id(PostEndrun.youtube)
         thumbnail_url = f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
 
+
+    resimler = []
+    if PostEndrun.resim:
+        resimler.append(PostEndrun.resim.url)
+    if PostEndrun.resim2:
+        resimler.append(PostEndrun.resim2.url)
+    if PostEndrun.resim3:
+        resimler.append(PostEndrun.resim3.url)
+    if PostEndrun.resim4:
+        resimler.append(PostEndrun.resim4.url)
+    if not resimler:  # Eğer resimler listesi boşsa
+        resimler.append("https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp")
+
+
     context = {
         'title': title,
         'H1': H1,
@@ -244,6 +258,7 @@ def Enderun(request, post_slug):
         'noFollows': noFollows,
         'Follows': Follows,
         'thumbnail_url': thumbnail_url,
+        'resimler': resimler,
     }
     return render(request, 'Hepsi/enderun.html', context)
 

@@ -13,12 +13,14 @@
 {% block twcreator %}@yuksekteknloji{% endblock %}
 {% block twtitle %}{{ title }}{% endblock %}
 {% block twdesc %}{{ description }}{% endblock %}
-{% block canonical_url %}<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/{{ Post_Kategorisi.slug }}/"/>{% endblock %}
+{% block canonical_url %}
+    <link rel="canonical"
+          href="{{ request.scheme }}://{{ request.get_host }}/{{ Post_Kategorisi.slug }}/"/>{% endblock %}
 
 
 
 {% block extra_head %}
-<script type="application/ld+json">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -100,7 +102,8 @@
                         <div class="d-md-flex post-entry-2 small-img">
                             <a href="{% url 'post-getir' post_slug=Post.slug %}" class="me-4 thumbnail">
                                 <img src="{{ Post.resim.url }}" loading="lazy" alt="{{ Post.title }}"
-                                     class="img-fluid" style="border-radius: 10px; margin-bottom: 10px;" height="258" width="406">
+                                     class="img-fluid" style="border-radius: 10px; margin-bottom: 10px;" height="258"
+                                     width="406">
                             </a>
 
                             <div>

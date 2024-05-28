@@ -35,9 +35,13 @@
     "@id": "{{ request.build_absolute_uri }}"
     },
   "headline": "{{ icerik.title }}",
+  "name": "{{ icerik.title }}",
+  "alternateName": "{{ icerik.h1 }}",
   "description": "{{ icerik.meta_description }}",
-  "datePublished": "{{ icerik.olusturma_tarihi.isoformat }}",
-  "dateModified": "{{ icerik.guncelleme_tarihi.isoformat }}",
+  "inLanguage": "tr",
+  "sameAs": "{{ request.build_absolute_uri }}",
+  "datePublished": "{{ EnDerun.olusturma_tarihi.isoformat }}",
+  "dateModified": "{{ EnDerun.guncelleme_tarihi.isoformat }}",
 
   {% if icerik.youtube %}
   "video": {
@@ -57,10 +61,15 @@
   "@type": "Person",
   "name": "{{ icerik.yazar }}"
       },
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ icerik.resim.url }}"
-  },
+  {% for resim_url in resimler %}
+    {
+      "@type": "ImageObject",
+      "url": "{{ resim_url|safe }}",
+      "width": 800,
+      "height": 400
+    }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+],
   "publisher": {
       "@type": "Organization",
       "name": "Yüksek Teknoloji",
