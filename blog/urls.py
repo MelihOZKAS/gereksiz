@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
+
     path("teknoloji-haberleri/", views.KategoriHome, name="teknoloji"),
     path("bilim-haberleri/", views.KategoriHome, name="bilim"),
     path("cep-telefonu-haberleri/", views.KategoriHome, name="telefon"),
@@ -35,6 +36,7 @@ urlpatterns = [
     path("ads.txt/", views.ads, name="ads"),
     path("ads.txt", views.ads, name="ads"),
     path("sill.txt/", views.delete_duplicates),
+
 
 
 

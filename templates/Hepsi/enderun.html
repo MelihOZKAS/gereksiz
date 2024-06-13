@@ -9,7 +9,6 @@
 {% block ogDes %}{{ description }}{% endblock %}
 {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 {% block ogtype %}article{% endblock %}
-
 {% block twaccountsite %}@yuksekteknloji{% endblock %}
 {% block twcreator %}@yuksekteknloji{% endblock %}
 {% block twtitle %}{{ title }}{% endblock %}
@@ -147,7 +146,7 @@
                         <h1 class="mb-5">{{ H1 }}</h1>
                         <figure class="my-4">
                             <img src="{{ icerik.resim.url }}" alt="{{ icerik.title }}"
-                                 class="img-fluid" height="400" width="650"
+                                 class="img-fluid" height="400" width="650" loading="lazy"
                                  style="margin: auto; display: block; border-radius: 20px;">
                             <!--    <figcaption>Resim Açıklaması Kapalı
                                 </figcaption> -->
@@ -187,7 +186,7 @@
                             <br>
                             <figure class="my-4">
                                 <img src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
-                                     class="img-fluid" height="400" width="650"
+                                     class="img-fluid" height="400" width="650" loading="lazy"
                                      style="margin: auto; display: block; border-radius: 20px;">
                                 <!--  <figcaption>{{ icerik.title }} </figcaption> -->
                             </figure>
@@ -230,7 +229,7 @@
                         {% if icerik.resim3 %}
                             <figure class="my-4">
                                 <img src="{{ icerik.resim3.url }}" alt="{{ icerik.title }} - 3"
-                                     class="img-fluid" height="400" width="650"
+                                     class="img-fluid" height="400" width="650" loading="lazy"
                                      style="margin: auto; display: block; border-radius: 20px;">
                                 <!--  <figcaption>{{ icerik.title }} </figcaption> -->
                             </figure>
@@ -261,7 +260,7 @@
                         {% if icerik.resim4 %}
                             <figure class="my-4">
                                 <img src="{{ icerik.resim4.url }}" alt="{{ icerik.title }} - 4"
-                                     class="img-fluid" height="400" width="650"
+                                     class="img-fluid" height="400" width="650" loading="lazy"
                                      style="margin: auto; display: block; border-radius: 20px;">
                                 <!--  <figcaption>{{ icerik.title }} </figcaption> -->
                             </figure>
