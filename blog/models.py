@@ -81,6 +81,12 @@ class Post(models.Model):
         ('Tamamlandi', 'Tamamlandi'),
     ]
 
+    Jsonu = [
+        ('Article', 'Article'),
+        ('NewsArticle', 'NewsArticle'),
+        ('BlogPosting', 'BlogPosting'),
+    ]
+
 
     title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])
     hiddenTitle = models.TextField(blank=True, null=True)
@@ -88,6 +94,7 @@ class Post(models.Model):
     h1 = models.CharField(max_length=255,blank=True, help_text=HELP_TEXTS["h1"])
     hiddenH1 = models.TextField(blank=True, null=True)
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
+    Post_type = models.CharField(max_length=255, choices=Jsonu, null=True, default="NewsArticle")
     yazar = models.CharField(max_length=255, choices=YAZARLAR, null=True,blank=True)
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik2 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
