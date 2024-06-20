@@ -410,6 +410,7 @@ def iletisim(request):
         'keywords': keywords,
         'h1': h1,
         'cap': captcha,
+
     }
     return render(request, 'Hepsi/iletisim.html', context)
 

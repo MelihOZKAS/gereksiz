@@ -15,7 +15,7 @@
 
 {% block extra_head %}
     <!-- Recapcha bitiş -->
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Recapcha bitiş -->
 {% endblock %}
 
@@ -87,7 +87,8 @@
                     <div class="form-group">
                         {{ cap }}
                     </div>
-
+                    <p>SA</p>
+                    <div class="g-recaptcha" data-sitekey="6LdEk_0pAAAAAIrT3QJjZAVox11KV4cM7KHOLevL"></div>
                     <div class="text-center">
                         <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Mesajı
                             Gönder
