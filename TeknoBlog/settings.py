@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+from django_recaptcha.fields import ReCaptchaField
+
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
