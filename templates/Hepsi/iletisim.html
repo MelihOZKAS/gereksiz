@@ -84,10 +84,6 @@
                         <div class="error-message"></div>
                         <div class="sent-message">Mesajınız Kaydedildi En Kısa Sürede Kontrol Edilecektir.</div>
                     </div>
-                    <div class="form-group">
-                        {{ cap }}
-                    </div>
-                    <p>SA</p>
                     <div class="g-recaptcha" data-sitekey="6LdEk_0pAAAAAIrT3QJjZAVox11KV4cM7KHOLevL"></div>
                     <div class="text-center">
                         <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Mesajı
@@ -100,14 +96,6 @@
 
         </div>
     </section>
-    <script>
-        function onClick(e) {
-            e.preventDefault();
-            grecaptcha.enterprise.ready(async () => {
-                const token = await grecaptcha.enterprise.execute('6LcWWP0pAAAAAD45lrFxqwNs43Vaq71xW6rCU5oh', {action: 'LOGIN'});
-            });
-        }
-    </script>
 
 
 {% endblock pageicerik %}
