@@ -388,7 +388,8 @@ def iletisim(request):
     description = "Explore KidsStoriesHub.com for captivating bedtime stories. Dive into a world of imagination and learning with our vast collection of stories for children."
     keywords = "Teknoloji haberleri, Oyuncu haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com İletişim Bize Ulaşın"
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox,public_key=f"{env('RECAPTCHA_PUBLIC_KEY')}",
+    private_key=f"{env('RECAPTCHA_PRIVATE_KEY')}",)
 
     if request.method == 'POST':
         print("girdim2")
