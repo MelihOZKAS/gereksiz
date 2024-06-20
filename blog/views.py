@@ -16,8 +16,7 @@ from django.db.models import Q, Count
 import environ
 import re
 from django.db import IntegrityError
-from django_recaptcha.fields import ReCaptchaField
-from django_recaptcha.fields import ReCaptchaV2Checkbox
+
 
 env = environ.Env(DEBUG=(bool,False))
 environ.Env.read_env()
@@ -388,29 +387,38 @@ def iletisim(request):
     description = "Explore KidsStoriesHub.com for captivating bedtime stories. Dive into a world of imagination and learning with our vast collection of stories for children."
     keywords = "Teknoloji haberleri, Oyuncu haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com İletişim Bize Ulaşın"
-    captcha = ReCaptchaField()
+
 
     if request.method == 'POST':
-        print("girdim2")
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        title = request.POST.get('title')
-        icerik = request.POST.get('icerik')
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        data = {
+            'secret': f"{env('RECAPTCHA_PRIVATE_KEY')}",
+            'response': recaptcha_response
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+        result = r.json()
+        if result['success']:
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            title = request.POST.get('title')
+            icerik = request.POST.get('icerik')
 
-        iletisim = iletisimmodel(name=name, email=email, title=title, icerik=icerik,)
-        iletisim.save()
-        return HttpResponse(
-            'Başarılı ! - İletişim istediğinizi Kaydettik. <a href="{}" class="btn btn-success">Ana Sayfaya Dönmek için Tıklayın.</a>'.format(
-                reverse('home')))
+            iletisim = iletisimmodel(name=name, email=email, title=title, icerik=icerik, )
+            iletisim.save()
+            return HttpResponse(
+                'Başarılı ! - İletişim istediğinizi Kaydettik. <a href="{}" class="btn btn-success">Ana Sayfaya Dönmek için Tıklayın.</a>'.format(
+                    reverse('home')))
         # Burada başarılı form gönderimi sonrası yapılacak işlemler yer alabilir.
+        else:
+            return HttpResponse(
+                'Hatalı Güvenlik Doğrulaması! - Tekrar Deneyin!. <a href="{}" class="btn btn-success">Tekrar denemek için Tıklayın.</a>'.format(
+                    reverse('iletisim')))
 
     context = {
         'title': title,
         'description': description,
         'keywords': keywords,
         'h1': h1,
-        'cap': captcha,
-
     }
     return render(request, 'Hepsi/iletisim.html', context)
 

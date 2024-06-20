@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import environ
 import os
-from django_recaptcha.fields import ReCaptchaField
+
 
 
 env = environ.Env(DEBUG=(bool, False))
@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "whitenoise.runserver_nostatic",
     "storages",
-    'django_recaptcha',
+
 ]
 
 MIDDLEWARE = [
@@ -177,9 +177,6 @@ else:
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-
-RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
-RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
