@@ -10,11 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-
 from pathlib import Path
 import environ
 import os
-
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
@@ -35,17 +33,14 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS', cast=list)
 
 CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS', cast=list)
 
-
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
-
 
 # Application definition
 
@@ -62,6 +57,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "whitenoise.runserver_nostatic",
     "storages",
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -99,17 +95,16 @@ WSGI_APPLICATION = "TeknoBlog.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    "default": {
 #        "ENGINE": "django.db.backends.sqlite3",
 #        "NAME": BASE_DIR / "db.sqlite3",
 #    }
-#}
+# }
 
 DATABASES = {
     "default": env.db()
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -177,11 +172,12 @@ else:
     IMAGE_SETTING_LOCATION = MEDIA_LOCATION + '/image_settings'
     DOCUMENT_LOCATION = MEDIA_LOCATION + '/documents'
 
-
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -189,7 +185,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar':'full',
+        'toolbar': 'full',
         'allowedContent': True,
         'height': 400,
         'width': 900,

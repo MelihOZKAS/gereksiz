@@ -18,3 +18,4 @@ whitenoise
 django-storages
 boto3
 pillow-avif-plugin
+django-recaptcha==4.0.0

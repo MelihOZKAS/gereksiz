@@ -16,6 +16,9 @@ from django.db.models import Q, Count
 import environ
 import re
 from django.db import IntegrityError
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.fields import ReCaptchaV2Checkbox
+
 env = environ.Env(DEBUG=(bool,False))
 environ.Env.read_env()
 
@@ -385,6 +388,7 @@ def iletisim(request):
     description = "Explore KidsStoriesHub.com for captivating bedtime stories. Dive into a world of imagination and learning with our vast collection of stories for children."
     keywords = "Teknoloji haberleri, Oyuncu haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com İletişim Bize Ulaşın"
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
     if request.method == 'POST':
         print("girdim2")
@@ -393,7 +397,7 @@ def iletisim(request):
         title = request.POST.get('title')
         icerik = request.POST.get('icerik')
 
-        iletisim = iletisimmodel(name=name, email=email, title=title, icerik=icerik)
+        iletisim = iletisimmodel(name=name, email=email, title=title, icerik=icerik,)
         iletisim.save()
         return HttpResponse(
             'Başarılı ! - İletişim istediğinizi Kaydettik. <a href="{}" class="btn btn-success">Ana Sayfaya Dönmek için Tıklayın.</a>'.format(
@@ -405,6 +409,7 @@ def iletisim(request):
         'description': description,
         'keywords': keywords,
         'h1': h1,
+        'cap': captcha,
     }
     return render(request, 'Hepsi/iletisim.html', context)
 
