@@ -132,6 +132,17 @@ def newHome(request):
         '-olusturma_tarihi')[:3]
 
 
+    context = {
+        'title': title,
+        'description': description,
+        'keywords': keywords,
+        'yazar': yazar,
+
+        'Banner': Banner,
+    }
+    return render(request, 'Hepsi/home.html', context)
+
+
 def KategoriHome(request):
     if request.resolver_match.url_name == 'teknoloji':
         # Teknoloji haberleri için kod

@@ -1,5 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 	<title>Blogzine - Blog and Magazine Bootstrap 5 Theme</title>
 
@@ -70,19 +71,19 @@
 	</script>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<link rel="shortcut icon" href="{% static 'yeni/assets/images/favicon.ico' %}">
 
 	<!-- Google Font -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/tiny-slider/tiny-slider.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/tiny-slider/tiny-slider.css' %}">
 
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
 	
 </head>
 
@@ -166,7 +167,7 @@ Header START -->
 						<a class="nav-link" href="#">Forum</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="https://themes.getbootstrap.com/store/webestica/">Buy now!</a>
+						<a class="nav-link" href="https://themes.getbootstrap.com/store/webestica/">Nasip</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="signin.html">Login / Join</a>
@@ -253,8 +254,8 @@ Header START -->
 		<div class="container">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="index.html">
-				<img class="navbar-brand-item light-mode-item" src="assets/images/logo.svg" alt="logo">			
-				<img class="navbar-brand-item dark-mode-item" src="assets/images/logo-light.svg" alt="logo">			
+				<img class="navbar-brand-item light-mode-item" src="{% static 'assets/images/logo.svg' %}" alt="logo">
+				<img class="navbar-brand-item dark-mode-item" src="{% static 'assets/images/logo-light.svg' %}" alt="logo">
 			</a>
 			<!-- Logo END -->
 
@@ -573,9 +574,9 @@ Trending START -->
 							data-dots="false"
 							data-items="1">
 							<!-- Slider items -->
-							<div> <a href="#" class="text-reset btn-link">The most common business debate isn't as black and white as you might think</a></div>
-							<div> <a href="#" class="text-reset btn-link">How the 10 worst business fails of all time could have been prevented </a></div>
-							<div> <a href="#" class="text-reset btn-link">The most common business debate isn't as black and white as you might think </a></div>
+							<div> <a href="#" class="text-reset btn-link">Nasippp 1</a></div>
+							<div> <a href="#" class="text-reset btn-link">Nasippp 2 Nasippp 2 Nasippp 2 Nasippp 2 </a></div>
+							<div> <a href="#" class="text-reset btn-link">Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3 </a></div>
 						</div>
 					</div>
 				</div>
@@ -593,7 +594,7 @@ Main hero START -->
 		<div class="row g-4">
 			<!-- Left big card -->
 			<div class="col-lg-6">
-				<div class="card card-overlay-bottom card-grid-lg card-bg-scale lazy" data-bg="assets/images/blog/1by1/01.jpg" style="background-position: center left; background-size: cover;">
+				<div class="card card-overlay-bottom card-grid-lg card-bg-scale lazy" data-bg="{% static 'assets/images/blog/1by1/01.jpg' %}" style="background-position: center left; background-size: cover;">
 					<!-- Card featured -->
 					<span class="card-featured" title="Featured post"><i class="fas fa-star"></i></span>
 					<!-- Card Image overlay -->
@@ -602,7 +603,7 @@ Main hero START -->
             	<!-- Card category -->
             	<a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Teknoloji</a>
             	<!-- Card title -->
-              <h2 class="text-white h1"><a href="post-single-4.html" class="btn-link stretched-link text-reset">Ten tell-tale signs you need to get a new startup.</a></h2>
+              <h2 class="text-white h1"><a href="post-single-4.html" class="btn-link stretched-link text-reset">{{ Banner.0.h1 }}</a></h2>
               <p class="text-white">No visited raising gravity outward subject my cottage Mr be. Hold do at tore in park feet near my case. </p>
               <!-- Card info -->
 							<ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
@@ -610,7 +611,7 @@ Main hero START -->
 							    <div class="nav-link">
 								    <div class="d-flex align-items-center text-white position-relative">
 								      <div class="avatar avatar-sm">
-												<img class="avatar-img rounded-circle" src="assets/images/avatar/11.jpg" alt="avatar">
+												<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/11.jpg' %}" alt="avatar">
 											</div>
 											<span class="ms-3">by <a href="#" class="stretched-link text-reset btn-link">Louis</a></span>
 										</div>
