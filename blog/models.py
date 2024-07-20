@@ -50,6 +50,7 @@ class PostKategori(models.Model):
     description = models.TextField( blank=True, null=True, help_text=HELP_TEXTS["meta_description"])
     keywords = models.CharField(max_length=255,blank=True,null=True,help_text=HELP_TEXTS["keywords"])
     short_title = models.CharField(max_length=255, blank=True)
+    name = models.CharField(max_length=255, blank=True)
     renk = models.CharField(max_length=255, blank=True)
     Aktif = models.BooleanField(default=False)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
