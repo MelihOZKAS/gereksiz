@@ -122,6 +122,15 @@ def home(request):
     }
     return render(request, 'Hepsi/home.html', context)
 
+def newHome(request):
+    title = "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri"
+    description = "En son teknoloji haberlerini, ürün incelemelerini, teknoloji trendlerini ve daha fazlasını sunar. Teknoloji dünyasındaki en son gelişmeleri kaçırmayın"
+    keywords = "teknoloji, haberler, incelemeler, gadgetlar, bilim, inovasyon, AI, VR, AR, mobil teknoloji, bilgisayarlar, yazılım, donanım, otomobil, oyuni bilim"
+    yazar = "Yüksek Teknoloji"
+
+    Banner = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:3]
+
 
 def KategoriHome(request):
     if request.resolver_match.url_name == 'teknoloji':
@@ -295,7 +304,6 @@ def EnderunAMP(request, post_slug):
 
     PostEndrun.okunma_sayisi += 1
     PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
-
 
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:10]
 
