@@ -155,7 +155,7 @@ def newHome(request):
         'enson1316': enson1316,
         'sideHaber': sideHaber,
     }
-    return render(request, 'newBase.html', context)
+    return render(request, 'YeniTema/newhome.html', context)
 
 
 def KategoriHome(request):
