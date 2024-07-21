@@ -140,7 +140,7 @@ def newHome(request):
 
         'Banner': Banner,
     }
-    return render(request, 'YeniTema/newhome.html', context)
+    return render(request, 'newBase.html', context)
 
 
 def KategoriHome(request):
