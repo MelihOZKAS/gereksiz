@@ -129,7 +129,7 @@ def newHome(request):
     yazar = "Yüksek Teknoloji"
 
     Banner = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
-        '-olusturma_tarihi')[:3]
+        '-olusturma_tarihi')[:4]
 
 
     context = {
