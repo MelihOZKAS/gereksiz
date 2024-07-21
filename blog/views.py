@@ -133,7 +133,7 @@ def newHome(request):
     Trend = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
         '-olusturma_tarihi')[:4]
     sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
-        '-olusturma_tarihi')[:5]
+        '-olusturma_tarihi')[:8]
 
     enson410 = Post.objects.filter(aktif=True, status="Yayinda").order_by(
         '-olusturma_tarihi')[4:10]
