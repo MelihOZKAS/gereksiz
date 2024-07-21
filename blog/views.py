@@ -128,7 +128,9 @@ def newHome(request):
     keywords = "teknoloji, haberler, incelemeler, gadgetlar, bilim, inovasyon, AI, VR, AR, mobil teknoloji, bilgisayarlar, yazılım, donanım, otomobil, oyuni bilim"
     yazar = "Yüksek Teknoloji"
 
-    Banner = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+    Banner = Post.objects.filter(aktif=True, status="Yayinda").order_by(
+        '-olusturma_tarihi')[:4]
+    Trend = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:4]
 
 
@@ -137,8 +139,8 @@ def newHome(request):
         'description': description,
         'keywords': keywords,
         'yazar': yazar,
-
         'Banner': Banner,
+        'Trend': Trend,
     }
     return render(request, 'newBase.html', context)
 

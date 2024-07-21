@@ -89,7 +89,7 @@
 
 <body>
 
-<!-- Top alert START -->
+<!-- Top alert START en üsteki ibare -->
 <div class="alert alert-warning py-2 m-0 bg-primary border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden"
      role="alert">
     <!-- SVG shape START -->
@@ -126,26 +126,6 @@ Header END -->
 
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
-
-    <!-- =======================
-    Alert START -->
-    <section class="py-2">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-12">
-                    <div class="alert alert-primary" role="alert">
-                        This page has a Lazy load enabled. We have used compressed images on our theme so, based on your
-                        internet speed you might won’t see lazy loading images as images get loaded instantly. You can
-                        also check <a class="alert-link" target="_blank" href="docs/lazy-load.html">How to enable lazy
-                        load</a> in our documentation for more details.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- =======================
-    Alert END -->
-
     <!-- =======================
     Trending START -->
     <section class="py-2">
@@ -155,7 +135,7 @@ Header END -->
                     <div class="d-sm-flex align-items-center text-center text-sm-start">
                         <!-- Title -->
                         <div class="me-3">
-                            <span class="badge bg-primary p-2 px-3">Trending:</span>
+                            <span class="badge bg-primary p-2 px-3">Trend:</span>
                         </div>
                         <!-- Slider -->
                         <div class="tiny-slider arrow-end arrow-xs arrow-white arrow-round arrow-md-none">
@@ -167,11 +147,11 @@ Header END -->
                                  data-dots="false"
                                  data-items="1">
                                 <!-- Slider items -->
-                                <div><a href="#" class="text-reset btn-link">Nasippp 1</a></div>
-                                <div><a href="#" class="text-reset btn-link">Nasippp 2 Nasippp 2 Nasippp 2 Nasippp
-                                    2 </a></div>
-                                <div><a href="#" class="text-reset btn-link">Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3
-                                    Nasippp 3 Nasippp 3 Nasippp 3 Nasippp 3 </a></div>
+                                {% for _trend in Trend %}
+                                    <div><a href="#" class="text-reset btn-link">{{ _trend.title }}</a></div>
+                                {% endfor %}
+
+
                             </div>
                         </div>
                     </div>
@@ -631,69 +611,49 @@ Header END -->
                 <div class="col-lg-3 mt-5 mt-lg-0">
                     <div data-sticky data-margin-top="80" data-sticky-for="767">
 
-                        <!-- Social widget START -->
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <a href="#" class="bg-facebook rounded text-center text-white-force p-3 d-block">
-                                    <i class="fab fa-facebook-square fs-5 mb-2"></i>
-                                    <h6 class="m-0">1.5K</h6>
-                                    <span class="small">Fans</span>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#"
-                                   class="bg-instagram-gradient rounded text-center text-white-force p-3 d-block">
-                                    <i class="fab fa-instagram fs-5 mb-2"></i>
-                                    <h6 class="m-0">1.8M</h6>
-                                    <span class="small">Followers</span>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="bg-youtube rounded text-center text-white-force p-3 d-block">
-                                    <i class="fab fa-youtube-square fs-5 mb-2"></i>
-                                    <h6 class="m-0">22K</h6>
-                                    <span class="small">Subs</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Social widget END -->
-
                         <!-- Trending topics widget START -->
                         <div>
-                            <h4 class="mt-4 mb-3">Trending topics</h4>
+                            <h4 class="mt-4 mb-3">Kategoriler</h4>
                             <!-- Category item -->
                             <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded bg-dark-overlay-4 "
                                  style="background-image:url({% static 'yeni/assets/images/blog/4by3/01.jpg' %}); background-position: center left; background-size: cover;">
                                 <div class="p-3">
-                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Travel</a>
+                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Teknoloji</a>
                                 </div>
                             </div>
                             <!-- Category item -->
                             <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
                                  style="background-image:url({% static 'yeni/assets/images/blog/4by3/02.jpg' %}); background-position: center left; background-size: cover;">
                                 <div class="bg-dark-overlay-4 p-3">
-                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Business</a>
+                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Bilim</a>
                                 </div>
                             </div>
                             <!-- Category item -->
                             <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
                                  style="background-image:url({% static 'yeni/assets/images/blog/4by3/03.jpg' %}); background-position: center left; background-size: cover;">
                                 <div class="bg-dark-overlay-4 p-3">
-                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Marketing</a>
+                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Akıllı Telefon</a>
                                 </div>
                             </div>
                             <!-- Category item -->
                             <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
                                  style="background-image:url({% static 'yeni/assets/images/blog/4by3/04.jpg' %}); background-position: center left; background-size: cover;">
                                 <div class="bg-dark-overlay-4 p-3">
-                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Photography</a>
+                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Oyun</a>
                                 </div>
                             </div>
                             <!-- Category item -->
                             <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
                                  style="background-image:url({% static 'yeni/assets/images/blog/4by3/05.jpg' %}); background-position: center left; background-size: cover;">
                                 <div class="bg-dark-overlay-4 p-3">
-                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Sports</a>
+                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Dizi / Film</a>
+                                </div>
+                            </div>
+                            <!-- Category item -->
+                            <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
+                                 style="background-image:url({% static 'yeni/assets/images/blog/4by3/05.jpg' %}); background-position: center left; background-size: cover;">
+                                <div class="bg-dark-overlay-4 p-3">
+                                    <a href="#" class="stretched-link btn-link fw-bold text-white h5">Otomobil</a>
                                 </div>
                             </div>
                             <!-- View All Category button -->
