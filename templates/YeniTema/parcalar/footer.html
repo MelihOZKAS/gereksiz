@@ -10,19 +10,19 @@ Footer START -->
 				<img src="assets/images/logo-footer.svg" alt="footer logo">
 			</div>
 			<div class="col-md-5">
-				<p class="text-body-secondary">The next-generation blog, news, and magazine theme for you to start sharing your stories today! This Bootstrap 5 based theme is ideal for all types of sites that deliver the news.</p>
+				<p class="text-body-secondary">Yüksek Teknoloji, teknoloji dünyasının en son gelişmelerini sunan bir platformdur. Bilgiyi basit, anlaşılır ve profesyonel bir dilde sunmayı hedefliyoruz. Teknolojiye dair her şeyi burada bulabilirsiniz!</p>
 			</div>
 			<div class="col-md-4">
 				<!-- Form -->
 				<form class="row row-cols-lg-auto g-2 align-items-center justify-content-end">
 					<div class="col-12">
-				    <input type="email" class="form-control" placeholder="Enter your email address">
+				    <input type="email" class="form-control" placeholder="Mail Adresiniz">
 				  </div>
 				  <div class="col-12">
-				    <button type="submit" class="btn btn-primary m-0">Subscribe</button>
+				    <button type="submit" class="btn btn-primary m-0">Abone Olun</button>
 				  </div>
-				  <div class="form-text mt-2">By subscribing you agree to our
-				  	<a href="#" class="text-decoration-underline text-reset">Privacy Policy</a>
+				  <div class="form-text mt-2">Abone olarak
+				  	<a href="{% url 'gizlilik-politikasi' %}" class="text-decoration-underline text-reset">Gizlilik Politikamızı Kabul Etmiş Olursunuz.</a>
 				  </div>
 				</form>
 			</div>
@@ -65,17 +65,16 @@ Footer START -->
 
 			<!-- Footer Widget -->
 			<div class="col-md-6 col-lg-3 mb-4">
-				<h5 class="mb-4 text-white">Navigation</h5>
+				<h5 class="mb-4 text-white">Navigasyon</h5>
 				<div class="row">
 					<div class="col-6">
 						<ul class="nav flex-column text-primary-hover">
-							<li class="nav-item"><a class="nav-link pt-0" href="#">Features</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Style Guide</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Get Theme</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Support</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Newsletter</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'hakkimizda' %}">Hakkımızda</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'iletisim' %}">İletişim</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'gizlilik-politikasi' %}">Gizlilik Politikası</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'cerez' %}">Çerez Politikası</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'kullanim-sartlari' %}">Kullanım Şartları</a></li>
+
 						</ul>
 					</div>
  					<div class="col-6">
@@ -93,26 +92,24 @@ Footer START -->
 
 			<!-- Footer Widget -->
 			<div class="col-sm-6 col-lg-3 mb-4">
-				<h5 class="mb-4 text-white">Get Regular Updates</h5>
+				<h5 class="mb-4 text-white">Düzenli Takipte Kalın</h5>
 				<ul class="nav flex-column text-primary-hover">
-					<li class="nav-item"><a class="nav-link pt-0" href="#"><i class="fab fa-whatsapp fa-fw me-2"></i>WhatsApp</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-youtube fa-fw me-2"></i>YouTube</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"><i class="far fa-bell fa-fw me-2"></i>Website Notifications</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"><i class="far fa-envelope fa-fw me-2"></i>Newsletters</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-headphones-alt fa-fw me-2"></i>Podcasts</a></li>
+					<li class="nav-item"><a class="nav-link pt-0" href="https://t.me/yuksekteknoloji_com" target="_blank"><i class="fab fa-telegram fa-fw me-2"></i>Telegram</a></li>
+					<li class="nav-item"><a class="nav-link" href="#" target="_blank"><i class="fab fa-youtube fa-fw me-2"></i>YouTube</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://x.com/yuksekteknloji" target="_blank"><i class="fab fa-twitter fa-fw me-2"></i>Twitter</a></li>
 				</ul>
 			</div>
 
 			<!-- Footer Widget -->
 			<div class="col-sm-6 col-lg-3 mb-4">
-				<h5 class="mb-4 text-white">Our mobile App</h5>
-				<p class="text-body-secondary">Download our App and get the latest Breaking News Alerts and latest headlines and daily articles near you.</p>
+				<h5 class="mb-4 text-white">Mobil Uygulamamız</h5>
+				<p class="text-body-secondary">Uygulamamızı indirin ve yakınınızdaki en son Son Dakika Haber Uyarılarını, en son manşetleri ve günlük makaleleri ücretsiz alın.</p>
 				<div class="row g-2">
 					<div class="col">
-						<a href="#"><img class="w-100" src="assets/images/app-store.svg" alt="app-store"></a>
+						<a href="#"><img class="w-100" src="{% static 'yeni/assets/images/app-store.svg' %}" alt="app-store"></a>
 					</div>
 					<div class="col">
-						<a href="#"><img class="w-100" src="assets/images/google-play.svg" alt="google-play"></a>
+						<a href="#"><img class="w-100" src="{% static 'yeni/assets/images/google-play.svg' %}" alt="google-play"></a>
 					</div>
 				</div>
 			</div>
@@ -121,29 +118,14 @@ Footer START -->
 
 		<!-- Hot topics START -->
 		<div class="row">
-			<h5 class="mb-2 text-white">Hot topics</h5>
+			<h5 class="mb-2 text-white">Kategoriler</h5>
 			<ul class="list-inline text-primary-hover lh-lg">
-				<li class="list-inline-item"><a href="#">Covid-19</a></li>
-				<li class="list-inline-item"><a href="#">Politics</a></li>
-				<li class="list-inline-item"><a href="#">Entertainment</a></li>
-				<li class="list-inline-item"><a href="#">Media</a></li>
-				<li class="list-inline-item"><a href="#">Royalist</a></li>
-				<li class="list-inline-item"><a href="#">World</a></li>
-				<li class="list-inline-item"><a href="#">Half Full</a></li>
-				<li class="list-inline-item"><a href="#">Scouted</a></li>
-				<li class="list-inline-item"><a href="#">Travel</a></li>
-				<li class="list-inline-item"><a href="#">Beast Inside</a></li>
-				<li class="list-inline-item"><a href="#">Crossword</a></li>
-				<li class="list-inline-item"><a href="#">Newsletters</a></li>
-				<li class="list-inline-item"><a href="#">Podcasts</a></li>
-				<li class="list-inline-item"><a href="#">Auction 2022</a></li>
-				<li class="list-inline-item"><a href="#">Protests</a></li>
-				<li class="list-inline-item"><a href="#">NewsCyber</a></li>
-				<li class="list-inline-item"><a href="#">Education</a></li>
-				<li class="list-inline-item"><a href="#">Sports</a></li>
-				<li class="list-inline-item"><a href="#">Tech And Auto</a></li>
-				<li class="list-inline-item"><a href="#">Opinion</a></li>
-				<li class="list-inline-item"><a href="#">Share Market</a></li>
+				<li class="list-inline-item"><a href="#">Teknoloji</a></li>
+				<li class="list-inline-item"><a href="#">Bilim</a></li>
+				<li class="list-inline-item"><a href="#">Akıllı Telefon</a></li>
+				<li class="list-inline-item"><a href="#">Oyun</a></li>
+				<li class="list-inline-item"><a href="#">Dizi / Film</a></li>
+				<li class="list-inline-item"><a href="#">Otomobil</a></li>
 			</ul>
 		</div>
 		<!-- Hot topics END -->
