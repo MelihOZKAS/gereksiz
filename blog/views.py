@@ -130,8 +130,10 @@ def newHome(request):
 
     Banner = Post.objects.filter(aktif=True, status="Yayinda").order_by(
         '-olusturma_tarihi')[:4]
-    Trend = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+    Trend = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
         '-olusturma_tarihi')[:4]
+    sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:5]
 
     enson410 = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[4:10]
@@ -145,6 +147,7 @@ def newHome(request):
         'Banner': Banner,
         'Trend': Trend,
         'enson410': enson410,
+        'sideHaber': sideHaber,
     }
     return render(request, 'newBase.html', context)
 
