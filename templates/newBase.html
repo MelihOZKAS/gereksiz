@@ -452,7 +452,7 @@ Header END -->
                                         </div>
                                     </div>
 
-                                    <!-- Recent post item -->
+                                    <!-- Recent post item
                                     <div class="card mb-3">
                                         <div class="row g-3">
                                             <div class="col-4">
@@ -467,7 +467,7 @@ Header END -->
                                                 <div class="small mt-1">{{ bannerhaber.olusturma_tarihi|date:"d M Y" }}</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 {% endfor %}
                             </div>
                             <!-- Recent post widget END -->
@@ -561,7 +561,7 @@ Header END -->
                                 </div>
                                 <div class="col-8">
                                     <a href="#"
-                                       class="badge bg-{{ minihaber.Post_Turu.renk }} bg-opacity-10 text-danger mb-2"><i
+                                       class="badge bg-{{ minihaber.Post_Turu.renk }} bg-opacity-10 text-{{ minihaber.Post_Turu.renk }} mb-2"><i
                                             class="fas fa-circle me-2 small fw-bold"></i>{{ minihaber.Post_Turu.short_title }}
                                     </a>
                                     <h4><a href="post-single-5.html"
