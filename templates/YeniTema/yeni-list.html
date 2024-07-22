@@ -204,14 +204,33 @@
                             <!-- pagination START -->
                             <nav class="mt-5" aria-label="navigation">
                                 <ul class="pagination d-flex justify-content-between">
-                                    <li class="page-item flex-fill text-center">
-                                        <a href="#" class="page-link"> <i
-                                                class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki</a>
-                                    </li>
-                                    <li class="page-item flex-fill text-center">
-                                        <a href="#" class="page-link">Sonraki<i
-                                                class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i></a>
-                                    </li>
+                                    {% if TumPost.has_previous %}
+                                        <li class="page-item flex-fill text-center">
+                                            <a href="?sayfa={{ TumPost.previous_page_number }}" class="page-link">
+                                                <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item flex-fill text-center disabled">
+                <span class="page-link">
+                    <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
+                </span>
+                                        </li>
+                                    {% endif %}
+
+                                    {% if TumPost.has_next %}
+                                        <li class="page-item flex-fill text-center">
+                                            <a href="?sayfa={{ TumPost.next_page_number }}" class="page-link">
+                                                Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item flex-fill text-center disabled">
+                <span class="page-link">
+                    Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
+                </span>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                             <!-- pagination END -->
