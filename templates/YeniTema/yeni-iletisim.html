@@ -38,6 +38,7 @@
 
 <!--  extra_Kod Başlangıç -->
 {% block extra_Kod %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'yeni/assets/images/favicon.ico' %}">
 
@@ -99,7 +100,7 @@
 
                 </div>
 
-                <div class="form mt-5">
+                <div class="contact-form mt-5">
                     <form action="{% url 'iletisim' %}" method="post" class="php-email-form">
                         {% csrf_token %}
                         <div class="row">
