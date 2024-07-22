@@ -7,10 +7,10 @@
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
     <meta name="keywords" content="{{ keywords }}">
-    <meta name="author" content="{{ yazar }}">
+    <meta name="author" content="Yüksek Teknoloji">
 
     <!-- Canonical Link -->
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}//{{ Post_Kategorisi.slug }}/">
 {% endblock MetaTag %}
 
 
