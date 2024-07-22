@@ -586,7 +586,7 @@ def iletisim(request):
         'keywords': keywords,
         'h1': h1,
     }
-    return render(request, 'Hepsi/iletisim.html', context)
+    return render(request, 'YeniTema/yeni-iletisim.html', context)
 
 
 def hakkinda(request):
