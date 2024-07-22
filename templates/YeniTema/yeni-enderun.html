@@ -118,8 +118,34 @@
                         {% endif %}
 
 
+                        {% if icerik.resim2 %}
+                            <div class="col-md-12">
+                                <figure class="figure mb-1">
+                                    <a href="{{ icerik.resim2.url }}" data-glightbox=""
+                                       data-gallery="image-popup">
+                                        <img class="rounded" src="{{ icerik.resim.url }}" alt="{{ icerik.title }} - 2">
+                                    </a>
+                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 2
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        {% endif %}
+
                         {% if icerik.icerik2 %}
                             {{ icerik.icerik2|safe }}
+                        {% endif %}
+
+                        {% if icerik.resim3 %}
+                            <div class="col-md-12">
+                                <figure class="figure mb-1">
+                                    <a href="{{ icerik.resim3.url }}" data-glightbox=""
+                                       data-gallery="image-popup">
+                                        <img class="rounded" src="{{ icerik.resim.url }}" alt="{{ icerik.title }} - 3">
+                                    </a>
+                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 3
+                                    </figcaption>
+                                </figure>
+                            </div>
                         {% endif %}
 
                         {% if icerik.icerik3 %}
