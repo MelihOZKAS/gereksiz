@@ -49,7 +49,7 @@
     <!-- Plugins CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/font-awesome/css/all.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/glightbox/css/glightbox.css' %}">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/css/style.css' %}">
@@ -123,7 +123,7 @@
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim2.url }}" data-glightbox=""
                                        data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim.url }}" alt="{{ icerik.title }} - 2">
+                                        <img class="rounded" src="{{ icerik.resim.url2 }}" alt="{{ icerik.title }} - 2">
                                     </a>
                                     <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 2
                                     </figcaption>
@@ -140,7 +140,7 @@
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim3.url }}" data-glightbox=""
                                        data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim.url }}" alt="{{ icerik.title }} - 3">
+                                        <img class="rounded" src="{{ icerik.resim.url3 }}" alt="{{ icerik.title }} - 3">
                                     </a>
                                     <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 3
                                     </figcaption>
