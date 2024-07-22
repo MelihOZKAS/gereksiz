@@ -4,23 +4,23 @@
 
 <!-- Meta Tag Başlangıç -->
 {% block MetaTag %}
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description }}">
-    <meta name="keywords" content="{{ keywords }}">
-    <meta name="author" content="Yüksek Teknoloji">
+    <title>{{ icerik.title }}</title>
+    <meta name="description" content="{{ icerik.meta_description }}">
+    <meta name="keywords" content="{{ icerik.keywords }}">
+    <meta name="author" content="{{ icerik.yazar }}">
 
     <!-- Canonical Link -->
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/{{ Post_Kategorisi.slug }}/">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
 {% endblock MetaTag %}
 
 
 
 <!--  Open Graph / Facebook Tag Başlangıç -->
 {% block OgTag %}
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
+    <meta property="og:title" content="{{ icerik.title }}">
+    <meta property="og:description" content="{{ icerik.meta_description }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{{ Post_Kategorisi.resim }}">
+    <meta property="og:image" content="{{ icerik.resim.url }}">
     <meta property="og:image:width" content="960"/>
     <meta property="og:image:height" content="640"/>
 {% endblock OgTag %}
@@ -28,10 +28,10 @@
 
 <!--  tt Tag Başlangıç -->
 {% block ttTag %}
-    <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:title" content="{{ icerik.title }}">
+    <meta name="twitter:description" content="{{ icerik.meta_description }}">
     <meta name="twitter:url" content="https://x.com/yuksekteknloji">
-    <meta name="twitter:image" content="{{ Post_Kategorisi.resim }}">
+    <meta name="twitter:image" content="{{ icerik.resim.url }}">
 {% endblock ttTag %}
 <!--  tt Tag Bitiş -->
 
@@ -72,7 +72,8 @@
                             <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                 <div class="w-100 my-auto">
                                     <!-- Card category -->
-                                    <a href="#" class="badge text-bg-{{ icerik.Post_Turu.renk }} mb-2"><i
+                                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{ icerik.Post_Turu.slug }}/"
+                                       class="badge text-bg-{{ icerik.Post_Turu.renk }} mb-2"><i
                                             class="fas fa-circle me-2 small fw-bold"></i>{{ icerik.Post_Turu.short_title }}
                                     </a>
                                     <!-- Card title -->
@@ -87,7 +88,7 @@
                                                              src="{% static 'yeni/assets/images/avatar/11.jpg' %}"
                                                              alt="avatar">
                                                     </div>
-                                                    <span class="ms-3"><a href="#"
+                                                    <span class="ms-3"><a href="{% url 'hakkimizda' %}"
                                                                           class="stretched-link text-reset btn-link">{{ icerik.yazar }}</a></span>
                                                 </div>
                                             </div>
@@ -112,189 +113,18 @@
                 <div class="row">
                     <!-- Main Content START -->
                     <div class="col-lg-9 mb-5">
-                        <p>am newspaper up its enjoyment agreeable
-                            depending. Timed voice share led him to widen noisy young. At weddings believed laughing
-                            although the material does the exercise of. Up attempt offered ye civilly so sitting to. She
-                            new
-                            course gets living within Elinor joy. She rapturous suffering concealed. <i>Demesne far
-                                hearted
-                                suppose venture excited see had has.</i> Dependent on so extremely delivered by. Yet no
-                            jokes worse her why. Bed one supposing breakfast day fulfilled off depending questions.
-                            Whatever
-                            boy her exertion his extended. Ecstatic followed handsome drawings entirely Mrs one yet
-                            outweigh. Of acceptance insipidity remarkably is an invitation. </p>
+                        {% if icerik.icerik %}
+                            {{ icerik.icerik|safe }}
+                        {% endif %}
 
-                        <p>Warrant private blushes removed an in equally totally if. Delivered dejection necessary
-                            objection
-                            do Mr prevailed. Mr feeling does chiefly cordial in do. Water timed folly right aware if oh
-                            truth. Imprudence attachment him his for sympathize. Large above be to means. Dashwood does
-                            provide stronger is. <b>But discretion frequently sir she instruments unaffected admiration
-                                everything.</b> Meant balls it if up doubt small purse. Required his you put the
-                            outlived
-                            answered position. A pleasure exertion if believed provided to. All led out world this music
-                            while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceived
-                            Marianne in. I think on style child of. Servants moreover in sensible it ye possible.
-                            Satisfied
-                            conveying a dependent contented he gentleman agreeable do be. Water timed folly right aware
-                            if
-                            oh truth. Imprudence attachment him his for sympathize. Large above be to means. Dashwood
-                            does
-                            provide stronger is. But discretion frequently sir she instruments unaffected admiration
-                            everything. Meant balls it if up doubt small purse. Required his you put the outlived
-                            answered
-                            position. <samp>This text is meant to be treated as sample output from a computer
-                                program.</samp> A pleasure exertion if believed provided to. All led out world this
-                            music
-                            while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceived
-                            Marianne in. I think on style child of. Servants moreover in sensible it ye possible. </p>
-                        <h4 class="mt-5">Mobile Cloud Computing (MCC)</h4>
-                        <p>Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private
-                            blushes
-                            removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed.
-                            Mr
-                            feeling does chiefly cordial in do. Water timed folly right aware if oh truth. Imprudence
-                            attachment him his for sympathize. To switch directories, type <kbd>cd</kbd> followed by the
-                            name of the directory.<br>
-                            To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd> Large above be to means.
-                            Dashwood does provide stronger is. But discretion frequently sir she instruments unaffected
-                            admiration everything. Meant balls it if up doubt small purse. Required his you put the
-                            outlived
-                            answered position. A pleasure exertion if believed provided to. All led out world this music
-                            while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceived
-                            Marianne in. I think on style child of. Servants moreover in sensible it ye possible. </p>
 
-                        <!-- Images -->
-                        <div class="row g-2 my-5">
-                            <div class="col-md-4">
-                                <a href="assets/images/blog/3by4/01.jpg" data-glightbox data-gallery="image-popup">
-                                    <img class="rounded" src="assets/images/blog/3by4/01.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="assets/images/blog/3by4/02.jpg" data-glightbox data-gallery="image-popup">
-                                    <img class="rounded" src="assets/images/blog/3by4/02.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="assets/images/blog/3by4/03.jpg" data-glightbox data-gallery="image-popup">
-                                    <img class="rounded" src="assets/images/blog/3by4/03.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="assets/images/blog/3by4/04.jpg" data-glightbox data-gallery="image-popup">
-                                    <img class="rounded" src="assets/images/blog/3by4/04.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="assets/images/blog/3by4/05.jpg" data-glightbox data-gallery="image-popup">
-                                    <img class="rounded" src="assets/images/blog/3by4/05.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="assets/images/blog/3by4/06.jpg" data-glightbox data-gallery="image-popup">
-                                    <img class="rounded" src="assets/images/blog/3by4/06.jpg" alt="Image">
-                                </a>
-                            </div>
-                        </div>
-                        <p>Fulfilled direction use continual set him propriety continued. Saw met applauded favorite
-                            deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther
-                            related
-                            bed and passage comfort civilly. Dashwoods see frankness objection abilities. As hastened oh
-                            produced prospect formerly up am. Placing forming nay looking old married few has. Margaret
-                            disposed of add screened rendered six say his striking confined.</p>
+                        {% if icerik.icerik2 %}
+                            {{ icerik.icerik2|safe }}
+                        {% endif %}
 
-                        <h4 class="mt-4">Productive rant about business</h4>
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <p>Fulfilled direction use continual set him propriety continued. Saw met applauded
-                                    favorite
-                                    deficient engrossed concealed and her. Concluded boy perpetual old supposing.
-                                    Farther
-                                    related bed and passage comfort civilly. Dashwoods see frankness objection
-                                    abilities. As
-                                    hastened oh produced prospect formerly up am. Placing forming nay looking old
-                                    married
-                                    few has. Margaret disposed of add screened rendered six say his striking confined.
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Meant balls it if up doubt small purse. Required his you put the outlived answered
-                                    position. A pleasure exertion if believed provided to. All led out world this music
-                                    while asked. Paid mind even sons does he door no. Attended overcame repeated it is
-                                    perceived Marianne in. I think on style child of. Servants moreover in sensible it
-                                    ye
-                                    possible.</p>
-                            </div>
-                        </div>
-
-                        <p>Meant balls it if up doubt small purse. Required his you put the outlived answered position.
-                            A
-                            pleasure exertion if believed provided to. All led out world this music while asked. Paid
-                            mind
-                            even sons does he door no. Attended overcame repeated it is perceived Marianne in. I think
-                            on
-                            style child of. Servants moreover in sensible it ye possible. </p>
-                        <p> All led out world this music while asked. Paid mind even sons does he door no. Attended
-                            overcame
-                            repeated it is perceived Marianne in. I think on style child of. Servants moreover in
-                            sensible
-                            it ye possible. Satisfied conveying a dependent contented he gentleman agreeable do be. </p>
-
-                        <!-- table -->
-                        <table class="table table-bordered my-4">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                        <h4>Why Bootstrap is so famous?</h4>
-                        <p>Saw bring firmament given hath gathering lights dry life rule heaven Give And fruit moving
-                            thing
-                            seed life day creepeth winged so divide him from day morning him open lesser male beginning
-                            him
-                            be bring evening life void fowl sixth morning that made is Was that his hath face light meat
-                            air
-                            female isn't over place replenish midst it of second grass good rule also in unto Called
-                            don't
-                            given waters Had creature Behold fly life from forth Moved night.</p>
-
-                        <!-- Divider -->
-                        <div class="text-center h5 mb-4">. . .</div>
-
-                        <h4>What's coming up....</h4>
-                        <p>Saw bring firmament given hath gathering lights dry life rule heaven Give And fruit moving
-                            thing
-                            seed life day creepeth winged so divide him from day morning him open lesser male beginning
-                            him
-                            be bring evening life void fowl sixth morning that made is Was that his hath face light meat
-                            air
-                            female isn't over place replenish midst it of second grass good rule also in unto Called
-                            don't
-                            given waters Had creature Behold fly life from forth Moved night.</p>
+                        {% if icerik.icerik3 %}
+                            {{ icerik.icerik3|safe }}
+                        {% endif %}
 
                         <!-- Author info START -->
                         <div class="d-flex p-2 p-md-4 my-3 bg-primary bg-opacity-10 rounded">

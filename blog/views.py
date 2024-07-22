@@ -394,15 +394,10 @@ def YeniEnderun(request, post_slug):
         '-olusturma_tarihi')[:8]
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
 
-    title = PostEndrun.title
-    H1 = PostEndrun.h1
-    description = PostEndrun.meta_description
-    keywords = PostEndrun.keywords
-    yazar = PostEndrun.yazar
+
     noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
     Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
 
-    #twitterwidget = PostEndrun.twitterwidget
 
     thumbnail_url = None
 
@@ -428,11 +423,6 @@ def YeniEnderun(request, post_slug):
 
 
     context = {
-        'title': title,
-        'H1': H1,
-        'description': description,
-        'keywords': keywords,
-        'yazar': yazar,
         'icerik': PostEndrun,
         'populer': populer,
         'editor': editor,
