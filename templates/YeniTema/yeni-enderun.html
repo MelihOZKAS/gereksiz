@@ -117,9 +117,28 @@
                             {{ icerik.icerik|safe }}
                         {% endif %}
 
+                        {% if icerik.youtube %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure position-relative">
+                                    <!-- Card play button -->
+                                    <div class="position-absolute top-50 start-50 translate-middle pb-5">
+                                        <!-- Popup video -->
+                                        <a href="{{ icerik.youtube }}"
+                                           class="icon-lg bg-danger d-block text-white rounded-circle" data-glightbox=""
+                                           data-gallery="y-video">
+                                            <i class="bi bi-play-btn"></i>
+                                        </a>
+                                    </div>
+                                    <img class="rounded" src="{{ icerik.resim.url }}" alt="Youtube {{ icerik.title }}">
+
+                                </figure>
+                            </div>
+
+                        {% endif %}
+
 
                         {% if icerik.resim2 %}
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim2.url }}" data-glightbox=""
                                        data-gallery="image-popup">
@@ -136,7 +155,7 @@
                         {% endif %}
 
                         {% if icerik.resim3 %}
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim3.url }}" data-glightbox=""
                                        data-gallery="image-popup">
@@ -150,6 +169,19 @@
 
                         {% if icerik.icerik3 %}
                             {{ icerik.icerik3|safe }}
+                        {% endif %}
+
+                        {% if icerik.resim4 %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure mb-1">
+                                    <a href="{{ icerik.resim4.url }}" data-glightbox=""
+                                       data-gallery="image-popup">
+                                        <img class="rounded" src="{{ icerik.resim4.url }}" alt="{{ icerik.title }} - 4">
+                                    </a>
+                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 4
+                                    </figcaption>
+                                </figure>
+                            </div>
                         {% endif %}
 
                         <!-- Share START -->
@@ -203,7 +235,7 @@
                         <!-- Share END -->
 
                         <!-- Başka Haber START -->
-                        <div class="row g-0">
+                        <div class="row g-0 mt-4">
                             <div class="col-sm-6 bg-primary bg-opacity-10 p-4 position-relative border-end border-1 rounded-start">
                                 <span><i class="bi bi-arrow-left me-3 rtl-flip"></i>Başka Haber</span>
                                 <h5 class="m-0"><a href="{% url 'post-getir' post_slug=populer.0.slug %}"
