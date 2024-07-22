@@ -272,6 +272,9 @@ def YeniKategoriHome(request):
     editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by('-olusturma_tarihi')[:8]
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
 
+    sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:8]
+
     title = Post_Kategorisi.Title
     H1 = Post_Kategorisi.H1
     description = Post_Kategorisi.description
@@ -298,6 +301,7 @@ def YeniKategoriHome(request):
         'populer': populer,
         'editor': editor,
         'enson': enson,
+        'sideHaber': sideHaber,
 
     }
     return render(request, 'YeniTema/yeni-list.html', context)
