@@ -129,11 +129,28 @@
                                             <i class="bi bi-play-btn"></i>
                                         </a>
                                     </div>
-                                    <img class="rounded" src="{{ icerik.resim.url }}" alt="Youtube {{ icerik.title }}">
+                                    <img class="rounded" src="{{ icerik.resim.url }}" alt="Youtube {{ icerik.title }}"
+                                         width="960" height="640">
 
                                 </figure>
                             </div>
 
+                        {% endif %}
+
+
+
+                        {% if icerik.twitter %}
+                            <div class="mx-auto w-100 d-flex justify-content-center my-5">
+                                <div class="twitter-tweet twitter-tweet-rendered"
+                                     style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;">
+                                    <iframe id="twitter-widget-0" scrolling="no" frameborder="0"
+                                            allowtransparency="true" allowfullscreen="true" class="" title="X Post"
+                                            src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1374404289586589701&amp;lang=en&amp;origin=https%3A%2F%2Fblogzine.webestica.com%2Fpost-single.html&amp;sessionId=e9b1ce03168728326064be752ebf56434ab45ac6&amp;theme=light&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px"
+                                            style="position: static; visibility: visible; width: 550px; height: 305px; display: block; flex-grow: 1;"
+                                            data-tweet-id="1807066501775544780"></iframe>
+                                </div>
+                                <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
                         {% endif %}
 
 
@@ -142,7 +159,8 @@
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim2.url }}" data-glightbox=""
                                        data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2" width="960" height="640">
+                                        <img class="rounded" src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
+                                             width="960" height="640">
                                     </a>
                                     <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 2
                                     </figcaption>
@@ -159,7 +177,8 @@
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim3.url }}" data-glightbox=""
                                        data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim3.url }}" alt="{{ icerik.title }} - 3"  width="960" height="640">
+                                        <img class="rounded" src="{{ icerik.resim3.url }}" alt="{{ icerik.title }} - 3"
+                                             width="960" height="640">
                                     </a>
                                     <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 3
                                     </figcaption>
@@ -176,7 +195,8 @@
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim4.url }}" data-glightbox=""
                                        data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim4.url }}" alt="{{ icerik.title }} - 4"  width="960" height="640">
+                                        <img class="rounded" src="{{ icerik.resim4.url }}" alt="{{ icerik.title }} - 4"
+                                             width="960" height="640">
                                     </a>
                                     <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 4
                                     </figcaption>
@@ -192,42 +212,48 @@
                                     <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-facebook"
                                        href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
                                        target="_blank">
-                                        <i class="fab fa-facebook-square align-middle" aria-label="Haberi Facebook'ta Paylaş"></i>
+                                        <i class="fab fa-facebook-square align-middle"
+                                           aria-label="Haberi Facebook'ta Paylaş"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-twitter"
                                        href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}"
                                        target="_blank">
-                                        <i class="fab fa-twitter-square align-middle" aria-label="Haberi Twitter'da Paylaş"></i>
+                                        <i class="fab fa-twitter-square align-middle"
+                                           aria-label="Haberi Twitter'da Paylaş"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-linkedin"
                                        href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}"
                                        target="_blank">
-                                        <i class=" fab fa-linkedin align-middle" aria-label="Haberi LinkedIn'de Paylaş"></i>
+                                        <i class=" fab fa-linkedin align-middle"
+                                           aria-label="Haberi LinkedIn'de Paylaş"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-pinterest"
                                        href="https://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}"
                                        target="_blank">
-                                        <i class="fab fa-pinterest align-middle" aria-label="Haberi Pinterest'te Paylaş"></i>
+                                        <i class="fab fa-pinterest align-middle"
+                                           aria-label="Haberi Pinterest'te Paylaş"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-success"
                                        href="https://wa.me/?text=Bunu Keslinkle okumalısın! {{ request.build_absolute_uri }}"
                                        target="_blank">
-                                        <i class="fab fa-whatsapp align-middle" aria-label="Haberi Whatsapp'da Paylaş"></i>
+                                        <i class="fab fa-whatsapp align-middle"
+                                           aria-label="Haberi Whatsapp'da Paylaş"></i>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link icon-md rounded-circle me-2 mb-2 p-0 fs-5 bg-primary"
                                        href="https://telegram.me/share/url?url={{ request.build_absolute_uri }}"
                                        target="_blank">
-                                        <i class="fab fa-telegram align-middle" aria-label="Haberi Telegram'da Paylaş"></i>
+                                        <i class="fab fa-telegram align-middle"
+                                           aria-label="Haberi Telegram'da Paylaş"></i>
                                     </a>
                                 </li>
                             </ul>
