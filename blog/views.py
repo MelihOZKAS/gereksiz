@@ -280,7 +280,7 @@ def YeniKategoriHome(request):
     description = Post_Kategorisi.description
     keywords = Post_Kategorisi.keywords
 
-    paginator = Paginator(TumPost, 10)  # 10 içerik göstermek için
+    paginator = Paginator(TumPost, 11)  # 11 içerik göstermek için
     page_number = request.GET.get('sayfa')
     TumPost = paginator.get_page(page_number)
 

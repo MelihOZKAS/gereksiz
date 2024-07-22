@@ -19,7 +19,7 @@
                                 <li class="breadcrumb-item"><a href="{% url 'newHome' %}"><i
                                         class="bi bi-house me-1"></i>
                                     Ana Sayfa</a></li>
-                                <li class="breadcrumb-item active">All post</li>
+                                <li class="breadcrumb-item active">{{ Post_Kategorisi.name }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -53,8 +53,8 @@
                                                     <!-- Card overlay bottom -->
                                                     <div class="w-100 mt-auto">
                                                         <!-- Card category -->
-                                                        <a href="#" class="badge text-bg-warning mb-2"><i
-                                                                class="fas fa-circle me-2 small fw-bold"></i>Technology</a>
+                                                        <a href="#" class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
+                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@
                                         <div class="card">
                                             <!-- Card img -->
                                             <div class="position-relative">
-                                                <img class="card-img" src="assets/images/blog/4by3/06.jpg"
+                                                <img class="card-img lazy" src="{{ Post.resim.url }}"
                                                      alt="Card image">
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay Top -->
@@ -103,21 +103,15 @@
                                                     <!-- Card overlay bottom -->
                                                     <div class="w-100 mt-auto">
                                                         <!-- Card category -->
-                                                        <a href="#" class="badge text-bg-danger mb-2"><i
-                                                                class="fas fa-circle me-2 small fw-bold"></i>Travel</a>
+                                                        <a href="#" class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
+                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}</a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
                                                 <h4 class="card-title"><a href="post-single-3.html"
-                                                                          class="btn-link text-reset fw-bold">Dirty
-                                                    little
-                                                    secrets about the business industry</a></h4>
-                                                <p class="card-text">Place voice no arises along to. Parlors waiting so
-                                                    against
-                                                    me no. Wishing calling is warrant settled was lucky. Express besides
-                                                    it
-                                                    present if at an opinion visitor.</p>
+                                                                          class="btn-link text-reset fw-bold">{{ Post.h1 }}</a></h4>
+                                                <p class="card-text">{{ Post.icerik|truncatechars:150|safe }}</p>
                                                 <!-- Card info -->
                                                 <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
                                                     <li class="nav-item">
@@ -125,14 +119,14 @@
                                                             <div class="d-flex align-items-center position-relative">
                                                                 <div class="avatar avatar-xs">
                                                                     <img class="avatar-img rounded-circle"
-                                                                         src="assets/images/avatar/02.jpg" alt="avatar">
+                                                                         src="{% static 'yeni/assets/images/avatar/02.jpg' %}" alt="avatar">
                                                                 </div>
                                                                 <span class="ms-3">by <a href="#"
-                                                                                         class="stretched-link text-reset btn-link">Dennis</a></span>
+                                                                                         class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="nav-item">Mar 07, 2022</li>
+                                                    <li class="nav-item">{{ Post.olusturma_tarihi|date:"d M Y" }}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -150,10 +144,10 @@
                                 <ul class="pagination d-flex justify-content-between">
                                     <li class="page-item flex-fill text-center">
                                         <a href="#" class="page-link"> <i
-                                                class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i> Older</a>
+                                                class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki</a>
                                     </li>
                                     <li class="page-item flex-fill text-center">
-                                        <a href="#" class="page-link">Newer <i
+                                        <a href="#" class="page-link">Sonraki<i
                                                 class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i></a>
                                     </li>
                                 </ul>
