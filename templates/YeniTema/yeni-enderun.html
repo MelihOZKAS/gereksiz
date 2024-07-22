@@ -2,6 +2,60 @@
 {% load static %}
 
 
+<!-- Meta Tag Başlangıç -->
+{% block MetaTag %}
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="author" content="Yüksek Teknoloji">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/{{ Post_Kategorisi.slug }}/">
+{% endblock MetaTag %}
+
+
+
+<!--  Open Graph / Facebook Tag Başlangıç -->
+{% block OgTag %}
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{{ Post_Kategorisi.resim }}">
+    <meta property="og:image:width" content="960"/>
+    <meta property="og:image:height" content="640"/>
+{% endblock OgTag %}
+<!--  Open Graph / Facebook Tag Bitiş -->
+
+<!--  tt Tag Başlangıç -->
+{% block ttTag %}
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:url" content="https://x.com/yuksekteknloji">
+    <meta name="twitter:image" content="{{ Post_Kategorisi.resim }}">
+{% endblock ttTag %}
+<!--  tt Tag Bitiş -->
+
+
+<!--  extra_Kod Başlangıç -->
+{% block extra_Kod %}
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'yeni/assets/images/favicon.ico' %}">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/font-awesome/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/css/style.css' %}">
+{% endblock extra_Kod %}
+<!--  extra_Kod Bitiş -->
+
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 
@@ -18,7 +72,8 @@
                             <div class="w-100 my-auto">
                                 <!-- Card category -->
                                 <a href="#" class="badge text-bg-{{ icerik.Post_Turu.renk }} mb-2"><i
-                                        class="fas fa-circle me-2 small fw-bold"></i>{{ icerik.Post_Turu.short_title }}</a>
+                                        class="fas fa-circle me-2 small fw-bold"></i>{{ icerik.Post_Turu.short_title }}
+                                </a>
                                 <!-- Card title -->
                                 <h1 class="text-white display-5">{{ icerik.h1 }}</h1>
                                 <!-- Card info -->
@@ -28,10 +83,11 @@
                                             <div class="d-flex align-items-center text-white position-relative">
                                                 <div class="avatar avatar-sm">
                                                     <img class="avatar-img rounded-circle"
-                                                         src="{% static 'yeni/assets/images/avatar/11.jpg' %}" alt="avatar">
+                                                         src="{% static 'yeni/assets/images/avatar/11.jpg' %}"
+                                                         alt="avatar">
                                                 </div>
                                                 <span class="ms-3"><a href="#"
-                                                                         class="stretched-link text-reset btn-link">{{ icerik.yazar }}</a></span>
+                                                                      class="stretched-link text-reset btn-link">{{ icerik.yazar }}</a></span>
                                             </div>
                                         </div>
                                     </li>
