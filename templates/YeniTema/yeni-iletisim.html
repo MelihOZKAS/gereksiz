@@ -61,191 +61,84 @@
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
 
-        <!-- =======================
-        Inner intro START -->
-        <section class="pt-4">
-            <div class="container">
+        <!-- ======= Hero Slider Section ======= -->
+        <section id="contact" class="contact mb-5">
+            <div class="container" data-aos="fade-up">
+
                 <div class="row">
-                    <div class="col-12">
-                        <h1 class="display-5">{{ H1 }}</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{% url 'newHome' %}"><i
-                                        class="bi bi-house me-1"></i>
-                                    Ana Sayfa</a></li>
-                                <li class="breadcrumb-item active">{{ Post_Kategorisi.name }}</li>
-                            </ol>
-                        </nav>
+                    <div class="col-lg-12 text-center mb-5">
+                        <h1 class="page-title">{{ h1 }}</h1>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- =======================
-        Inner intro END -->
 
-        <!-- =======================
-        Main content START -->
-        <section class="position-relative pt-0">
-            <div class="container" data-sticky-container>
-                <div class="row">
-                    <!-- Main Post START -->
-                    <div class="col-lg-9">
-                        <div class="row gy-4">
-                            {% for Post in TumPost %}
-                                {% if forloop.first %}
-                                    <!-- Card item START -->
-                                    <div class="col-12">
-                                        <div class="card overflow-hidden">
-                                            <!-- Card img -->
-                                            <div class="position-relative">
-                                                <img class="card-img lazy" src="{{ Post.resim.url }}"
-                                                     alt="{{ Post.title }}" width="960" height="640">
-                                                <!-- Card featured -->
-                                                <span class="card-featured" title="Featured post"><i
-                                                        class="fas fa-star"></i></span>
-                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                                    <!-- Card overlay bottom -->
-                                                    <div class="w-100 mt-auto">
-                                                        <!-- Card category -->
-                                                        <a href="#"
-                                                           class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
-                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body px-0 pt-3">
-                                                <h2 class="card-title"><a href="post-single-3.html"
-                                                                          class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
-                                                </h2>
-                                                <p class="card-text">{{ Post.icerik|truncatechars:175|safe }}</p>
-                                                <!-- Card info -->
-                                                <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                    <li class="nav-item">
-                                                        <div class="nav-link">
-                                                            <div class="d-flex align-items-center position-relative">
-                                                                <div class="avatar avatar-xs">
-                                                                    <img class="avatar-img rounded-circle"
-                                                                         src="{% static 'yeni/assets/images/avatar/01.jpg' %}"
-                                                                         alt="avatar">
-                                                                </div>
-                                                                <span class="ms-3"><a href="#"
-                                                                                      class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="nav-item">{{ Post.olusturma_tarihi|date:"d M Y" }}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
-                                {% else %}
-                                    <!-- Card item START -->
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <!-- Card img -->
-                                            <div class="position-relative">
-                                                <img class="card-img lazy" src="{{ Post.resim.url }}" width="960" height="640"
-                                                     alt="Card image">
-                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                                    <!-- Card overlay Top -->
-                                                    <div class="w-100 mb-auto d-flex justify-content-end">
-                                                        <div class="text-end ms-auto">
-                                                            <!-- Card format icon -->
-                                                            <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
-                                                                 title="This post has video"><i
-                                                                    class="fas fa-video"></i></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Card overlay bottom -->
-                                                    <div class="w-100 mt-auto">
-                                                        <!-- Card category -->
-                                                        <a href="#"
-                                                           class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
-                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body px-0 pt-3">
-                                                <h4 class="card-title"><a href="post-single-3.html"
-                                                                          class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
-                                                </h4>
-                                                <p class="card-text">{{ Post.icerik|truncatechars:175|safe }}</p>
-                                                <!-- Card info -->
-                                                <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                    <li class="nav-item">
-                                                        <div class="nav-link">
-                                                            <div class="d-flex align-items-center position-relative">
-                                                                <div class="avatar avatar-xs">
-                                                                    <img class="avatar-img rounded-circle"
-                                                                         src="{% static 'yeni/assets/images/avatar/02.jpg' %}"
-                                                                         alt="avatar">
-                                                                </div>
-                                                                <span class="ms-3"><a href="#"
-                                                                                      class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="nav-item">{{ Post.olusturma_tarihi|date:"d M Y" }}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
-                                {% endif %}
-                            {% endfor %}
+                <div class="row gy-4">
 
-
-
-
-
-                            <!-- pagination START -->
-                            <nav class="mt-5" aria-label="navigation">
-                                <ul class="pagination d-flex justify-content-between">
-                                    {% if TumPost.has_previous %}
-                                        <li class="page-item flex-fill text-center">
-                                            <a href="?sayfa={{ TumPost.previous_page_number }}" class="page-link">
-                                                <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="page-item flex-fill text-center disabled">
-                <span class="page-link">
-                    <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
-                </span>
-                                        </li>
-                                    {% endif %}
-
-                                    {% if TumPost.has_next %}
-                                        <li class="page-item flex-fill text-center">
-                                            <a href="?sayfa={{ TumPost.next_page_number }}" class="page-link">
-                                                Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="page-item flex-fill text-center disabled">
-                <span class="page-link">
-                    Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
-                </span>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-                            </nav>
-                            <!-- pagination END -->
+                    <div class="col-md-4">
+                        <div class="info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>Adres</h3>
+                            <address>İnönü Mah. Halkalı cad. No:206 - Küçükçekmece - İSTANBUL</address>
                         </div>
-                    </div>
-                    <!-- Main Post END -->
+                    </div><!-- End Info Item -->
 
-                    <!-- Sidebar START -->
-                    {% include 'YeniTema/parcalar/sidebar.html' %}
-                    <!-- Sidebar END -->
-                </div> <!-- Row end -->
+                    <div class="col-md-4">
+                        <div class="info-item info-item-borders">
+                            <i class="bi bi-phone"></i>
+                            <h3>Telefon - Whatsapp</h3>
+                            <p><a href="tel:+08503033935">+0850 303 39 35 </a></p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-md-4">
+                        <div class="info-item">
+                            <i class="bi bi-envelope"></i>
+                            <h3>Email</h3>
+                            <p><a href="mailto:yuksekteknoloji@gmail.com">yuksekteknoloji@gmail.com</a></p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                </div>
+
+                <div class="form mt-5">
+                    <form action="{% url 'iletisim' %}" method="post" class="php-email-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="isim"
+                                       required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" name="email" id="email"
+                                       placeholder="Mail Adresi"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="title" id="subject" placeholder="Konu"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                        <textarea class="form-control" name="icerik" rows="7" placeholder="Mesajınız"
+                                  required></textarea>
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Mesajınız Kaydedildi En Kısa Sürede Kontrol Edilecektir.</div>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6LdEk_0pAAAAAIrT3QJjZAVox11KV4cM7KHOLevL"></div>
+                        <div class="text-center">
+                            <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">
+                                Mesajı
+                                Gönder
+                            </button>
+                        </div>
+                    </form>
+                </div><!-- End Contact Form -->
+
+
             </div>
         </section>
-        <!-- =======================
-        Main content END -->
 
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
