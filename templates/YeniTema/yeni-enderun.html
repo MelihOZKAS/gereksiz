@@ -140,7 +140,7 @@
                                 <figure class="figure mb-1">
                                     <a href="{{ icerik.resim3.url }}" data-glightbox=""
                                        data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 3">
+                                        <img class="rounded" src="{{ icerik.resim3.url }}" alt="{{ icerik.title }} - 3">
                                     </a>
                                     <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 3
                                     </figcaption>
@@ -202,44 +202,22 @@
                         </div>
                         <!-- Share END -->
 
-                        <!-- Author info START -->
-                        <div class="d-flex p-2 p-md-4 my-3 bg-primary bg-opacity-10 rounded">
-                            <!-- Avatar -->
-                            <a href="#">
-                                <div class="avatar avatar-xxl me-2 me-md-4">
-                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/12.jpg"
-                                         alt="avatar">
-                                </div>
-                            </a>
-                            <!-- Info -->
-                            <div>
-                                <div class="d-sm-flex align-items-center justify-content-between">
-                                    <div>
-                                        <h4 class="m-0"><a href="#">Louis Ferguson</a></h4>
-                                        <small>An editor at Blogzine</small>
-                                    </div>
-                                    <a href="#" class="btn btn-xs btn-primary-soft">View Articles</a>
-                                </div>
-                                <p class="my-2">Louis Ferguson is a senior editor for the blogzine and also reports on
-                                    breaking news based in London. He has written about government, criminal justice,
-                                    and
-                                    the role of money in politics since 2015.</p>
-                                <!-- Social icons -->
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 pe-2 fs-5" href="#"><i
-                                                class="fab fa-facebook-square"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-2 fs-5" href="#"><i class="fab fa-twitter-square"></i></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link px-2 fs-5" href="#"><i class="fab fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
+                        <!-- Başka Haber START -->
+                        <div class="row g-0">
+                            <div class="col-sm-6 bg-primary bg-opacity-10 p-4 position-relative border-end border-1 rounded-start">
+                                <span><i class="bi bi-arrow-left me-3 rtl-flip"></i>Başka Haber</span>
+                                <h5 class="m-0"><a href="{% url 'post-getir' post_slug=populer.0.slug %}"
+                                                   class="stretched-link btn-link text-reset">{{ populer.0.title }}</a>
+                                </h5>
+                            </div>
+                            <div class="col-sm-6 bg-primary bg-opacity-10 p-4 position-relative text-sm-end rounded-end">
+                                <span>Başka Haber<i class="bi bi-arrow-right ms-3 rtl-flip"></i></span>
+                                <h5 class="m-0"><a href="{% url 'post-getir' post_slug=populer.1.slug %}"
+                                                   class="stretched-link btn-link text-reset">{{ populer.1.title }}</a>
+                                </h5>
                             </div>
                         </div>
-                        <!-- Author info END -->
+                        <!-- Başka Haber END -->
 
 
                     </div>
@@ -261,13 +239,12 @@
                 <!-- Title -->
                 <div class="me-3">
                     <span>Next post<i class="bi bi-arrow-right ms-3"></i></span>
-                    <h6 class="m-0"><a href="javascript:void(0)" class="stretched-link btn-link text-reset">Bad habits
-                        that
-                        people in the industry need to quit</a></h6>
+                    <h6 class="m-0"><a href="javascript:void(0)"
+                                       class="stretched-link btn-link text-reset">{{ populer.2.title }}</a></h6>
                 </div>
                 <!-- image -->
                 <div class="col-4 d-none d-md-block">
-                    <img src="assets/images/blog/4by3/05.jpg" alt="Image">
+                    <img src="{{ populer.2.resim.url }}" alt="{{ populer.2.title }}" width="78" height="58">
                 </div>
             </div>
         </div>

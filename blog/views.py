@@ -389,7 +389,7 @@ def YeniEnderun(request, post_slug):
     PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
-        '-olusturma_tarihi')[:8]
+        '-olusturma_tarihi')[:3]
 
 
     sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
