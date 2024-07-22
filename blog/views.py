@@ -390,9 +390,10 @@ def YeniEnderun(request, post_slug):
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
-    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
+
+
+    sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
-    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
 
 
     noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
@@ -425,8 +426,7 @@ def YeniEnderun(request, post_slug):
     context = {
         'icerik': PostEndrun,
         'populer': populer,
-        'editor': editor,
-        'enson': enson,
+        'sideHaber': sideHaber,
         'noFollows': noFollows,
         'Follows': Follows,
         'thumbnail_url': thumbnail_url,
