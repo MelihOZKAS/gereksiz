@@ -47,6 +47,7 @@ urlpatterns = [
 
     path("farkli-haber/", views.fadilEnderun),
     path('amp/<str:post_slug>/', views.EnderunAMP, name='post-getir-amp'),#Blog Git
+    path('1/<str:post_slug>/', views.YeniEnderun, name='yeni-post-getir'),#Blog Git
     path('<str:post_slug>/', views.Enderun, name='post-getir'),#Blog Git
 
 ]

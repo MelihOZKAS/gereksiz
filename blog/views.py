@@ -382,6 +382,72 @@ def Enderun(request, post_slug):
 
 
 
+def YeniEnderun(request, post_slug):
+    PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
+
+    PostEndrun.okunma_sayisi += 1
+    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+
+    populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:8]
+    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
+        '-olusturma_tarihi')[:8]
+    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+
+    title = PostEndrun.title
+    H1 = PostEndrun.h1
+    description = PostEndrun.meta_description
+    keywords = PostEndrun.keywords
+    yazar = PostEndrun.yazar
+    noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
+    Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
+
+    #twitterwidget = PostEndrun.twitterwidget
+
+    thumbnail_url = None
+
+    if PostEndrun.youtube:
+        youtube_id = get_youtube_id(PostEndrun.youtube)
+        thumbnail_url = f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
+
+    contents = [PostEndrun.icerik, PostEndrun.icerik2, PostEndrun.icerik3]
+    articleBody = ' '.join(filter(None, contents))
+
+
+    resimler = []
+    if PostEndrun.resim:
+        resimler.append(PostEndrun.resim.url)
+    if PostEndrun.resim2:
+        resimler.append(PostEndrun.resim2.url)
+    if PostEndrun.resim3:
+        resimler.append(PostEndrun.resim3.url)
+    if PostEndrun.resim4:
+        resimler.append(PostEndrun.resim4.url)
+    if not resimler:  # Eğer resimler listesi boşsa
+        resimler.append("https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp")
+
+
+    context = {
+        'title': title,
+        'H1': H1,
+        'description': description,
+        'keywords': keywords,
+        'yazar': yazar,
+        'icerik': PostEndrun,
+        'populer': populer,
+        'editor': editor,
+        'enson': enson,
+        'noFollows': noFollows,
+        'Follows': Follows,
+        'thumbnail_url': thumbnail_url,
+        'resimler': resimler,
+        'articleBody': articleBody,
+    }
+    return render(request, 'YeniTema/yeni-enderun.html', context)
+
+
+
+
 
 def get_tweet_id(html_content):
     # Twitter linkini bul
