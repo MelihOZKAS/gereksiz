@@ -290,18 +290,19 @@ def YeniKategoriHome(request):
     else:
         title = f"{title} - {page_number}"
         description = f"{description} - Sayfa {page_number}"
+        H1 = f"{H1} - Sayfa {page_number}"
 
     context = {
-        'title': title,
-        'H1': H1,
-        'description': description,
-        'keywords': keywords,
+        'title': title, #OK
+        'H1': H1, #OK
+        'description': description,#OK
+        'keywords': keywords, #OK
         'Post_Kategorisi': Post_Kategorisi,
-        'TumPost': TumPost,
+        'TumPost': TumPost, #OK
         'populer': populer,
         'editor': editor,
         'enson': enson,
-        'sideHaber': sideHaber,
+        'sideHaber': sideHaber, #OK
 
     }
     return render(request, 'YeniTema/yeni-list.html', context)

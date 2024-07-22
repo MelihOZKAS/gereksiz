@@ -13,11 +13,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="display-5">Post grid large than grid</h1>
+                        <h1 class="display-5">{{ H1 }}</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i>
-                                    Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'newHome' %}"><i
+                                        class="bi bi-house me-1"></i>
+                                    Ana Sayfa</a></li>
                                 <li class="breadcrumb-item active">All post</li>
                             </ol>
                         </nav>
@@ -36,320 +37,114 @@
                     <!-- Main Post START -->
                     <div class="col-lg-9">
                         <div class="row gy-4">
-                            <!-- Card item START -->
-                            <div class="col-12">
-                                <div class="card overflow-hidden">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/16by9/01.jpg" alt="Card image">
-                                        <!-- Card featured -->
-                                        <span class="card-featured" title="Featured post"><i
-                                                class="fas fa-star"></i></span>
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge text-bg-warning mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Technology</a>
+                            {% for Post in TumPost %}
+                                {% if forloop.first %}
+                                    <!-- Card item START -->
+                                    <div class="col-12">
+                                        <div class="card overflow-hidden">
+                                            <!-- Card img -->
+                                            <div class="position-relative">
+                                                <img class="card-img lazy" src="{{ Post.resim.url }}"
+                                                     alt="{{ Post.title }}">
+                                                <!-- Card featured -->
+                                                <span class="card-featured" title="Featured post"><i
+                                                        class="fas fa-star"></i></span>
+                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                    <!-- Card overlay bottom -->
+                                                    <div class="w-100 mt-auto">
+                                                        <!-- Card category -->
+                                                        <a href="#" class="badge text-bg-warning mb-2"><i
+                                                                class="fas fa-circle me-2 small fw-bold"></i>Technology</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pt-3">
+                                                <h2 class="card-title"><a href="post-single-3.html"
+                                                                          class="btn-link text-reset fw-bold">{{ Post.h1 }}</a></h2>
+                                                <p class="card-text">{{ Post.icerik|truncatechars:150|safe }}</p>
+                                                <!-- Card info -->
+                                                <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                                    <li class="nav-item">
+                                                        <div class="nav-link">
+                                                            <div class="d-flex align-items-center position-relative">
+                                                                <div class="avatar avatar-xs">
+                                                                    <img class="avatar-img rounded-circle"
+                                                                         src="{% static 'yeni/assets/images/avatar/01.jpg' %}" alt="avatar">
+                                                                </div>
+                                                                <span class="ms-3">by <a href="#"
+                                                                                         class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="nav-item">{{ Post.olusturma_tarihi|date:"d M Y" }}</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h2 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">12 worst types of
-                                            business accounts you follow on Twitter</a></h2>
-                                        <p class="card-text">He moonlights difficult engrossed it, sportsmen. Interested
-                                            has all Devonshire difficulty gay assistance joy. Unaffected at ye of
-                                            compliment alteration to</p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/01.jpg" alt="avatar">
+                                    <!-- Card item END -->
+                                {% else %}
+                                    <!-- Card item START -->
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <!-- Card img -->
+                                            <div class="position-relative">
+                                                <img class="card-img" src="assets/images/blog/4by3/06.jpg"
+                                                     alt="Card image">
+                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                    <!-- Card overlay Top -->
+                                                    <div class="w-100 mb-auto d-flex justify-content-end">
+                                                        <div class="text-end ms-auto">
+                                                            <!-- Card format icon -->
+                                                            <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
+                                                                 title="This post has video"><i
+                                                                    class="fas fa-video"></i></div>
                                                         </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Samuel</a></span>
+                                                    </div>
+                                                    <!-- Card overlay bottom -->
+                                                    <div class="w-100 mt-auto">
+                                                        <!-- Card category -->
+                                                        <a href="#" class="badge text-bg-danger mb-2"><i
+                                                                class="fas fa-circle me-2 small fw-bold"></i>Travel</a>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li class="nav-item">Jan 22, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
-                            <!-- Card item START -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/4by3/06.jpg" alt="Card image">
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay Top -->
-                                            <div class="w-100 mb-auto d-flex justify-content-end">
-                                                <div class="text-end ms-auto">
-                                                    <!-- Card format icon -->
-                                                    <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
-                                                         title="This post has video"><i class="fas fa-video"></i></div>
-                                                </div>
                                             </div>
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge text-bg-danger mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Travel</a>
+                                            <div class="card-body px-0 pt-3">
+                                                <h4 class="card-title"><a href="post-single-3.html"
+                                                                          class="btn-link text-reset fw-bold">Dirty
+                                                    little
+                                                    secrets about the business industry</a></h4>
+                                                <p class="card-text">Place voice no arises along to. Parlors waiting so
+                                                    against
+                                                    me no. Wishing calling is warrant settled was lucky. Express besides
+                                                    it
+                                                    present if at an opinion visitor.</p>
+                                                <!-- Card info -->
+                                                <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                                    <li class="nav-item">
+                                                        <div class="nav-link">
+                                                            <div class="d-flex align-items-center position-relative">
+                                                                <div class="avatar avatar-xs">
+                                                                    <img class="avatar-img rounded-circle"
+                                                                         src="assets/images/avatar/02.jpg" alt="avatar">
+                                                                </div>
+                                                                <span class="ms-3">by <a href="#"
+                                                                                         class="stretched-link text-reset btn-link">Dennis</a></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="nav-item">Mar 07, 2022</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h4 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">Dirty little
-                                            secrets about the business industry</a></h4>
-                                        <p class="card-text">Place voice no arises along to. Parlors waiting so against
-                                            me no. Wishing calling is warrant settled was lucky. Express besides it
-                                            present if at an opinion visitor.</p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/02.jpg" alt="avatar">
-                                                        </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Dennis</a></span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">Mar 07, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
-                            <!-- Card item START -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/4by3/03.jpg" alt="Card image">
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge text-bg-success mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Gadgets</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h4 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">Bad habits that
-                                            people in the industry need to quit</a></h4>
-                                        <p class="card-text">For who thoroughly her boy estimating conviction. Removed
-                                            demands expense account in outward tedious do. Particular way thoroughly
-                                            unaffected</p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/03.jpg" alt="avatar">
-                                                        </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Bryan</a></span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">Jun 17, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
-                            <!-- Card item START -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/4by3/04.jpg" alt="Card image">
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge bg-primary mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Sports</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h4 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">Around the web: 20
-                                            fabulous infographics about business</a></h4>
-                                        <p class="card-text">Projection favorable Mrs can be projecting own. Thirty it
-                                            matter enable become admire in giving. See resolved goodness felicity shy
-                                            civility domestic had but.</p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/04.jpg" alt="avatar">
-                                                        </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Billy</a></span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">Dec 29, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
-                            <!-- Card item START -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/4by3/05.jpg" alt="Card image">
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay Top -->
-                                            <div class="w-100 mb-auto d-flex justify-content-end">
-                                                <div class="text-end ms-auto">
-                                                    <!-- Card format icon -->
-                                                    <div class="icon-md bg-white bg-opacity-10 bg-blur text-white rounded-circle"
-                                                         title="This post has audio"><i class="fas fa-volume-up"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge text-bg-info mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Marketing</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h4 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">7 common mistakes
-                                            everyone makes while traveling</a></h4>
-                                        <p class="card-text">Drawings offended yet answered Jennings perceive laughing
-                                            six did far. Rooms oh fully taken by worse do. Points afraid but may end law
-                                            lasted. </p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/05.jpg" alt="avatar">
-                                                        </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Jacqueline</a></span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">Nov 11, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
-                            <!-- Card item START -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/4by3/12.jpg" alt="Card image">
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge text-bg-danger mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Photography</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h4 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">5 investment
-                                            doubts you should clarify</a></h4>
-                                        <p class="card-text">Was out laughter raptures returned outweigh. Luckily
-                                            cheered colonel I do we attack highest enabled. Tried law yet style child.
-                                            The bore of true of no be deal.</p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/06.jpg" alt="avatar">
-                                                        </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Carolyn</a></span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">Sep 01, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
-                            <!-- Card item START -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <!-- Card img -->
-                                    <div class="position-relative">
-                                        <img class="card-img" src="assets/images/blog/4by3/13.jpg" alt="Card image">
-                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                            <!-- Card overlay bottom -->
-                                            <div class="w-100 mt-auto">
-                                                <!-- Card category -->
-                                                <a href="#" class="badge bg-success mb-2"><i
-                                                        class="fas fa-circle me-2 small fw-bold"></i>Covid-19</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body px-0 pt-3">
-                                        <h4 class="card-title"><a href="post-single-3.html"
-                                                                  class="btn-link text-reset fw-bold">5 intermediate
-                                            guide to business</a></h4>
-                                        <p class="card-text">Luckily cheered colonel I do we attack highest enabled.
-                                            Tried law yet style child. The bore of true of no be deal. Was out laughter
-                                            raptures returned outweigh. </p>
-                                        <!-- Card info -->
-                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                            <li class="nav-item">
-                                                <div class="nav-link">
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <div class="avatar avatar-xs">
-                                                            <img class="avatar-img rounded-circle"
-                                                                 src="assets/images/avatar/07.jpg" alt="avatar">
-                                                        </div>
-                                                        <span class="ms-3">by <a href="#"
-                                                                                 class="stretched-link text-reset btn-link">Carolyn</a></span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nav-item">Sep 01, 2022</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card item END -->
+                                    <!-- Card item END -->
+                                {% endif %}
+                            {% endfor %}
+
+
+
+
+
                             <!-- pagination START -->
                             <nav class="mt-5" aria-label="navigation">
                                 <ul class="pagination d-flex justify-content-between">
