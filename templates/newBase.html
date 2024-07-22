@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <meta name="robots" content="index, follow">
     <!-- Meta Tag Başlangıç -->
     {% block MetaTag %}
     {% endblock MetaTag %}
@@ -37,9 +38,13 @@
     {% endblock extra_Kod %}
     <!--  extra_Kod Bitiş -->
 
+    {% block extra_head %}
+    {% endblock extra_head %}
+    {% block extra_Two_head %}
+    {% endblock extra_Two_head %}
 
     <!-- Robots -->
-    <meta name="robots" content="index, follow">
+
 
     <!-- Dark mode -->
     <script>
