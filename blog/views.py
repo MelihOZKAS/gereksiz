@@ -232,37 +232,37 @@ def KategoriHome(request):
 
 
 def YeniKategoriHome(request):
-    if request.resolver_match.url_name == 'teknoloji':
+    if request.resolver_match.url_name == 'yeniteknoloji':
         # Teknoloji haberleri için kod
-        Post_Kategorisi = get_object_or_404(PostKategori, short_title="yeniTeknoloji")
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Teknoloji")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
 
-    elif request.resolver_match.url_name == 'bilim':
+    elif request.resolver_match.url_name == 'yenibilim':
         # Bilim haberleri için kod
-        Post_Kategorisi = get_object_or_404(PostKategori, short_title="yeniBilim")
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Bilim")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
 
-    elif request.resolver_match.url_name == 'otomobil':
+    elif request.resolver_match.url_name == 'yeniotomobil':
         # Otomobil haberleri için kod
-        Post_Kategorisi = get_object_or_404(PostKategori, short_title="yeniOtomobil")
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Otomobil")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
 
-    elif request.resolver_match.url_name == 'oyun':
+    elif request.resolver_match.url_name == 'yenioyun':
         # Oyun haberleri için kod
-        Post_Kategorisi = get_object_or_404(PostKategori, short_title="yeniOyun")
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Oyun")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
-    elif request.resolver_match.url_name == 'telefon':
+    elif request.resolver_match.url_name == 'yenitelefon':
         # Oyun haberleri için kod
-        Post_Kategorisi = get_object_or_404(PostKategori, short_title="yeniTelefon")
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Telefon")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
-    elif request.resolver_match.url_name == 'dizi':
+    elif request.resolver_match.url_name == 'yenidizi':
         # Oyun haberleri için kod
-        Post_Kategorisi = get_object_or_404(PostKategori, short_title="yeniDizi")
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Dizi")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
 
