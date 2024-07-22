@@ -139,16 +139,16 @@
 
 
 
-                        {% if icerik.twitter %}
+                        {% if icerik.twitterwidget %}
                             <div class="mx-auto w-100 d-flex justify-content-center my-5">
-                                {{ icerik.twitter|safe }}
+                                {{ icerik.twitterwidget|safe }}
                             </div>
 
                         {% endif %}
 
-                        {% if icerik.twitter2 %}
+                        {% if icerik.twitterwidget2 %}
                             <div class="mx-auto w-100 d-flex justify-content-center my-5">
-                                {{ icerik.twitter2|safe }}
+                                {{ icerik.twitterwidget2|safe }}
                             </div>
                         {% endif %}
 
@@ -166,6 +166,19 @@
                                 </figure>
                             </div>
                         {% endif %}
+
+
+
+                        <div class="mx-auto w-100 d-flex justify-content-center my-5">
+                            <div class="twitter-tweet twitter-tweet-rendered"
+                                 style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;">
+                                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+                                        allowfullscreen="true" class="" title="X Post"
+                                        style="position: static; visibility: visible; width: 550px; height: 305px; display: block; flex-grow: 1;"
+                                        data-tweet-id="1807066501775544780"></iframe>
+                            </div>
+                            <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
 
                         {% if icerik.icerik2 %}
                             {{ icerik.icerik2|safe }}
