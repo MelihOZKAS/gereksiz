@@ -11,6 +11,14 @@ urlpatterns = [
     path("otomobil-haberleri/", views.KategoriHome, name="otomobil"),
     path("oyun-haberleri/", views.KategoriHome, name="oyun"),
     path("en-iyi-diziler-ve-filmler/", views.KategoriHome, name="dizi"),
+
+    path("yeni-teknoloji-haberleri/", views.YeniKategoriHome, name="yeniteknoloji"),
+    path("yeni-bilim-haberleri/", views.YeniKategoriHome, name="yenibilim"),
+    path("yeni-cep-telefonu-haberleri/", views.YeniKategoriHome, name="yenitelefon"),
+    path("yeni-otomobil-haberleri/", views.YeniKategoriHome, name="yeniotomobil"),
+    path("yeni-oyun-haberleri/", views.YeniKategoriHome, name="yenioyun"),
+    path("yeni-en-iyi-diziler-ve-filmler/", views.YeniKategoriHome, name="yenidizi"),
+
     path("newhome/", views.newHome, name="newHome"),
     #path("random/", views.create_random_post, name="random"),
     path("iletisim/", views.iletisim, name="iletisim"),
@@ -36,10 +44,6 @@ urlpatterns = [
     path("ads.txt/", views.ads, name="ads"),
     path("ads.txt", views.ads, name="ads"),
     path("sill.txt/", views.delete_duplicates),
-
-
-
-
 
     path("farkli-haber/", views.fadilEnderun),
     path('amp/<str:post_slug>/', views.EnderunAMP, name='post-getir-amp'),#Blog Git

@@ -228,8 +228,79 @@ def KategoriHome(request):
 
     }
     return render(request, 'Hepsi/blog-list.html', context)
-    # return render(request, 'Hepsi/home.html', context)
 
+
+
+def YeniKategoriHome(request):
+    if request.resolver_match.url_name == 'teknoloji':
+        # Teknoloji haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Teknoloji")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+
+    elif request.resolver_match.url_name == 'bilim':
+        # Bilim haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Bilim")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+
+    elif request.resolver_match.url_name == 'otomobil':
+        # Otomobil haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Otomobil")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+
+    elif request.resolver_match.url_name == 'oyun':
+        # Oyun haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Oyun")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+    elif request.resolver_match.url_name == 'telefon':
+        # Oyun haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Telefon")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+    elif request.resolver_match.url_name == 'dizi':
+        # Oyun haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Dizi")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+
+
+
+    populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by('-olusturma_tarihi')[:8]
+    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by('-olusturma_tarihi')[:8]
+    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+
+    title = Post_Kategorisi.Title
+    H1 = Post_Kategorisi.H1
+    description = Post_Kategorisi.description
+    keywords = Post_Kategorisi.keywords
+
+    paginator = Paginator(TumPost, 10)  # 10 içerik göstermek için
+    page_number = request.GET.get('sayfa')
+    TumPost = paginator.get_page(page_number)
+
+    if page_number is None:
+        title = f"{title}"
+        description = f"{description}"
+    else:
+        title = f"{title} - {page_number}"
+        description = f"{description} - Sayfa {page_number}"
+
+    context = {
+        'title': title,
+        'H1': H1,
+        'description': description,
+        'keywords': keywords,
+        'Post_Kategorisi': Post_Kategorisi,
+        'TumPost': TumPost,
+        'populer': populer,
+        'editor': editor,
+        'enson': enson,
+
+    }
+    return render(request, 'YeniTema/yeni-list.html', context)
 
 # YouTube video URL'sinden video ID'sini çıkaran bir regex deseni
 def get_youtube_id(url):
