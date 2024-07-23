@@ -628,7 +628,7 @@ def gizlilik(request):
         'keywords': keywords,
         'h1': h1,
     }
-    return render(request, 'Hepsi/gizlilik.html', context)
+    return render(request, 'YeniTema/gizlilik.html', context)
 
 def kullanim(request):
     title = "Kullanım Koşulları YüksekTeknoloji.com | Kullanım Şartları"
