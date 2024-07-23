@@ -10,7 +10,7 @@
     <meta name="author" content="{{ yazar }}">
 
     <!-- Canonical Link -->
-    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
+    {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
 {% endblock MetaTag %}
 
 
@@ -20,7 +20,7 @@
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{{ Post_Kategorisi.resim }}">
+    <meta property="og:image" content="{% static 'assets/logo/logo.webp' %}">
     <meta property="og:image:width" content="960"/>
     <meta property="og:image:height" content="640"/>
 {% endblock OgTag %}
@@ -31,7 +31,7 @@
     <meta name="twitter:title" content="{{ title }}">
     <meta name="twitter:description" content="{{ description }}">
     <meta name="twitter:url" content="https://x.com/yuksekteknloji">
-    <meta name="twitter:image" content="{{ Post_Kategorisi.resim }}">
+    <meta name="twitter:image" content="{% static 'assets/logo/logo.webp' %}">
 {% endblock ttTag %}
 <!--  tt Tag Bitiş -->
 
@@ -61,6 +61,7 @@
 {% block main %}
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
+        <h1 style="display: none;">Yüksek Teknoloji | Bilgisayar, Telefon, Oyun ve Otomobil Haberleri</h1>
         <!-- =======================
         Trending START -->
         <section class="py-2">
@@ -370,7 +371,7 @@
                                                                  alt="avatar">
                                                         </div>
                                                         <span class="ms-3"><a href="#"
-                                                                                 class="stretched-link text-reset btn-link">{{ minihaber.yazar }}</a></span>
+                                                                              class="stretched-link text-reset btn-link">{{ minihaber.yazar }}</a></span>
                                                     </div>
                                                 </div>
                                             </li>
@@ -411,7 +412,7 @@
                                                                  alt="avatar">
                                                         </div>
                                                         <span class="ms-3"><a href="#"
-                                                                                 class="stretched-link text-reset btn-link">{{ minihaber.yazar }}</a></span>
+                                                                              class="stretched-link text-reset btn-link">{{ minihaber.yazar }}</a></span>
                                                     </div>
                                                 </div>
                                             </li>
