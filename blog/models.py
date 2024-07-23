@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from ckeditor.fields import RichTextField
 from TeknoBlog.custom_storages import ImageSettingStorage
+
 # Create your models here.
 status_cho = (
     ("Taslak", "Taslak"),
@@ -34,6 +35,7 @@ HELP_TEXTS = {
     "Wp-TG": "Whatsapp ve Telegramda paylaş",
 }
 
+
 def kapak_resmi_upload_to(instance, filename):
     # Dosya adını değiştir
     yeni_ad = f"{instance.slug}"
@@ -46,22 +48,24 @@ def kapak_resmi_upload_to(instance, filename):
 class PostKategori(models.Model):
     Title = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(max_length=255, blank=True)
-    H1 = models.CharField(max_length=255,blank=True, null=True)
-    description = models.TextField( blank=True, null=True, help_text=HELP_TEXTS["meta_description"])
-    keywords = models.CharField(max_length=255,blank=True,null=True,help_text=HELP_TEXTS["keywords"])
+    H1 = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField(blank=True, null=True, help_text=HELP_TEXTS["meta_description"])
+    keywords = models.CharField(max_length=255, blank=True, null=True, help_text=HELP_TEXTS["keywords"])
     short_title = models.CharField(max_length=255, blank=True)
     name = models.CharField(max_length=255, blank=True)
     renk = models.CharField(max_length=255, blank=True)
+    resim = models.ImageField(upload_to=kapak_resmi_upload_to,
+                              storage=ImageSettingStorage(),
+                              help_text=HELP_TEXTS["resim"], null=True, blank=True)
     Aktif = models.BooleanField(default=False)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
     guncelleme_tarihi = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = "Post Kategori"
+
     def __str__(self):
         return self.short_title
-
-
 
 
 # Create your models here.
@@ -74,7 +78,6 @@ class Post(models.Model):
         ('Ebru GÜNEŞ', 'Ebru GÜNEŞ'),
         ('Adem YALÇIN', 'Adem YALÇIN'),
     ]
-
 
     Sosyal = [
         ('Bilgi Bekleniyor', 'Bilgi Bekleniyor'),
@@ -89,39 +92,49 @@ class Post(models.Model):
         ('BlogPosting', 'BlogPosting'),
     ]
 
+    OkumaSuresi = [
+        ('2 Dakika', '2 Dakika'),
+        ('3 Dakika', '3 Dakika'),
+        ('4 Dakika', '4 Dakika'),
+        ('5 Dakika', '5 Dakika'),
+        ('6 Dakika', '6 Dakika'),
+    ]
 
     title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])
     hiddenTitle = models.TextField(blank=True, null=True)
-    slug = models.SlugField(max_length=255, unique=True, blank=True,help_text=HELP_TEXTS["slug"])
-    h1 = models.CharField(max_length=255,blank=True, help_text=HELP_TEXTS["h1"])
+    slug = models.SlugField(max_length=255, unique=True, blank=True, help_text=HELP_TEXTS["slug"])
+    h1 = models.CharField(max_length=255, blank=True, help_text=HELP_TEXTS["h1"])
     hiddenH1 = models.TextField(blank=True, null=True)
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     Post_type = models.CharField(max_length=255, choices=Jsonu, null=True, default="NewsArticle")
-    yazar = models.CharField(max_length=255, choices=YAZARLAR, null=True,blank=True)
+    sure = models.CharField(max_length=255, choices=OkumaSuresi, null=True, default="2 Dakika")
+    yazar = models.CharField(max_length=255, choices=YAZARLAR, null=True, blank=True)
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik2 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik3 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     ozet = models.TextField(blank=True, null=True)
     info = models.TextField(blank=True, null=True)
     resim = models.ImageField(upload_to=kapak_resmi_upload_to,
-                                    storage=ImageSettingStorage(),
-                                    help_text=HELP_TEXTS["resim"], null=True, blank=True)
+                              storage=ImageSettingStorage(),
+                              help_text=HELP_TEXTS["resim"], null=True, blank=True)
     resim2 = models.ImageField(upload_to=kapak_resmi_upload_to,
-                                    storage=ImageSettingStorage(),
-                                    help_text=HELP_TEXTS["resim"], null=True, blank=True)
+                               storage=ImageSettingStorage(),
+                               help_text=HELP_TEXTS["resim"], null=True, blank=True)
     resim3 = models.ImageField(upload_to=kapak_resmi_upload_to,
-                                    storage=ImageSettingStorage(),
-                                    help_text=HELP_TEXTS["resim"], null=True, blank=True)
+                               storage=ImageSettingStorage(),
+                               help_text=HELP_TEXTS["resim"], null=True, blank=True)
     resim4 = models.ImageField(upload_to=kapak_resmi_upload_to,
-                                    storage=ImageSettingStorage(),
-                                    help_text=HELP_TEXTS["resim"], null=True, blank=True)
+                               storage=ImageSettingStorage(),
+                               help_text=HELP_TEXTS["resim"], null=True, blank=True)
     youtube = models.URLField(blank=True)
     youtube2 = models.URLField(blank=True)
     youtube3 = models.URLField(blank=True)
     twitterwidget = models.TextField(blank=True, null=True)
     twitterwidget2 = models.TextField(blank=True, null=True)
-    meta_description = models.TextField(blank=True,verbose_name="Meta Açıklama",help_text=HELP_TEXTS["meta_description"])
-    keywords = models.CharField(max_length=255,blank=True,verbose_name="Anahtar Kelimeler",help_text=HELP_TEXTS["keywords"])
+    meta_description = models.TextField(blank=True, verbose_name="Meta Açıklama",
+                                        help_text=HELP_TEXTS["meta_description"])
+    keywords = models.CharField(max_length=255, blank=True, verbose_name="Anahtar Kelimeler",
+                                help_text=HELP_TEXTS["keywords"])
     hiddenKeys = models.TextField(blank=True, null=True)
     yayin_tarihi = models.DateTimeField(null=True, blank=True, help_text="Postanın yayınlanacağı tarih ve saat")
     status = models.CharField(max_length=10, choices=status_cho, default="Taslak", help_text=HELP_TEXTS["status"])
@@ -131,7 +144,7 @@ class Post(models.Model):
     aktif = models.BooleanField(default=False, help_text=HELP_TEXTS["aktif"])
     indexing = models.BooleanField(default=False, help_text="Indexlensin mi?")
     banner = models.BooleanField(default=False, help_text=HELP_TEXTS["banner"])
-    editor = models.BooleanField(default=False,help_text=HELP_TEXTS["small_banner"])
+    editor = models.BooleanField(default=False, help_text=HELP_TEXTS["small_banner"])
     facebook = models.BooleanField(default=True, help_text="Facebook da Paylaşılsın mı ?")
     twitter = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
@@ -140,30 +153,26 @@ class Post(models.Model):
     Kaynak_NoFollow = models.TextField(blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
     guncelleme_tarihi = models.DateTimeField(auto_now=True)
+
     class Meta:
         verbose_name_plural = "Post"
+
     def __str__(self):
         return self.title
 
 
-
-
 class iletisimmodel(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
-    email = models.CharField(max_length=255,blank=True,null=True,help_text=HELP_TEXTS["keywords"])
-    title = models.TextField( blank=True, null=True)
-    icerik = models.TextField( blank=True, null=True, help_text=HELP_TEXTS["meta_description"])
+    email = models.CharField(max_length=255, blank=True, null=True, help_text=HELP_TEXTS["keywords"])
+    title = models.TextField(blank=True, null=True)
+    icerik = models.TextField(blank=True, null=True, help_text=HELP_TEXTS["meta_description"])
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
-
 
     class Meta:
         verbose_name_plural = "iletişim Formu"
+
     def __str__(self):
         return self.name
-
-
-
-
 
 
 class Kontrol(models.Model):
@@ -176,23 +185,26 @@ class Kontrol(models.Model):
     ]
 
     title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])
-    slug = models.CharField(max_length=255, help_text=HELP_TEXTS["title"], null=True,blank=True)
-    h1 = models.CharField(max_length=255,blank=True, help_text=HELP_TEXTS["h1"], null=True)
+    slug = models.CharField(max_length=255, help_text=HELP_TEXTS["title"], null=True, blank=True)
+    h1 = models.CharField(max_length=255, blank=True, help_text=HELP_TEXTS["h1"], null=True)
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
-    meta_description = models.TextField(blank=True,verbose_name="Meta Açıklama",help_text=HELP_TEXTS["meta_description"])
-    keywords = models.CharField(max_length=255,blank=True,verbose_name="Anahtar Kelimeler",help_text=HELP_TEXTS["keywords"])
+    meta_description = models.TextField(blank=True, verbose_name="Meta Açıklama",
+                                        help_text=HELP_TEXTS["meta_description"])
+    keywords = models.CharField(max_length=255, blank=True, verbose_name="Anahtar Kelimeler",
+                                help_text=HELP_TEXTS["keywords"])
     Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
     Kaynak_Linki = models.URLField(blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
+
     class Meta:
         verbose_name_plural = "Kontrol"
+
     def __str__(self):
         return self.title
 
     def kelime_sayisi(self):
         return len(self.icerik.split())
-
 
 
 class Mahsul(models.Model):
@@ -205,5 +217,6 @@ class Mahsul(models.Model):
     Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
     Aciklama = models.CharField(max_length=255, blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
+
     class Meta:
         verbose_name_plural = "Mahsuller"
