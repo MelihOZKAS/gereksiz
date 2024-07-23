@@ -600,7 +600,7 @@ def hakkinda(request):
         'keywords': keywords,
         'h1': h1,
     }
-    return render(request, 'Hepsi/hakkinda.html', context)
+    return render(request, 'YeniTema/hakkimizda.html', context)
 
 
 def cerez(request):
@@ -614,7 +614,7 @@ def cerez(request):
         'keywords': keywords,
         'h1': h1,
     }
-    return render(request, 'Hepsi/cerez.html', context)
+    return render(request, 'YeniTema/cerez.html', context)
 
 
 def gizlilik(request):

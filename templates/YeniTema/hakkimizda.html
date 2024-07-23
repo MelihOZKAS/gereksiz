@@ -1,0 +1,115 @@
+{% extends 'newBase.html' %}
+{% load static %}
+
+
+<!-- Meta Tag Başlangıç -->
+{% block MetaTag %}
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="author" content="Yüksek Teknoloji">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock MetaTag %}
+
+
+
+<!--  Open Graph / Facebook Tag Başlangıç -->
+{% block OgTag %}
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{{ Post_Kategorisi.resim }}">
+    <meta property="og:image:width" content="960"/>
+    <meta property="og:image:height" content="640"/>
+{% endblock OgTag %}
+<!--  Open Graph / Facebook Tag Bitiş -->
+
+<!--  tt Tag Başlangıç -->
+{% block ttTag %}
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:url" content="https://x.com/yuksekteknloji">
+    <meta name="twitter:image" content="{{ Post_Kategorisi.resim }}">
+{% endblock ttTag %}
+<!--  tt Tag Bitiş -->
+
+
+<!--  extra_Kod Başlangıç -->
+{% block extra_Kod %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'yeni/assets/images/favicon.ico' %}">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/font-awesome/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'yeni/assets/css/style.css' %}">
+{% endblock extra_Kod %}
+<!--  extra_Kod Bitiş -->
+
+
+{% block main %}
+    <main>
+    <!-- **************** MAIN CONTENT START **************** -->
+      <section id="contact" class="contact mb-5">
+        <div class="container" data-aos="fade-up">
+
+            <h1>Yüksek Teknoloji.com Hakkında</h1>
+            <p><strong>Yüksek Teknoloji.com</strong>, teknoloji dünyasındaki en son gelişmeleri, yenilikleri ve bilimsel
+                ilerlemeleri takip etmek için oluşturulmuş bir platformdur. Teknolojiye tutkuyla bağlı bir ekip olarak,
+                okuyucularımıza en güncel ve doğru bilgileri sunmayı hedefliyoruz. İster bilim ve teknoloji haberleri,
+                ister ürün incelemeleri, isterse de teknoloji trendleri olsun, Yüksek Teknoloji.com sizin için en iyi
+                kaynak olmayı hedefliyor.</p>
+            <h2>Vizyonumuz</h2>
+            <p>Teknoloji dünyasındaki hızlı değişim ve gelişmeleri yakından takip ederek, okuyucularımıza en güncel ve
+                doğru bilgileri sunmak. Teknolojiye dair her konuda bilgi sahibi olmanızı sağlamak ve teknoloji
+                dünyasındaki yenilikleri anlamanızı kolaylaştırmak.</p>
+            <h2>Misyonumuz</h2>
+            <p>Yüksek Teknoloji.com, teknoloji dünyasındaki en son gelişmeleri, yenilikleri ve bilimsel ilerlemeleri
+                takip etmek için oluşturulmuş bir platformdur. Teknolojiye tutkuyla bağlı bir ekip olarak,
+                okuyucularımıza en güncel ve doğru bilgileri sunmayı hedefliyoruz. İster bilim ve teknoloji haberleri,
+                ister ürün incelemeleri, isterse de teknoloji trendleri olsun, Yüksek Teknoloji.com sizin için en iyi
+                kaynak olmayı hedefliyor.</p>
+            <h2>Ekibimiz</h2>
+            <p>Ekibimiz, teknolojiye tutkuyla bağlı profesyonellerden oluşmaktadır. Her birimiz, okuyucularımıza en iyi
+                içeriği sunmak için çaba gösteriyoruz. Yüksek Teknoloji.com'a hoş geldiniz!</p>
+            <h2>Topluluğumuz</h2>
+            <p>Yüksek Teknoloji.com, teknoloji meraklılarından oluşan geniş bir topluluğa sahiptir. Topluluğumuz,
+                teknolojiye dair her şeyi tartışmak, öğrenmek ve paylaşmak için bir araya gelir. Topluluğumuza
+                katılarak, teknoloji dünyasındaki en son gelişmeler hakkında bilgi alabilir, deneyimlerinizi
+                paylaşabilir ve diğer teknoloji meraklılarıyla bağlantı kurabilirsiniz.</p>
+            <h2>İletişim</h2>
+            <p>Bize ulaşmak için lütfen iletişim formumuzu kullanın. Sorularınız, önerileriniz veya geri bildirimleriniz
+                için bizimle iletişime geçmekten çekinmeyin. Size yardımcı olmak için buradayız!</p>
+
+        </div>
+    </section>
+
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
+{% endblock main %}
+
+
+
+{% block extra_js %}
+    <!-- Bootstrap JS -->
+    <script src="{% static 'yeni/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Vendors -->
+
+    <script src="{% static 'yeni/assets/vendor/sticky-js/sticky.min.js' %}"></script>
+    <script src="{% static 'yeni/assets/vendor/vanilla-lazyload/lazyload.min.js' %}"></script>
+
+    <!-- Template Functions -->
+    <script src="{% static 'yeni/assets/js/functions.js' %}"></script>
+{% endblock extra_js %}
