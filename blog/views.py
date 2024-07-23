@@ -641,7 +641,7 @@ def kullanim(request):
         'keywords': keywords,
         'h1': h1,
     }
-    return render(request, 'Hepsi/kullanim.html', context)
+    return render(request, 'YeniTema/kullanim.html', context)
 
 
 @require_GET
