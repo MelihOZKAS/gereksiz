@@ -105,6 +105,8 @@ class Post(models.Model):
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik2 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik3 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
+    icerik4 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
+    icerik5 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     ozet = models.TextField(blank=True, null=True)
     info = models.TextField(blank=True, null=True)
     resim = models.ImageField(upload_to=kapak_resmi_upload_to,
@@ -117,6 +119,12 @@ class Post(models.Model):
                                storage=ImageSettingStorage(),
                                help_text=HELP_TEXTS["resim"], null=True, blank=True)
     resim4 = models.ImageField(upload_to=kapak_resmi_upload_to,
+                               storage=ImageSettingStorage(),
+                               help_text=HELP_TEXTS["resim"], null=True, blank=True)
+    resim5 = models.ImageField(upload_to=kapak_resmi_upload_to,
+                               storage=ImageSettingStorage(),
+                               help_text=HELP_TEXTS["resim"], null=True, blank=True)
+    resim6 = models.ImageField(upload_to=kapak_resmi_upload_to,
                                storage=ImageSettingStorage(),
                                help_text=HELP_TEXTS["resim"], null=True, blank=True)
     youtube = models.URLField(blank=True)
@@ -134,8 +142,8 @@ class Post(models.Model):
     TelegramSend = models.BooleanField(default=False, help_text="Telegramdan Link Gönderir.")
     Whatsapp = models.BooleanField(default=False, help_text="Whatsapp Link Gönderir.")
     Video = models.BooleanField(default=False, help_text="1920 x 1080 Video Yapar")
-    SosyalDik = models.BooleanField(default=True, help_text="1920 x 1080 Resim üret")
-    SosyalKare = models.BooleanField(default=True, help_text="Havanın Wp Attığı Post Turu")
+    #SosyalDik = models.BooleanField(default=True, help_text="1920 x 1080 Resim üret")
+    #SosyalKare = models.BooleanField(default=True, help_text="Havanın Wp Attığı Post Turu")
     aktif = models.BooleanField(default=False, help_text=HELP_TEXTS["aktif"])
     indexing = models.BooleanField(default=True, help_text="Indexlensin mi?")
     banner = models.BooleanField(default=False, help_text=HELP_TEXTS["banner"])
