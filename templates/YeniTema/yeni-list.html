@@ -181,7 +181,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h2 class="card-title"><a href="post-single-3.html"
+                                                <h2 class="card-title"><a href="{% url 'post-getir' post_slug=Post.slug %}"
                                                                           class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
                                                 </h2>
                                                 <p class="card-text">{{ Post.icerik|truncatechars:175|safe }}</p>
@@ -235,7 +235,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pt-3">
-                                                <h4 class="card-title"><a href="post-single-3.html"
+                                                <h4 class="card-title"><a href="{% url 'post-getir' post_slug=Post.slug %}"
                                                                           class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
                                                 </h4>
                                                 <p class="card-text">{{ Post.icerik|truncatechars:175|safe }}</p>
