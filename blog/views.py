@@ -320,7 +320,7 @@ def Enderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter','Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
@@ -386,7 +386,7 @@ def YeniEnderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:3]
@@ -461,7 +461,7 @@ def EnderunAMP(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
 
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:10]
 
@@ -514,7 +514,7 @@ def fadilEnderun(request):
     PostEndrun = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi').first()
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
@@ -802,7 +802,7 @@ def karepostcek(request):
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
             mahsul_cek.SosyalKare = False
-            mahsul_cek.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+            mahsul_cek.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
             title = strip_tags(mahsul_cek.title)
             icerik = unescape(strip_tags(mahsul_cek.ozet))
             Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
@@ -820,7 +820,7 @@ def send_Telegrampost(request):
 
     if GelenPost:
         GelenPost.TelegramSend = False
-        GelenPost.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+        GelenPost.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
         title = GelenPost.title  # Postun başlığını al
         slug = GelenPost.slug  # Postun slug'ını al
         # İlgi çekici bir mesaj oluştur
@@ -853,7 +853,7 @@ def indexing_var_mi(request):
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.indexing = False
-        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/")
         #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
@@ -868,7 +868,7 @@ def facebook_var_mi(request):
         icerik = unescape(strip_tags(post.ozet))
         if not icerik:
             icerik = "Haberin devamı için tıklayın!"
-        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
         #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
@@ -886,7 +886,7 @@ def twitter_var_mi(request):
         hashtag = "#" + kategorisi.short_title if kategorisi.short_title else ""
         if not icerik:
             icerik = "Haberin devamı için tıklayın!"
-        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik} {hashtag} Haberin devamı için lütfen tıklayın!")
     else:
         return HttpResponse("Paylaşılacak Twitter içerik bulunamadı")
