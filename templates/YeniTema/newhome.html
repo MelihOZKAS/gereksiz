@@ -392,13 +392,13 @@
                             <!-- Card item START -->
                             <div class="card mb-3 mb-sm-4">
     <div class="row g-3">
-        <div class="col-4">
             <a href="{% url 'post-getir' post_slug=minihaber.slug %}">
+        <div class="col-4">
                 <img class="rounded-3 lazy" height="100" width="180"
                      src="{{ minihaber.resim.url }}"
                      alt="{{ minihaber.title }}">
-            </a>
         </div>
+            </a>
         <div class="col-8">
             <a href="{{ request.scheme }}://{{ request.get_host }}/{{ minihaber.Post_Turu.slug }}/"
                class="badge bg-{{ minihaber.Post_Turu.renk }} bg-opacity-10 text-{{ minihaber.Post_Turu.renk }} mb-2"><i
