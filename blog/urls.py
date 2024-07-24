@@ -3,7 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("", views.newHome, name="home"),
+    #path("", views.home, name="home"),
 
     path("teknoloji-haberleri/", views.KategoriHome, name="teknoloji"),
     path("bilim-haberleri/", views.KategoriHome, name="bilim"),
@@ -19,7 +20,7 @@ urlpatterns = [
     path("yeni-oyun-haberleri/", views.YeniKategoriHome, name="yenioyun"),
     path("yeni-en-iyi-diziler-ve-filmler/", views.YeniKategoriHome, name="yenidizi"),
 
-    path("newhome/", views.newHome, name="newHome"),
+    #path("newhome/", views.newHome, name="newHome"),
     #path("random/", views.create_random_post, name="random"),
     path("iletisim/", views.iletisim, name="iletisim"),
     path("hakkimizda/", views.hakkinda, name="hakkimizda"),
@@ -47,8 +48,8 @@ urlpatterns = [
 
     path("farkli-haber/", views.fadilEnderun),
     path('amp/<str:post_slug>/', views.EnderunAMP, name='post-getir-amp'),#Blog Git
-    path('1/<str:post_slug>/', views.YeniEnderun, name='yeni-post-getir'),#Blog Git
-    path('<str:post_slug>/', views.Enderun, name='post-getir'),#Blog Git
+    path('<str:post_slug>/', views.YeniEnderun, name='post-getir'),#Blog Git
+    #path('<str:post_slug>/', views.Enderun, name='eski-post-getir'),#Blog Git
 
 ]
 
