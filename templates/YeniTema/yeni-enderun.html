@@ -318,6 +318,47 @@
                             </div>
                         {% endif %}
 
+
+                        {% if icerik.icerik4 %}
+                            {{ icerik.icerik4|safe }}
+                        {% endif %}
+
+                        {% if icerik.resim5 %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure mb-1">
+                                    <a href="{{ icerik.resim5.url }}" data-glightbox=""
+                                       data-gallery="image-popup">
+                                        <img class="rounded" src="{{ icerik.resim5.url }}" alt="{{ icerik.title }} - 5"
+                                             width="960" height="640">
+                                    </a>
+                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 5
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        {% endif %}
+
+                        {% if icerik.icerik5 %}
+                            {{ icerik.icerik5|safe }}
+                        {% endif %}
+
+                        {% if icerik.resim6 %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure mb-1">
+                                    <a href="{{ icerik.resim6.url }}" data-glightbox=""
+                                       data-gallery="image-popup">
+                                        <img class="rounded" src="{{ icerik.resim6.url }}" alt="{{ icerik.title }} - 6"
+                                             width="960" height="640">
+                                    </a>
+                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 6
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        {% endif %}
+
+                        {% if icerik.icerik6 %}
+                            {{ icerik.icerik6|safe }}
+                        {% endif %}
+
                         <!-- Share START -->
                         <div class="d-md-flex align-items-center mt-4">
                             <h3 class="me-3">Paylaş: </h3>
