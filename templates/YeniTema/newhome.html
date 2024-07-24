@@ -125,7 +125,7 @@
                                      data-items="1">
                                     <!-- Slider items -->
                                     {% for trend in Trend %}
-                                        <div><a href="#" class="text-reset btn-link">{{ trend.title }}</a></div>
+                                        <div><a href="{% url 'post-getir' post_slug=trend.slug %}" class="text-reset btn-link">{{ trend.title }}</a></div>
                                     {% endfor %}
 
 
