@@ -313,24 +313,25 @@
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <!-- Card img -->
-                                        <div class="position-relative">
+                                        <a href="{% url 'post-getir' post_slug=haber.slug %}">
+                                            <div class="position-relative">
 
-                                            <a href="{% url 'post-getir' post_slug=haber.slug %}">
 
                                                 <img class="card-img lazy" height="210" width="420"
                                                      data-src="{{ haber.resim.url }}"
-                                                     alt="{{ haber.title }}"></a>
-                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                                <!-- Card overlay bottom -->
-                                                <div class="w-100 mt-auto">
-                                                    <!-- Card category -->
-                                                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{ haber.Post_Turu.slug }}/"
-                                                       class="badge text-bg-{{ haber.Post_Turu.renk }} mb-2"><i
-                                                            class="fas fa-circle me-2 small fw-bold"></i>{{ haber.Post_Turu.short_title }}
-                                                    </a>
+                                                     alt="{{ haber.title }}">
+                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                    <!-- Card overlay bottom -->
+                                                    <div class="w-100 mt-auto">
+                                                        <!-- Card category -->
+                                                        <a href="{{ request.scheme }}://{{ request.get_host }}/{{ haber.Post_Turu.slug }}/"
+                                                           class="badge text-bg-{{ haber.Post_Turu.renk }} mb-2"><i
+                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ haber.Post_Turu.short_title }}
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                         <div class="card-body px-0 pt-3">
                                             <h3 class="card-title"><a href="{% url 'post-getir' post_slug=haber.slug %}"
                                                                       class="btn-link text-reset fw-bold">{{ haber.title }}</a>
