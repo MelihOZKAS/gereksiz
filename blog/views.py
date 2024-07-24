@@ -17,13 +17,8 @@ import environ
 import re
 from django.db import IntegrityError
 
-
-env = environ.Env(DEBUG=(bool,False))
+env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
-
-
-
-
 
 
 def create_unique_title_slug(title):
@@ -36,24 +31,25 @@ def create_unique_title_slug(title):
         unique_title = '{} {}'.format(title, num)
         num += 1
     return unique_title, unique_slug
+
+
 def home(request):
     title = "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri"
     description = "En son teknoloji haberlerini, ürün incelemelerini, teknoloji trendlerini ve daha fazlasını sunar. Teknoloji dünyasındaki en son gelişmeleri kaçırmayın"
     keywords = "teknoloji, haberler, incelemeler, gadgetlar, bilim, inovasyon, AI, VR, AR, mobil teknoloji, bilgisayarlar, yazılım, donanım, otomobil, oyuni bilim"
     yazar = "Yüksek Teknoloji"
 
-
     Banner = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
 
     TeknolojiKategori = get_object_or_404(PostKategori, short_title="Teknoloji")
-    TrendTeknoji8 = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TeknolojiKategori, editor=True).order_by(
+    TrendTeknoji8 = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TeknolojiKategori,
+                                        editor=True).order_by(
         '-olusturma_tarihi')[:8]
     HomeTeknolojiSol = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TeknolojiKategori).order_by(
         '-olusturma_tarihi')[:3]
     HomeTeknolojiSag = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TeknolojiKategori).order_by(
         '-olusturma_tarihi')[3:6]
-
 
     TelefonKategori = get_object_or_404(PostKategori, short_title="Telefon")
     TrendTelefon8 = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TelefonKategori, editor=True).order_by(
@@ -62,10 +58,6 @@ def home(request):
         '-olusturma_tarihi')[:3]
     HomeTelefonSag = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=TelefonKategori).order_by(
         '-olusturma_tarihi')[3:6]
-
-
-
-
 
     BilimKategori = get_object_or_404(PostKategori, short_title="Bilim")
     TrendBilim8 = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=BilimKategori, editor=True).order_by(
@@ -121,6 +113,7 @@ def home(request):
 
     }
     return render(request, 'Hepsi/home.html', context)
+
 
 def newHome(request):
     title = "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri"
@@ -193,8 +186,6 @@ def KategoriHome(request):
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
 
-
-
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by('-olusturma_tarihi')[:8]
     editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by('-olusturma_tarihi')[:8]
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
@@ -228,7 +219,6 @@ def KategoriHome(request):
 
     }
     return render(request, 'Hepsi/blog-list.html', context)
-
 
 
 def YeniKategoriHome(request):
@@ -266,8 +256,6 @@ def YeniKategoriHome(request):
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
 
-
-
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by('-olusturma_tarihi')[:8]
     editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by('-olusturma_tarihi')[:8]
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
@@ -293,34 +281,36 @@ def YeniKategoriHome(request):
         H1 = f"{H1} - Sayfa {page_number}"
 
     context = {
-        'title': title, #OK
-        'H1': H1, #OK
-        'description': description,#OK
-        'keywords': keywords, #OK
+        'title': title,  # OK
+        'H1': H1,  # OK
+        'description': description,  # OK
+        'keywords': keywords,  # OK
         'Post_Kategorisi': Post_Kategorisi,
-        'TumPost': TumPost, #OK
+        'TumPost': TumPost,  # OK
         'populer': populer,
         'editor': editor,
         'enson': enson,
-        'sideHaber': sideHaber, #OK
+        'sideHaber': sideHaber,  # OK
 
     }
     return render(request, 'YeniTema/yeni-list.html', context)
 
+
 # YouTube video URL'sinden video ID'sini çıkaran bir regex deseni
 def get_youtube_id(url):
     # YouTube video URL'sinden video ID'sini çıkaran bir regex deseni
-    link = url.replace("https://www.youtube.com/embed/","")
+    link = url.replace("https://www.youtube.com/embed/", "")
     youtube_id = link.split("?")
     return youtube_id[0] if youtube_id else None
-
 
 
 def Enderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter','Video'])
+    PostEndrun.save(
+        update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                       'twitter', 'Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
@@ -336,7 +326,7 @@ def Enderun(request, post_slug):
     noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
     Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
 
-    #twitterwidget = PostEndrun.twitterwidget
+    # twitterwidget = PostEndrun.twitterwidget
 
     thumbnail_url = None
 
@@ -346,7 +336,6 @@ def Enderun(request, post_slug):
 
     contents = [PostEndrun.icerik, PostEndrun.icerik2, PostEndrun.icerik3]
     articleBody = ' '.join(filter(None, contents))
-
 
     resimler = []
     if PostEndrun.resim:
@@ -359,7 +348,6 @@ def Enderun(request, post_slug):
         resimler.append(PostEndrun.resim4.url)
     if not resimler:  # Eğer resimler listesi boşsa
         resimler.append("https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp")
-
 
     context = {
         'title': title,
@@ -380,25 +368,22 @@ def Enderun(request, post_slug):
     return render(request, 'Hepsi/enderun.html', context)
 
 
-
-
 def YeniEnderun(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+    PostEndrun.save(
+        update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                       'twitter', 'Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:3]
 
-
     sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
 
-
     noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
     Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
-
 
     thumbnail_url = None
 
@@ -408,7 +393,6 @@ def YeniEnderun(request, post_slug):
 
     contents = [PostEndrun.icerik, PostEndrun.icerik2, PostEndrun.icerik3]
     articleBody = ' '.join(filter(None, contents))
-
 
     resimler = []
     if PostEndrun.resim:
@@ -421,7 +405,6 @@ def YeniEnderun(request, post_slug):
         resimler.append(PostEndrun.resim4.url)
     if not resimler:  # Eğer resimler listesi boşsa
         resimler.append("https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp")
-
 
     context = {
         'icerik': PostEndrun,
@@ -436,9 +419,6 @@ def YeniEnderun(request, post_slug):
     return render(request, 'YeniTema/yeni-enderun.html', context)
 
 
-
-
-
 def get_tweet_id(html_content):
     # Twitter linkini bul
     match = re.search(r'https://twitter.com/(\w+)/status/(\d+)\?ref_src', html_content)
@@ -451,17 +431,19 @@ def get_tweet_id(html_content):
     return None
 
 
-
 def extract_youtube_id(url):
     if url:
         return url.split('/')[-1].split('?')[0]
     return None
 
+
 def EnderunAMP(request, post_slug):
     PostEndrun = get_object_or_404(Post, aktif=True, status="Yayinda", slug=post_slug)
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+    PostEndrun.save(
+        update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                       'twitter', 'Video'])
 
     enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:10]
 
@@ -478,7 +460,6 @@ def EnderunAMP(request, post_slug):
     youtubeid3 = extract_youtube_id(PostEndrun.youtube3)
     tweet_id1 = get_tweet_id(str(PostEndrun.twitterwidget))
     tweet_id2 = get_tweet_id(str(PostEndrun.twitterwidget2))
-
 
     thumbnail_url = None
 
@@ -514,7 +495,9 @@ def fadilEnderun(request):
     PostEndrun = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi').first()
 
     PostEndrun.okunma_sayisi += 1
-    PostEndrun.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+    PostEndrun.save(
+        update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                       'twitter', 'Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
         '-olusturma_tarihi')[:8]
@@ -553,7 +536,6 @@ def iletisim(request):
     description = "Explore KidsStoriesHub.com for captivating bedtime stories. Dive into a world of imagination and learning with our vast collection of stories for children."
     keywords = "Teknoloji haberleri, Oyuncu haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com İletişim Bize Ulaşın"
-
 
     if request.method == 'POST':
         recaptcha_response = request.POST.get('g-recaptcha-response')
@@ -606,7 +588,7 @@ def hakkinda(request):
 def cerez(request):
     title = "Çerez Politikası YüksekTeknoloji.com | Gizlilik ve Çerezler"
     description = "YüksekTeknoloji.com çerez politikası. Web sitemizdeki deneyiminizi geliştirmek için çerezleri nasıl kullandığımızı öğrenin.Yeni en son teknoloji haberleri"
-    keywords =  "Teknolojik haberler, araba fiyatları haberleri, otomobil haberleri, oyun haberleri"
+    keywords = "Teknolojik haberler, araba fiyatları haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com Çerez Politikası Gizliliğinize Saygı Duyuyoruz"
     context = {
         'title': title,
@@ -629,6 +611,7 @@ def gizlilik(request):
         'h1': h1,
     }
     return render(request, 'YeniTema/gizlilik.html', context)
+
 
 def kullanim(request):
     title = "Kullanım Koşulları YüksekTeknoloji.com | Kullanım Şartları"
@@ -686,14 +669,15 @@ def post_add(request):
 
         Post_Turu_Gelen = PostKategori.objects.get(short_title=Post_Turu)
 
-
         title, slug = create_unique_title_slug(title)
-        siir_masal = Kontrol(title=title,  slug=slug, h1=h1, Post_Turu=Post_Turu_Gelen, icerik=icerik,keywords=key , meta_description=meta_description, Akibeti="Beklemede", Kaynak_Linki=Kaynak_Linki)
+        siir_masal = Kontrol(title=title, slug=slug, h1=h1, Post_Turu=Post_Turu_Gelen, icerik=icerik, keywords=key,
+                             meta_description=meta_description, Akibeti="Beklemede", Kaynak_Linki=Kaynak_Linki)
         siir_masal.save()
         if siir_masal.id is None:
             return HttpResponse("Post kaydedilemedi.")
         else:
             return HttpResponse("Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
+
 
 @csrf_exempt
 def real_post_add(request):
@@ -715,7 +699,9 @@ def real_post_add(request):
         Post_Turu_Gelen = PostKategori.objects.get(short_title=Post_Turu)
 
         title, slug = create_unique_title_slug(title)
-        siir_masal = Post(ozet=ZekaOzet, title=title, hiddenTitle=hiddenTitle,  slug=slug, h1=h1, hiddenH1=hiddenH1, Post_Turu=Post_Turu_Gelen, icerik=icerik, info=info, hiddenKeys=hiddenKeys, meta_description=meta_description, Kaynak_Linki=Kaynak_Linki)
+        siir_masal = Post(ozet=ZekaOzet, title=title, hiddenTitle=hiddenTitle, slug=slug, h1=h1, hiddenH1=hiddenH1,
+                          Post_Turu=Post_Turu_Gelen, yenicerik1=icerik, info=info, hiddenKeys=hiddenKeys,
+                          meta_description=meta_description, Kaynak_Linki=Kaynak_Linki)
         siir_masal.save()
 
         Kontrol.objects.filter(id=GelenID).update(Akibeti="Tamamlandi")
@@ -724,9 +710,6 @@ def real_post_add(request):
             return HttpResponse("Post kaydedilemedi.")
         else:
             return HttpResponse("Şükürler Olsun Post başarıyla kaydedildi. ID: " + str(siir_masal.id))
-
-
-
 
 
 @csrf_exempt
@@ -749,8 +732,6 @@ def mahsulyakala(request):
         return JsonResponse({"method": request.method, "headers": dict(request.headers)})
 
 
-
-
 @csrf_exempt
 def mahsullistesicek(request):
     if request.method == 'POST':
@@ -762,13 +743,12 @@ def mahsullistesicek(request):
         return HttpResponse("Geçersiz istek", status=400)
 
 
-
-
 @csrf_exempt
 def mahsulcek(request):
     if request.method == 'POST':
         tarla_link = request.POST.get('Tarla_Link')
-        mahsul_cek = Mahsul.objects.filter(Tarla_Link=tarla_link, Akibeti="Beklemede").order_by('olusturma_tarihi').first()
+        mahsul_cek = Mahsul.objects.filter(Tarla_Link=tarla_link, Akibeti="Beklemede").order_by(
+            'olusturma_tarihi').first()
         if mahsul_cek is not None:
             mahsul_cek.Akibeti = "Tamamlandi"
             mahsul_cek.save()
@@ -777,7 +757,6 @@ def mahsulcek(request):
             return HttpResponse("Mahsul bulunamadı", status=404)
     else:
         return HttpResponse("Geçersiz istek", status=400)
-
 
 
 @csrf_exempt
@@ -798,11 +777,14 @@ def ilerizekacek(request):
 @csrf_exempt
 def karepostcek(request):
     if request.method == 'POST':
-        mahsul_cek = Post.objects.filter(aktif=True, status="Yayinda", SosyalKare=True).order_by('olusturma_tarihi').first()
+        mahsul_cek = Post.objects.filter(aktif=True, status="Yayinda", SosyalKare=True).order_by(
+            'olusturma_tarihi').first()
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
             mahsul_cek.SosyalKare = False
-            mahsul_cek.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+            mahsul_cek.save(
+                update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                               'twitter', 'Video'])
             title = strip_tags(mahsul_cek.title)
             icerik = unescape(strip_tags(mahsul_cek.ozet))
             Sonucu = f"{mahsul_cek.pk}|={title}|={icerik}|={mahsul_cek.resim}"
@@ -813,14 +795,15 @@ def karepostcek(request):
         return HttpResponse("Geçersiz istek", status=400)
 
 
-
-
 def send_Telegrampost(request):
-    GelenPost = Post.objects.filter(aktif=True, status="Yayinda",TelegramSend=True).order_by('olusturma_tarihi').first()
+    GelenPost = Post.objects.filter(aktif=True, status="Yayinda", TelegramSend=True).order_by(
+        'olusturma_tarihi').first()
 
     if GelenPost:
         GelenPost.TelegramSend = False
-        GelenPost.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+        GelenPost.save(
+            update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                           'twitter', 'Video'])
         title = GelenPost.title  # Postun başlığını al
         slug = GelenPost.slug  # Postun slug'ını al
         # İlgi çekici bir mesaj oluştur
@@ -831,7 +814,6 @@ def send_Telegrampost(request):
         return HttpResponse(r.text)
     else:
         return HttpResponse("Post yok")
-
 
 
 def Oto_Paylas(request):
@@ -851,17 +833,20 @@ def Oto_Paylas(request):
     else:
         return HttpResponse('Paylaşılacak Post Bulunamadı.')
 
+
 @csrf_exempt
 def indexing_var_mi(request):
     post = Post.objects.filter(indexing=True, aktif=True, status="Yayinda").first()
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.indexing = False
-        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                                 'twitter', 'Video'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/")
-        #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
+        # return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
         return HttpResponse("post bulunamadı.")
+
 
 @csrf_exempt
 def facebook_var_mi(request):
@@ -872,9 +857,10 @@ def facebook_var_mi(request):
         icerik = unescape(strip_tags(post.ozet))
         if not icerik:
             icerik = "Haberin devamı için tıklayın!"
-        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                                 'twitter', 'Video'])
         return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
-        #return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
+        # return HttpResponse(f"https://www.kidsstorieshub.com/kids-bedtime-story/{post.slug}/")
     else:
         return HttpResponse("post bulunamadı.")
 
@@ -890,28 +876,33 @@ def twitter_var_mi(request):
         hashtag = "#" + kategorisi.short_title if kategorisi.short_title else ""
         if not icerik:
             icerik = "Haberin devamı için tıklayın!"
-        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter', 'Video'])
-        return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik} {hashtag} Haberin devamı için lütfen tıklayın!")
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                                 'twitter', 'Video'])
+        return HttpResponse(
+            f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik} {hashtag} Haberin devamı için lütfen tıklayın!")
     else:
         return HttpResponse("Paylaşılacak Twitter içerik bulunamadı")
+
 
 @require_GET
 def ads(request):
     return HttpResponse(ads_content, content_type="text/plain")
 
-ads_content = """google.com, pub-7065951693101615, DIRECT, f08c47fec0942fa0"""
 
+ads_content = """google.com, pub-7065951693101615, DIRECT, f08c47fec0942fa0"""
 
 
 def delete_duplicates(request):
     # Mahsul_Link alanına göre grupla ve birden fazla olanları al
-    duplicate_rows = Mahsul.objects.values('Mahsul_Link').annotate(link_count=Count('Mahsul_Link')).filter(link_count__gt=1)
+    duplicate_rows = Mahsul.objects.values('Mahsul_Link').annotate(link_count=Count('Mahsul_Link')).filter(
+        link_count__gt=1)
 
     deleted_links = []  # Silinen linkleri saklamak için bir liste oluştur
 
     for row in duplicate_rows:
         # Her grup için, ilk örneği hariç tüm örnekleri sil
-        duplicates = Mahsul.objects.filter(Mahsul_Link=row['Mahsul_Link']).exclude(id=Mahsul.objects.filter(Mahsul_Link=row['Mahsul_Link']).first().id)
+        duplicates = Mahsul.objects.filter(Mahsul_Link=row['Mahsul_Link']).exclude(
+            id=Mahsul.objects.filter(Mahsul_Link=row['Mahsul_Link']).first().id)
         deleted_links.extend([obj.Mahsul_Link for obj in duplicates])  # Silinen linkleri listeye ekle
         duplicates.delete()
 
