@@ -79,13 +79,6 @@ class Post(models.Model):
         ('Adem YALÇIN', 'Adem YALÇIN'),
     ]
 
-    Sosyal = [
-        ('Bilgi Bekleniyor', 'Bilgi Bekleniyor'),
-        ('Yapma', 'Yapma'),
-        ('Hazirla', 'Hazirla'),
-        ('Tamamlandi', 'Tamamlandi'),
-    ]
-
     Jsonu = [
         ('Article', 'Article'),
         ('NewsArticle', 'NewsArticle'),
@@ -138,9 +131,11 @@ class Post(models.Model):
     hiddenKeys = models.TextField(blank=True, null=True)
     yayin_tarihi = models.DateTimeField(null=True, blank=True, help_text="Postanın yayınlanacağı tarih ve saat")
     status = models.CharField(max_length=10, choices=status_cho, default="Taslak", help_text=HELP_TEXTS["status"])
-    gonder = models.BooleanField(default=False, help_text=HELP_TEXTS["Wp-TG"])
-    SosyalDik = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
-    SosyalKare = models.CharField(max_length=255, choices=Sosyal, default="Bilgi Bekleniyor")
+    TelegramSend = models.BooleanField(default=False, help_text="Telegramdan Link Gönderir.")
+    Whatsapp = models.BooleanField(default=False, help_text="Whatsapp Link Gönderir.")
+    Video = models.BooleanField(default=False, help_text="1920 x 1080 Video Yapar")
+    SosyalDik = models.BooleanField(default=True, help_text="1920 x 1080 Resim üret")
+    SosyalKare = models.BooleanField(default=True, help_text="Havanın Wp Attığı Post Turu")
     aktif = models.BooleanField(default=False, help_text=HELP_TEXTS["aktif"])
     indexing = models.BooleanField(default=True, help_text="Indexlensin mi?")
     banner = models.BooleanField(default=False, help_text=HELP_TEXTS["banner"])

@@ -798,10 +798,10 @@ def ilerizekacek(request):
 @csrf_exempt
 def karepostcek(request):
     if request.method == 'POST':
-        mahsul_cek = Post.objects.filter(aktif=True, status="Yayinda", SosyalKare="Hazirla").order_by('olusturma_tarihi').first()
+        mahsul_cek = Post.objects.filter(aktif=True, status="Yayinda", SosyalKare=True).order_by('olusturma_tarihi').first()
         if mahsul_cek is not None:
             # HTML etiketlerini kaldır
-            mahsul_cek.SosyalKare = "Tamamlandi"
+            mahsul_cek.SosyalKare = False
             mahsul_cek.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
             title = strip_tags(mahsul_cek.title)
             icerik = unescape(strip_tags(mahsul_cek.ozet))
@@ -816,10 +816,10 @@ def karepostcek(request):
 
 
 def send_Telegrampost(request):
-    GelenPost = Post.objects.filter(aktif=True, status="Yayinda",gonder=True).order_by('olusturma_tarihi').first()
+    GelenPost = Post.objects.filter(aktif=True, status="Yayinda",TelegramSend=True).order_by('olusturma_tarihi').first()
 
     if GelenPost:
-        GelenPost.gonder = False
+        GelenPost.TelegramSend = False
         GelenPost.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook', 'twitter'])
         title = GelenPost.title  # Postun başlığını al
         slug = GelenPost.slug  # Postun slug'ını al
