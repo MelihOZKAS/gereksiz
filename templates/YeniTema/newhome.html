@@ -10,7 +10,7 @@
     <meta name="author" content="{{ yazar }}">
 
     <!-- Canonical Link -->
-    {% block ogurl %}{{ request.build_absolute_uri }}{% endblock %}
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
 {% endblock MetaTag %}
 
 
@@ -56,6 +56,47 @@
 {% endblock extra_Kod %}
 <!--  extra_Kod Bitiş -->
 
+{% block extra_head %}
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.yuksekteknoloji.com/",
+        "name": "Yüksek Teknoloji",
+        "description": "{{ description }}",
+        "keywords": "{{ keywords }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Yüksek Teknoloji",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp"
+          }
+        }
+    }
+</script>
+
+{% endblock extra_head %}
+
+
+{% block extra_Two_head %}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "En Son Teknoloji, Bilim, Oyun ve Otomobil Haberleri",
+      "item": "https://www.yuksekteknoloji.com/"
+    }
+  ]
+
+}
+</script>
+{% endblock %}
 
 
 {% block main %}
