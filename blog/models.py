@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from ckeditor.fields import RichTextField
 from TeknoBlog.custom_storages import ImageSettingStorage
+from tinymce.models import HTMLField
 
 # Create your models here.
 status_cho = (
@@ -102,6 +103,14 @@ class Post(models.Model):
     Post_type = models.CharField(max_length=255, choices=Jsonu, null=True, default="NewsArticle")
     sure = models.CharField(max_length=255, choices=OkumaSuresi, null=True, default="2 Dakika Dakika Okuma Süresi")
     yazar = models.CharField(max_length=255, choices=YAZARLAR, null=True, blank=True)
+
+    yenicerik1 = HTMLField(null=True, blank=True, help_text="ismin uzun anlamı kökeni vs...")
+    yenicerik2 = HTMLField(null=True, blank=True, help_text="ismin kişilik özellikleri")
+    yenicerik3 = HTMLField(null=True, blank=True, help_text="isminde ki ünlü isimler!")
+    yenicerik4 = HTMLField(null=True, blank=True)
+    yenicerik5 = HTMLField(null=True, blank=True)
+    yenicerik6 = HTMLField(null=True, blank=True)
+
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik2 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik3 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
@@ -140,6 +149,7 @@ class Post(models.Model):
     hiddenKeys = models.TextField(blank=True, null=True)
     yayin_tarihi = models.DateTimeField(null=True, blank=True, help_text="Postanın yayınlanacağı tarih ve saat")
     status = models.CharField(max_length=10, choices=status_cho, default="Taslak", help_text=HELP_TEXTS["status"])
+    Star = models.BooleanField(default=False, help_text="Favori Konuları İşaretliyoruz.")
     TelegramSend = models.BooleanField(default=False, help_text="Telegramdan Link Gönderir.")
     Whatsapp = models.BooleanField(default=False, help_text="Whatsapp Link Gönderir.")
     Video = models.BooleanField(default=False, help_text="1920 x 1080 Video Yapar")

@@ -14,8 +14,6 @@ from pathlib import Path
 import environ
 import os
 
-
-
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
 
@@ -59,6 +57,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "whitenoise.runserver_nostatic",
     "storages",
+    'tinymce',
 
 ]
 
@@ -189,4 +188,32 @@ CKEDITOR_CONFIGS = {
         'height': 400,
         'width': 900,
     },
+}
+
+TINYMCE_COMPRESSOR = False
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 500,
+    'width': 800,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'plugins': '''
+            save link image media preview codesample 
+            table code lists fullscreen  insertdatetime  nonbreaking
+             directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap 
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
 }
