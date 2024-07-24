@@ -107,9 +107,9 @@ class Post(models.Model):
     yenicerik1 = HTMLField(null=True, blank=True, help_text="ismin uzun anlamı kökeni vs...")
     yenicerik2 = HTMLField(null=True, blank=True, help_text="ismin kişilik özellikleri")
     yenicerik3 = HTMLField(null=True, blank=True, help_text="isminde ki ünlü isimler!")
-    yenicerik4 = HTMLField(null=True, blank=True)
-    yenicerik5 = HTMLField(null=True, blank=True)
-    yenicerik6 = HTMLField(null=True, blank=True)
+    #yenicerik4 = HTMLField(null=True, blank=True)
+    #yenicerik5 = HTMLField(null=True, blank=True)
+    #yenicerik6 = HTMLField(null=True, blank=True)
 
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik2 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])

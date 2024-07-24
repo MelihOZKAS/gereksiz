@@ -125,7 +125,8 @@
                                      data-items="1">
                                     <!-- Slider items -->
                                     {% for trend in Trend %}
-                                        <div><a href="{% url 'post-getir' post_slug=trend.slug %}" class="text-reset btn-link">{{ trend.title }}</a></div>
+                                        <div><a href="{% url 'post-getir' post_slug=trend.slug %}"
+                                                class="text-reset btn-link">{{ trend.title }}</a></div>
                                     {% endfor %}
 
 
@@ -155,7 +156,8 @@
                             <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                 <div class="w-100 mt-auto">
                                     <!-- Card category -->
-                                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.0.Post_Turu.slug }}/" class="badge text-bg-{{ Banner.0.Post_Turu.renk }} mb-2"><i
+                                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.0.Post_Turu.slug }}/"
+                                       class="badge text-bg-{{ Banner.0.Post_Turu.renk }} mb-2"><i
                                             class="fas fa-circle me-2 small fw-bold"></i>{{ Banner.0.Post_Turu.short_title }}
                                     </a>
                                     <!-- Card title -->
@@ -198,7 +200,8 @@
                                     <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                         <div class="w-100 mt-auto">
                                             <!-- Card category -->
-                                            <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.1.Post_Turu.slug }}/" class="badge text-bg-{{ Banner.1.Post_Turu.renk }} mb-2"><i
+                                            <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.1.Post_Turu.slug }}/"
+                                               class="badge text-bg-{{ Banner.1.Post_Turu.renk }} mb-2"><i
                                                     class="fas fa-circle me-2 small fw-bold"></i>{{ Banner.0.Post_Turu.short_title }}
                                             </a>
                                             <!-- Card title -->
@@ -229,7 +232,8 @@
                                     <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                         <div class="w-100 mt-auto">
                                             <!-- Card category -->
-                                            <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.2.Post_Turu.slug }}/" class="badge text-bg-{{ Banner.2.Post_Turu.renk }} mb-2"><i
+                                            <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.2.Post_Turu.slug }}/"
+                                               class="badge text-bg-{{ Banner.2.Post_Turu.renk }} mb-2"><i
                                                     class="fas fa-circle me-2 small fw-bold"></i>{{ Banner.2.Post_Turu.short_title }}
                                             </a>
                                             <!-- Card title -->
@@ -260,7 +264,8 @@
                                     <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                         <div class="w-100 mt-auto">
                                             <!-- Card category -->
-                                            <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.2.Post_Turu.slug }}/" class="badge text-bg-{{ Banner.3.Post_Turu.renk }} mb-2"><i
+                                            <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Banner.2.Post_Turu.slug }}/"
+                                               class="badge text-bg-{{ Banner.3.Post_Turu.renk }} mb-2"><i
                                                     class="fas fa-circle me-2 small fw-bold"></i>{{ Banner.3.Post_Turu.short_title }}
                                             </a>
                                             <!-- Card title -->
@@ -309,14 +314,16 @@
                                     <div class="card">
                                         <!-- Card img -->
                                         <div class="position-relative">
-                                            <img class="card-img lazy" height="210" width="420"
-                                                 data-src="{{ haber.resim.url }}"
-                                                 alt="{{ haber.title }}">
+                                            <a href="{% url 'post-getir' post_slug=Post.slug %}">
+                                                <img class="card-img lazy" height="210" width="420"
+                                                     data-src="{{ haber.resim.url }}"
+                                                     alt="{{ haber.title }}"></a>
                                             <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                 <!-- Card overlay bottom -->
                                                 <div class="w-100 mt-auto">
                                                     <!-- Card category -->
-                                                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{ haber.Post_Turu.slug }}/" class="badge text-bg-{{ haber.Post_Turu.renk }} mb-2"><i
+                                                    <a href="{{ request.scheme }}://{{ request.get_host }}/{{ haber.Post_Turu.slug }}/"
+                                                       class="badge text-bg-{{ haber.Post_Turu.renk }} mb-2"><i
                                                             class="fas fa-circle me-2 small fw-bold"></i>{{ haber.Post_Turu.short_title }}
                                                     </a>
                                                 </div>

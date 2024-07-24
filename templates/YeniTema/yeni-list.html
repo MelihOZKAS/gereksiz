@@ -164,8 +164,10 @@
                                         <div class="card overflow-hidden">
                                             <!-- Card img -->
                                             <div class="position-relative">
+                                                <a href="{% url 'post-getir' post_slug=Post.slug %}">
                                                 <img class="card-img lazy" src="{{ Post.resim.url }}"
                                                      alt="{{ Post.title }}" width="960" height="640">
+                                                    </a>
                                                 <!-- Card featured -->
                                                 <span class="card-featured" title="Featured post"><i
                                                         class="fas fa-star"></i></span>
@@ -217,9 +219,10 @@
                                         <div class="card">
                                             <!-- Card img -->
                                             <div class="position-relative">
+                                                <a href="{% url 'post-getir' post_slug=Post.slug %}">
                                                 <img class="card-img lazy" src="{{ Post.resim.url }}" width="960"
                                                      height="640"
-                                                     alt="Card image">
+                                                     alt="{{ Post.title }}"></a>
                                                 <div class="card-img-overlay d-flex align-items-start flex-column p-3">
                                                     <!-- Card overlay Top -->
                                                     <div class="w-100 mb-auto d-flex justify-content-end">
