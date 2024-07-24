@@ -173,7 +173,7 @@
                                                     <!-- Card overlay bottom -->
                                                     <div class="w-100 mt-auto">
                                                         <!-- Card category -->
-                                                        <a href="#"
+                                                        <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Post.Post_Turu.slug }}/"
                                                            class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
                                                                 class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
                                                         </a>
@@ -195,7 +195,7 @@
                                                                          src="{% static 'yeni/assets/images/avatar/01.jpg' %}"
                                                                          alt="avatar">
                                                                 </div>
-                                                                <span class="ms-3"><a href="#"
+                                                                <span class="ms-3"><a href="{% url 'hakkimizda' %}"
                                                                                       class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
                                                             </div>
                                                         </div>
@@ -227,7 +227,7 @@
                                                     <!-- Card overlay bottom -->
                                                     <div class="w-100 mt-auto">
                                                         <!-- Card category -->
-                                                        <a href="#"
+                                                        <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Post.Post_Turu.slug }}/"
                                                            class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
                                                                 class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
                                                         </a>
@@ -249,7 +249,7 @@
                                                                          src="{% static 'yeni/assets/images/avatar/02.jpg' %}"
                                                                          alt="avatar">
                                                                 </div>
-                                                                <span class="ms-3"><a href="#"
+                                                                <span class="ms-3"><a href="{% url 'hakkimizda' %}"
                                                                                       class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
                                                             </div>
                                                         </div>
