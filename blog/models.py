@@ -93,11 +93,11 @@ class Post(models.Model):
     ]
 
     OkumaSuresi = [
-        ('2 Dakika', '2 Dakika'),
-        ('3 Dakika', '3 Dakika'),
-        ('4 Dakika', '4 Dakika'),
-        ('5 Dakika', '5 Dakika'),
-        ('6 Dakika', '6 Dakika'),
+        ('2 Dakika Dakika Okuma Süresi', '2 Dakika Dakika Okuma Süresi'),
+        ('3 Dakika Dakika Okuma Süresi', '3 Dakika Dakika Okuma Süresi'),
+        ('4 Dakika Dakika Okuma Süresi', '4 Dakika Dakika Okuma Süresi'),
+        ('5 Dakika Dakika Okuma Süresi', '5 Dakika Dakika Okuma Süresi'),
+        ('6 Dakika Dakika Okuma Süresi', '6 Dakika Dakika Okuma Süresi'),
     ]
 
     title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])
@@ -107,7 +107,7 @@ class Post(models.Model):
     hiddenH1 = models.TextField(blank=True, null=True)
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
     Post_type = models.CharField(max_length=255, choices=Jsonu, null=True, default="NewsArticle")
-    sure = models.CharField(max_length=255, choices=OkumaSuresi, null=True, default="2 Dakika")
+    sure = models.CharField(max_length=255, choices=OkumaSuresi, null=True, default="2 Dakika Dakika Okuma Süresi")
     yazar = models.CharField(max_length=255, choices=YAZARLAR, null=True, blank=True)
     icerik = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
     icerik2 = RichTextField(null=True, blank=True, help_text=HELP_TEXTS["icerik"])
