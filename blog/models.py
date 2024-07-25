@@ -161,6 +161,7 @@ class Post(models.Model):
     editor = models.BooleanField(default=False, help_text=HELP_TEXTS["small_banner"])
     facebook = models.BooleanField(default=True, help_text="Facebook da Paylaşılsın mı ?")
     twitter = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
+    pinterest = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
     Kaynak_Linki = models.URLField(blank=True, null=True)
     Kaynak_Follow = models.TextField(blank=True, null=True)
