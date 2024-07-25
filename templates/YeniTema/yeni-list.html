@@ -214,78 +214,65 @@
                                     </div>
                                     <!-- Card item END -->
                                 {% else %}
-
-
-                                    <div class="col-lg-9">
-                                        <div class="row gy-4">
-                                            <!-- Card item START -->
-                                            <!-- Card item START -->
-                                            <div class="col-sm-6">
-                                                <div class="card">
-                                                    <!-- Card img -->
-                                                    <div class="position-relative">
-                                                        <img class="card-img lazy" src="{{ Post.resim.url }}"
-                                                             width="960"
-                                                             height="640"
-                                                             alt="{{ Post.title }}">
-                                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                                            <!-- Card overlay Top -->
-                                                            <div class="w-100 mb-auto d-flex justify-content-end">
-                                                                <div class="text-end ms-auto">
-                                                                    <!-- Card format icon -->
-                                                                    <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
-                                                                         title="This post has video"><i
-                                                                            class="fas fa-video"></i></div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Card overlay bottom -->
-                                                            <div class="w-100 mt-auto">
-                                                                <!-- Card category -->
-                                                                <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Post.Post_Turu.slug }}/"
-                                                                   class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
-                                                                        class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
-                                                                </a>
-                                                            </div>
+                                    <!-- Card item START -->
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <!-- Card img -->
+                                            <div class="position-relative">
+                                                <img class="card-img lazy" src="{{ Post.resim.url }}" width="960"
+                                                     height="640"
+                                                     alt="{{ Post.title }}">
+                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                    <!-- Card overlay Top -->
+                                                    <div class="w-100 mb-auto d-flex justify-content-end">
+                                                        <div class="text-end ms-auto">
+                                                            <!-- Card format icon -->
+                                                            <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
+                                                                 title="This post has video"><i
+                                                                    class="fas fa-video"></i></div>
                                                         </div>
                                                     </div>
-                                                    <div class="card-body px-0 pt-3">
-                                                        <h4 class="card-title"><a
-                                                                href="{% url 'post-getir' post_slug=Post.slug %}"
-                                                                class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
-                                                        </h4>
-                                                        <p class="card-text">{% if Post.yenicerik1 %}
-                                                            {{ Post.yenicerik1|truncatechars:175|safe }}
-                                                        {% else %}
-                                                            {{ Post.icerik|truncatechars:175|safe }}
-                                                        {% endif %}</p>
-                                                        <!-- Card info -->
-                                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-                                                            <li class="nav-item">
-                                                                <div class="nav-link">
-                                                                    <div class="d-flex align-items-center position-relative">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img class="avatar-img rounded-circle"
-                                                                                 src="{% static 'yeni/assets/images/avatar/02.jpg' %}"
-                                                                                 alt="avatar">
-                                                                        </div>
-                                                                        <span class="ms-3"><a
-                                                                                href="{% url 'hakkimizda' %}"
-                                                                                class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="nav-item">{{ Post.olusturma_tarihi|date:"d M Y" }}</li>
-                                                        </ul>
+                                                    <!-- Card overlay bottom -->
+                                                    <div class="w-100 mt-auto">
+                                                        <!-- Card category -->
+                                                        <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Post.Post_Turu.slug }}/"
+                                                           class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
+                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Card item END -->
-
-                                            <!-- Load more END -->
+                                            <div class="card-body px-0 pt-3">
+                                                <h4 class="card-title"><a
+                                                        href="{% url 'post-getir' post_slug=Post.slug %}"
+                                                        class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
+                                                </h4>
+                                                <p class="card-text">{% if Post.yenicerik1 %}
+                                                    {{ Post.yenicerik1|truncatechars:175|safe }}
+                                                {% else %}
+                                                    {{ Post.icerik|truncatechars:175|safe }}
+                                                {% endif %}</p>
+                                                <!-- Card info -->
+                                                <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                                    <li class="nav-item">
+                                                        <div class="nav-link">
+                                                            <div class="d-flex align-items-center position-relative">
+                                                                <div class="avatar avatar-xs">
+                                                                    <img class="avatar-img rounded-circle"
+                                                                         src="{% static 'yeni/assets/images/avatar/02.jpg' %}"
+                                                                         alt="avatar">
+                                                                </div>
+                                                                <span class="ms-3"><a href="{% url 'hakkimizda' %}"
+                                                                                      class="stretched-link text-reset btn-link">{{ Post.yazar }}</a></span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="nav-item">{{ Post.olusturma_tarihi|date:"d M Y" }}</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-
-
+                                    <!-- Card item END -->
                                 {% endif %}
                             {% endfor %}
 
@@ -293,39 +280,6 @@
 
 
 
-                            <!-- pagination START -->
-                            <nav class="mt-5" aria-label="navigation">
-                                <ul class="pagination d-flex justify-content-between">
-                                    {% if TumPost.has_previous %}
-                                        <li class="page-item flex-fill text-center">
-                                            <a href="?sayfa={{ TumPost.previous_page_number }}" class="page-link">
-                                                <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="page-item flex-fill text-center disabled">
-                <span class="page-link">
-                    <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
-                </span>
-                                        </li>
-                                    {% endif %}
-
-                                    {% if TumPost.has_next %}
-                                        <li class="page-item flex-fill text-center">
-                                            <a href="?sayfa={{ TumPost.next_page_number }}" class="page-link">
-                                                Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="page-item flex-fill text-center disabled">
-                <span class="page-link">
-                    Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
-                </span>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-                            </nav>
-                            <!-- pagination END -->
                         </div>
                     </div>
                     <!-- Main Post END -->
