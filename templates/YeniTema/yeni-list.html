@@ -248,9 +248,9 @@
                                                         class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
                                                 </h4>
                                                 <p class="card-text">{% if Post.yenicerik1 %}
-                                                    {{ Post.yenicerik1|truncatechars_html:131|safe }}
+                                                    {{ Post.yenicerik1|truncatewords:131|safe }}
                                                 {% else %}
-                                                    {{ Post.icerik|truncatechars_html:131|safe }}
+                                                    {{ Post.icerik|truncatewords:131|safe }}
                                                 {% endif %}</p>
                                                 <!-- Card info -->
                                                 <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
