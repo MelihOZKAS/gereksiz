@@ -909,3 +909,20 @@ def delete_duplicates(request):
     # Silinen linkleri HttpResponse ile döndür
     response = "\n".join(deleted_links)
     return HttpResponse(response, content_type='text/plain')
+
+
+@csrf_exempt
+def pinterest_var_mi(request):
+    post = Post.objects.filter(pinterest=True, aktif=True, status="Yayinda").first()
+    if post is not None:
+        # post'un facebook durumunu False yapayı unutmamak lazımmm dimi.
+        post.pinterest = False
+        icerik = post.title
+        if not icerik:
+            icerik = "Teknoloji Haberleri"
+        post.save(update_fields=['okunma_sayisi', 'banner', 'editor', 'indexing', 'facebook', 'twitter',
+                                 'pinterest', 'Trend'])
+        return HttpResponse(
+            f"https://www.erkekbebekisimleri.net/{post.slug}/!={post.ozet}. Daha fazla bebek ismi için bizi takip edin!={post.title}!={post.Post_Turu.short_title}!={post.resim.url}")
+    else:
+        return HttpResponse("post bulunamadı.")
