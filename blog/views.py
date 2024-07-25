@@ -923,6 +923,6 @@ def pinterest_var_mi(request):
         post.save(update_fields=['okunma_sayisi', 'banner', 'editor', 'indexing', 'facebook', 'twitter',
                                  'pinterest'])
         return HttpResponse(
-            f"https://www.yuksekteknoloji.com/{post.slug}/!={post.ozet}. Daha fazla bebek ismi için bizi takip edin!={post.title}!={post.Post_Turu.short_title}!={post.resim.url}")
+            f"https://www.yuksekteknoloji.com/{post.slug}/!={post.h1}. Daha fazla bebek ismi için bizi takip edin!={post.title}!={post.Post_Turu.short_title}!={post.resim.url}")
     else:
         return HttpResponse("post bulunamadı.")
