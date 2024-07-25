@@ -218,30 +218,7 @@
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <!-- Card img -->
-                                            <div class="position-relative">
-                                                <img class="card-img lazy" src="{{ Post.resim.url }}" width="960"
-                                                     height="640"
-                                                     alt="{{ Post.title }}">
-                                                <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                                                    <!-- Card overlay Top -->
-                                                    <div class="w-100 mb-auto d-flex justify-content-end">
-                                                        <div class="text-end ms-auto">
-                                                            <!-- Card format icon -->
-                                                            <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
-                                                                 title="This post has video"><i
-                                                                    class="fas fa-video"></i></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Card overlay bottom -->
-                                                    <div class="w-100 mt-auto">
-                                                        <!-- Card category -->
-                                                        <a href="{{ request.scheme }}://{{ request.get_host }}/{{ Post.Post_Turu.slug }}/"
-                                                           class="badge text-bg-{{ Post.Post_Turu.renk }} mb-2"><i
-                                                                class="fas fa-circle me-2 small fw-bold"></i>{{ Post.Post_Turu.short_title }}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                             <div class="card-body px-0 pt-3">
                                                 <h4 class="card-title"><a
                                                         href="{% url 'post-getir' post_slug=Post.slug %}"
@@ -277,9 +254,39 @@
                             {% endfor %}
 
 
+                            <!-- pagination START -->
+                            <nav class="mt-5" aria-label="navigation">
+                                <ul class="pagination d-flex justify-content-between">
+                                    {% if TumPost.has_previous %}
+                                        <li class="page-item flex-fill text-center">
+                                            <a href="?sayfa={{ TumPost.previous_page_number }}" class="page-link">
+                                                <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item flex-fill text-center disabled">
+                <span class="page-link">
+                    <i class="fas fa-long-arrow-alt-left me-2 rtl-flip"></i>Önceki
+                </span>
+                                        </li>
+                                    {% endif %}
 
-
-
+                                    {% if TumPost.has_next %}
+                                        <li class="page-item flex-fill text-center">
+                                            <a href="?sayfa={{ TumPost.next_page_number }}" class="page-link">
+                                                Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item flex-fill text-center disabled">
+                <span class="page-link">
+                    Sonraki<i class="fas fa-long-arrow-alt-right ms-2 rtl-flip"></i>
+                </span>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                            <!-- pagination END -->
                         </div>
                     </div>
                     <!-- Main Post END -->
