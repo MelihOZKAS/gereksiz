@@ -257,7 +257,26 @@
 
 
 
+                        {% if icerik.youtube2 %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure position-relative">
+                                    <!-- Card play button -->
+                                    <div class="position-absolute top-50 start-50 translate-middle pb-5">
+                                        <!-- Popup video -->
+                                        <a href="{{ icerik.youtube2 }}"
+                                           class="icon-lg bg-danger d-block text-white rounded-circle" data-glightbox=""
+                                           data-gallery="y-video">
+                                            <i class="bi bi-play-btn"></i>
+                                        </a>
+                                    </div>
+                                    <img class="rounded" src="{{ icerik.resim.url }}"
+                                         alt="Youtube {{ icerik.title }} - 2"
+                                         width="960" height="640">
 
+                                </figure>
+                            </div>
+
+                        {% endif %}
                         {% if icerik.resim2 %}
                             <div class="col-md-12 mt-3">
                                 <figure class="figure mb-1">
@@ -286,7 +305,26 @@
                         {% endif %}
 
 
+                        {% if icerik.youtube3 %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure position-relative">
+                                    <!-- Card play button -->
+                                    <div class="position-absolute top-50 start-50 translate-middle pb-5">
+                                        <!-- Popup video -->
+                                        <a href="{{ icerik.youtube3 }}"
+                                           class="icon-lg bg-danger d-block text-white rounded-circle" data-glightbox=""
+                                           data-gallery="y-video">
+                                            <i class="bi bi-play-btn"></i>
+                                        </a>
+                                    </div>
+                                    <img class="rounded" src="{{ icerik.resim.url }}"
+                                         alt="Youtube {{ icerik.title }} - 3"
+                                         width="960" height="640">
 
+                                </figure>
+                            </div>
+
+                        {% endif %}
                         {% if icerik.resim3 %}
                             <div class="col-md-12 mt-3">
                                 <figure class="figure mb-1">
