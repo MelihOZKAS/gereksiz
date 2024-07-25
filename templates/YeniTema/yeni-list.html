@@ -247,8 +247,8 @@
                                                         href="{% url 'post-getir' post_slug=Post.slug %}"
                                                         class="btn-link text-reset fw-bold">{{ Post.h1 }}</a>
                                                 </h4>
-                                                <p class="card-text">{% if Post.yenicerik1 %}
-                                                    {{ Post.yenicerik1|truncatechars:131|safe }}
+                                                <p class="card-text">{% if Post.icerik %}
+                                                    {{ Post.icerik|truncatechars:131|safe }}
 
                                                 {% endif %}</p>
                                                 <!-- Card info -->
