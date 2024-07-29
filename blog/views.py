@@ -185,6 +185,12 @@ def KategoriHome(request):
         Post_Kategorisi = get_object_or_404(PostKategori, short_title="Dizi")
         TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
             '-olusturma_tarihi')[:80]
+    elif request.resolver_match.url_name == 'haber':
+        # Oyun haberleri için kod
+        Post_Kategorisi = get_object_or_404(PostKategori, short_title="Haber")
+        TumPost = Post.objects.filter(aktif=True, status="Yayinda", Post_Turu=Post_Kategorisi).order_by(
+            '-olusturma_tarihi')[:80]
+
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by('-olusturma_tarihi')[:8]
     editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by('-olusturma_tarihi')[:8]

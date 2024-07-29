@@ -199,7 +199,7 @@ class Kontrol(models.Model):
         ('Yolda', 'Yolda'),
     ]
 
-    title = models.CharField(max_length=255, help_text=HELP_TEXTS["title"])
+    title = models.CharField(max_length=255, blank=True, help_text=HELP_TEXTS["title"])
     slug = models.CharField(max_length=255, help_text=HELP_TEXTS["title"], null=True, blank=True)
     h1 = models.CharField(max_length=255, blank=True, help_text=HELP_TEXTS["h1"], null=True)
     Post_Turu = models.ForeignKey(PostKategori, null=True, on_delete=models.SET_NULL)
@@ -235,3 +235,19 @@ class Mahsul(models.Model):
 
     class Meta:
         verbose_name_plural = "Mahsuller"
+
+
+
+#class News(models.Model):
+#    kontrol = [
+#        ('Tamamlandi', 'Tamamlandi'),
+#        ('Beklemede', 'Beklemede'),
+#    ]
+#    title = models.CharField(max_length=255, blank=True, null=True)
+#    link = models.URLField(blank=True, null=True, unique=True)
+#    Aciklama = models.CharField(max_length=600, blank=True, null=True)
+#    Akibeti = models.CharField(max_length=255, choices=kontrol, null=True, blank=True)
+#    olusturma_tarihi = models.DateTimeField(auto_now_add=True)
+#
+#    class Meta:
+#        verbose_name_plural = "News"

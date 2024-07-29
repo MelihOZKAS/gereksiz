@@ -19,6 +19,7 @@ urlpatterns = [
     path("otomobil-haberleri/", views.YeniKategoriHome, name="yeniotomobil"),
     path("oyun-haberleri/", views.YeniKategoriHome, name="yenioyun"),
     path("en-iyi-diziler-ve-filmler/", views.YeniKategoriHome, name="yenidizi"),
+    path("haber/", views.YeniKategoriHome, name="haber"),
     path("pinterest-cek/", views.pinterest_var_mi, name="pinterestcek"),
     # path("newhome/", views.newHome, name="newHome"),
     # path("random/", views.create_random_post, name="random"),

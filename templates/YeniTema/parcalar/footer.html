@@ -100,12 +100,13 @@ Footer START -->
 		<div class="row">
 			<h5 class="mb-2 text-white">Kategoriler</h5>
 			<ul class="list-inline text-primary-hover lh-lg">
-				<li class="list-inline-item"><a href="#">Teknoloji</a></li>
-				<li class="list-inline-item"><a href="#">Bilim</a></li>
-				<li class="list-inline-item"><a href="#">Akıllı Telefon</a></li>
-				<li class="list-inline-item"><a href="#">Oyun</a></li>
-				<li class="list-inline-item"><a href="#">Dizi / Film</a></li>
-				<li class="list-inline-item"><a href="#">Otomobil</a></li>
+				<li class="list-inline-item"><a href="{% url 'haber' %}">Gündem</a></li>
+				<li class="list-inline-item"><a href="{% url 'yeniteknoloji' %}">Teknoloji</a></li>
+				<li class="list-inline-item"><a href="{% url 'yenibilim' %}">Bilim</a></li>
+				<li class="list-inline-item"><a href="{% url 'yenitelefon' %}">Akıllı Telefon</a></li>
+				<li class="list-inline-item"><a href="{% url 'yenioyun' %}">Oyun</a></li>
+				<li class="list-inline-item"><a href="{% url 'yenidizi' %}">Dizi / Film</a></li>
+				<li class="list-inline-item"><a href="{% url 'yeniotomobil' %}">Otomobil</a></li>
 			</ul>
 		</div>
 		<!-- Hot topics END -->
