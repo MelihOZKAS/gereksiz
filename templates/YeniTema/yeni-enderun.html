@@ -257,6 +257,21 @@
 
 
 
+
+                        {% if icerik.resim2 %}
+                            <div class="col-md-12 mt-3">
+                                <figure class="figure mb-1">
+                                    <a href="{{ icerik.resim2.url }}" data-glightbox=""
+                                       data-gallery="image-popup">
+                                        <img class="rounded" src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
+                                             width="960" height="640">
+                                    </a>
+                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 2
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        {% endif %}
+
                         {% if icerik.youtube2 %}
                             <div class="col-md-12 mt-3">
                                 <figure class="figure position-relative">
@@ -277,20 +292,6 @@
                             </div>
 
                         {% endif %}
-                        {% if icerik.resim2 %}
-                            <div class="col-md-12 mt-3">
-                                <figure class="figure mb-1">
-                                    <a href="{{ icerik.resim2.url }}" data-glightbox=""
-                                       data-gallery="image-popup">
-                                        <img class="rounded" src="{{ icerik.resim2.url }}" alt="{{ icerik.title }} - 2"
-                                             width="960" height="640">
-                                    </a>
-                                    <figcaption class="figure-caption text-center mt-2">{{ icerik.title }} - 2
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        {% endif %}
-
 
                         {% if icerik.icerik2 %}
                             {{ icerik.icerik2|safe }}
