@@ -511,14 +511,13 @@ def fadilEnderun(request):
                        'twitter', 'Video'])
 
     populer = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
-        '-olusturma_tarihi')[:8]
-    editor = Post.objects.filter(aktif=True, status="Yayinda", editor=True).order_by(
-        '-olusturma_tarihi')[:8]
-    enson = Post.objects.filter(aktif=True, status="Yayinda").order_by('-olusturma_tarihi')[:8]
+        '-olusturma_tarihi')[:3]
 
-    title = PostEndrun.title
-    description = PostEndrun.meta_description
-    keywords = PostEndrun.keywords
+    sideHaber = Post.objects.filter(aktif=True, status="Yayinda", banner=True).order_by(
+        '-olusturma_tarihi')[:8]
+
+    noFollows = PostEndrun.Kaynak_NoFollow.split("|") if PostEndrun.Kaynak_NoFollow else []
+    Follows = PostEndrun.Kaynak_Follow.split("|") if PostEndrun.Kaynak_Follow else []
 
     thumbnail_url = None
 
@@ -526,18 +525,32 @@ def fadilEnderun(request):
         youtube_id = get_youtube_id(PostEndrun.youtube)
         thumbnail_url = f"https://img.youtube.com/vi/{youtube_id}/0.jpg"
 
-    #
+    contents = [PostEndrun.icerik, PostEndrun.icerik2, PostEndrun.icerik3]
+    articleBody = ' '.join(filter(None, contents))
+
+    resimler = []
+    if PostEndrun.resim:
+        resimler.append(PostEndrun.resim.url)
+    if PostEndrun.resim2:
+        resimler.append(PostEndrun.resim2.url)
+    if PostEndrun.resim3:
+        resimler.append(PostEndrun.resim3.url)
+    if PostEndrun.resim4:
+        resimler.append(PostEndrun.resim4.url)
+    if not resimler:  # Eğer resimler listesi boşsa
+        resimler.append("https://teknolojibucket.s3.amazonaws.com/static/assets/logo/logo.webp")
+
     context = {
-        'title': title,
-        'description': description,
-        'keywords': keywords,
         'icerik': PostEndrun,
         'populer': populer,
-        'editor': editor,
-        'enson': enson,
+        'sideHaber': sideHaber,
+        'noFollows': noFollows,
+        'Follows': Follows,
         'thumbnail_url': thumbnail_url,
+        'resimler': resimler,
+        'articleBody': articleBody,
     }
-    return render(request, 'Hepsi/enderun.html', context)
+    return render(request, 'YeniTema/yeni-enderun.html', context)
 
 
 def iletisim(request):
