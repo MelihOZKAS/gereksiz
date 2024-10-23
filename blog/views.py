@@ -860,7 +860,7 @@ def Oto_Paylas(request):
 
 @csrf_exempt
 def indexing_var_mi(request):
-    post = Post.objects.filter(indexing=True, aktif=True, status="Yayinda").first()
+    post = Post.objects.filter(indexing=True, aktif=True, status="Yayinda").order_by('-guncelleme_tarihi').first()
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.indexing = False
@@ -874,7 +874,7 @@ def indexing_var_mi(request):
 
 @csrf_exempt
 def facebook_var_mi(request):
-    post = Post.objects.filter(facebook=True, aktif=True, status="Yayinda").first()
+    post = Post.objects.filter(facebook=True, aktif=True, status="Yayinda").order_by('-guncelleme_tarihi').first()
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.facebook = False
@@ -888,10 +888,23 @@ def facebook_var_mi(request):
     else:
         return HttpResponse("post bulunamadı.")
 
-
+@csrf_exempt
+def linkedin_var_mi(request):
+    post = Post.objects.filter(linkedin=True, aktif=True, status="Yayinda").order_by('-guncelleme_tarihi').first()
+    if post is not None:
+        # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
+        post.linkedin = False
+        icerik = unescape(strip_tags(post.h1))
+        if not icerik:
+            icerik = "Haberin devamı için tıklayın!"
+        post.save(update_fields=['okunma_sayisi', 'SosyalDik', 'SosyalKare', 'indexing', 'editor', 'banner', 'facebook',
+                                 'twitter', 'Video','linkedin', 'pinterest'])
+        return HttpResponse(f"https://www.yuksekteknoloji.com/{post.slug}/!={icerik}")
+    else:
+        return HttpResponse("post bulunamadı.")
 @csrf_exempt
 def twitter_var_mi(request):
-    post = Post.objects.filter(twitter=True, aktif=True, status="Yayinda").first()
+    post = Post.objects.filter(twitter=True, aktif=True, status="Yayinda").order_by('-guncelleme_tarihi').first()
     if post is not None:
         # post'un indexing durumunu False yapayı unutmamak lazımmm dimi.
         post.twitter = False
