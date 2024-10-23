@@ -171,7 +171,6 @@ class Post(models.Model):
     Kaynak_NoFollow = models.TextField(blank=True, null=True)
     olusturma_tarihi = models.DateTimeField(auto_now_add=True)
     guncelleme_tarihi = models.DateTimeField(auto_now=True)
-
     class Meta:
         verbose_name_plural = "Post"
 
