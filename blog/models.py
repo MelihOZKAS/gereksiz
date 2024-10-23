@@ -162,9 +162,9 @@ class Post(models.Model):
     facebook = models.BooleanField(default=True, help_text="Facebook da Paylaşılsın mı ?")
     twitter = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
     pinterest = models.BooleanField(default=True, help_text="twitter da Paylaşılsın mı ?")
-    tumblr = models.BooleanField(default=True),
-    linkedin = models.BooleanField(default=True),
-    reddit = models.BooleanField(default=True),
+    tumblr = models.BooleanField(default=True)
+    linkedin = models.BooleanField(default=True)
+    reddit = models.BooleanField(default=True)
     okunma_sayisi = models.PositiveBigIntegerField(default=0)
     Kaynak_Linki = models.URLField(blank=True, null=True)
     Kaynak_Follow = models.TextField(blank=True, null=True)
