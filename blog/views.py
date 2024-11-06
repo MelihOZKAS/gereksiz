@@ -665,7 +665,7 @@ Sitemap: https://www.yuksekteknoloji.com/sitemap.xml
 
 class StoryPreviewView(View):
     def get(self, request, *args, **kwargs):
-        story = Kontrol.objects.get(slug=kwargs['slug'])
+        story = Post.objects.get(slug=kwargs['slug'])
 
         # Veritabanından bilgileri çek
         title = story.title
