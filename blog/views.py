@@ -554,10 +554,8 @@ def fadilEnderun(request):
 
 
 def iletisim(request):
-    print("girdim")
-
     title = "İletişim - YüksekTeknoloji.com Haberin Adresi | Bize Ulaşın"
-    description = "Explore KidsStoriesHub.com for captivating bedtime stories. Dive into a world of imagination and learning with our vast collection of stories for children."
+    description = "Dünyadan ve Türkiyeden tüm gelişmeler teknolojik içerikler burada <3"
     keywords = "Teknoloji haberleri, Oyuncu haberleri, otomobil haberleri, oyun haberleri"
     h1 = "YüksekTeknoloji.com İletişim Bize Ulaşın"
 
